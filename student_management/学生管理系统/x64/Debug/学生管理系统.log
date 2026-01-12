@@ -1,0 +1,7 @@
+﻿  assist.cpp
+  disallplayAllStudent.cpp
+D:\student_Management_System\student_management\学生管理系统\assist.cpp(29,13): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  displayMenu.cpp
+  main.cpp
+  正在生成代码...
+  学生管理系统.vcxproj -> D:\student_Management_System\student_management\x64\Debug\学生管理系统.exe
