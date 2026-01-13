@@ -7,6 +7,7 @@ ipch/
 *.VC.opendb
 *.lastbuildstate
 *.vcxproj.user
+*.suo
 
 # 编译输出
 x64/
@@ -14,5 +15,10 @@ Debug/
 Release/
 *.obj
 *.tlog
-# 新增
+*.pdb
+*.exe
+*.ilk
+*.idb
+
+# 项目输出目录
 output/
