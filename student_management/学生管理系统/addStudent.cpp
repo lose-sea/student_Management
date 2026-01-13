@@ -16,7 +16,7 @@ void addStudent(struct student* stu) {
     printf("请输入学号: \n"); 
     fgets(id, 300, stdin);  
     removeNewline(id); 
-    if (findByid(id) != -1) {
+    if (findByid(stu, id) != -1) {
         printf("已经存在该学号的学生\n"); 
         system("pause"); 
         return; 

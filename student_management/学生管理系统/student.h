@@ -18,7 +18,7 @@ bool isValid(int judge);
 bool isDigit(char* str);
 
 // 根据学号检查学生是否已经存在
-int findByid(char* id);
+int findByid(struct student* stu, char* id); 
 
 //// 根据姓名判断学生是否存在
 //int findStudentByname(char* name);
