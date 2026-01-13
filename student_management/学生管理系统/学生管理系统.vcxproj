@@ -133,9 +133,11 @@
   <ItemGroup>
     <ClCompile Include="addStudent.cpp" />
     <ClCompile Include="assist.cpp" />
-    <ClCompile Include="disallplayAllStudent.cpp" />
+    <ClCompile Include="displayAllstudent.cpp" />
     <ClCompile Include="displayMenu.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="searchStudentByName.cpp" />
+    <ClCompile Include="updateStudent.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

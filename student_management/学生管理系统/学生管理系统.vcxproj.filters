@@ -29,13 +29,19 @@
     <ClCompile Include="displayMenu.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="disallplayAllStudent.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="assist.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="addStudent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="displayAllstudent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="searchStudentByName.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="updateStudent.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -5,6 +5,8 @@ void addStudent(struct student* stu) {
     struct ListNode* node = (struct ListNode*)malloc(sizeof(struct ListNode));  
     if (stu->head == NULL) {        // 将新的节点插入到正确位置
         stu->head = node; 
+  //      stu->head->next = stu->head; 
+		//stu->head->prev = stu->head;
     } else { 
         node->next = stu->head->next; 
         node->prev = stu->head; 
@@ -35,7 +37,7 @@ void addStudent(struct student* stu) {
     char sex = 0; 
     printf("请选择性别: \n"); 
     printf("M: 男\t F: 女\n");  
-    while (1) {
+    while (1) {  
         sex = _getch(); 
         if (sex == 'M' || sex == 'm') { 
             printf("男"); 
@@ -78,19 +80,50 @@ void addStudent(struct student* stu) {
     removeNewline(major);  
     strcpy(node->major, major); 
 
-    // 输入成绩 
-    printf("请输入成绩: \n"); 
-    double score;
+    // 输入高数成绩 
+    printf("请输入语文成绩: \n"); 
+    double Math;
     while (1) {
-        int judgeScore = scanf("%lf", &score); 
+        int judgeScore = scanf("%lf", &Math); 
         clearInputBuffer(); 
-        if (judgeScore != 1 || score < 0 || score > 100) {
+        if (judgeScore != 1 || Math < 0 || Math > 100) {
             printf("输入错误, 请重新输入: "); 
         } else {
-            node->score = score;  
+            node->Math = Math;  
             break;  
         } 
     }  
+
+    // 输入近代史成绩 
+    printf("请输入近代史成绩: \n");
+    double History;
+    while (1) {
+        int judgeScore = scanf("%lf", &History);
+        clearInputBuffer();
+        if (judgeScore != 1 || History < 0 || History > 100) {
+            printf("输入错误, 请重新输入: ");
+        } else {
+            node->History = History;
+            break;
+        }
+    }
+
+    // 输入英语成绩 
+    printf("请输入英语成绩: \n");
+    double English;
+    while (1) {
+        int judgeScore = scanf("%lf", &English);
+        clearInputBuffer();
+        if (judgeScore != 1 || English < 0 || English > 100) {
+            printf("输入错误, 请重新输入: ");
+        } else {
+            node->English = English;
+            break;
+        }
+    } 
+
+	// 计算总成绩
+	node->totalscore = node->Math + node->History + node->English;
 
     // 输入年级
     printf("请输入年级: \n");  
@@ -110,7 +143,11 @@ void addStudent(struct student* stu) {
     strcat(class1, "班"); 
     strcpy(node->class1, class1);  
 
+	printf("学生信息添加成功!\n");
+
     // 添加之后人数加一
     stu->studentSize++; 
     system("pause"); 
+
+   
 }

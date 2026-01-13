@@ -35,7 +35,7 @@ bool isDigit(char* str) {
     return true;
 }
 
-// 根据学号检查学生是否已经存在
+// 根据学号查找学生
 int findByid(struct student* stu, char* id) {
     if (stu->studentSize == 0) {
         return -1; 
@@ -48,3 +48,17 @@ int findByid(struct student* stu, char* id) {
     }
     return -1; 
 } 
+
+// 通过姓名查找学生
+int findByName(struct student* stu, char* name) {
+    if (stu->studentSize == 0) {
+        return -1; 
+    } 
+    struct ListNode* curr = stu->head;  
+    for (int i = 0; i < stu->studentSize; i++) {
+        if (strcmp(name, curr->name) == 0) {
+            return i; 
+        }
+    }
+	return -1;
+}

@@ -19,9 +19,12 @@ typedef struct ListNode {
     char sex[20];           // 性别
     int age;                // 年龄
     char telephone[100];    // 电话
-    char major[300];        // 专业
-    double score;           // 成绩
-    char grade[300];        // 年纪
+    char major[300];        // 专业 
+    double Math;         // 高数
+	double History;            // 近代史
+	double English;         // 英语
+    double totalscore;           // 总成绩
+    char grade[300];        // 年级
     char class1[300];       // 班级
     struct ListNode* next;  // 上一个节点
     struct ListNode* prev;  // 下一个节点 
