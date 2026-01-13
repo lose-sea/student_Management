@@ -70,6 +70,8 @@ void displayAllStudent(struct student* stu) {
                     } 
                     i = skipNodes + 1; 
                     currpage--; 
+                    printf("正在跳转...");
+                    Sleep(1500);
                     break; 
                 }
             } else if (selection == 'N' || selection == 'n') {
@@ -78,6 +80,8 @@ void displayAllStudent(struct student* stu) {
                     Sleep(2000); 
                 } else { 
                     currpage++; 
+                    printf("正在跳转...");
+                    Sleep(1500);
                     break; 
                 }
             } else if (selection == 'R' || selection == 'r') {

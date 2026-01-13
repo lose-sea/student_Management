@@ -95,15 +95,17 @@ void addStudent(struct student* stu) {
     // 输入年级
     printf("请输入年级: \n");  
     char grade[300];
-    fgets(grade, 62, stdin);  
+    printf("       级\b\b\b\b\b\b\b\b\b\b");
+    fgets(grade, 300, stdin);
     removeNewline(grade);   
     strcat(grade, "级"); 
     strcpy(node->grade, grade); 
 
     // 输入班级
     printf("请输入班级: \n"); 
-    char class1[300]; 
-    fgets(class1, 60, stdin); 
+    char class1[300];  
+    printf("         班\b\b\b\b\b\b\b\b\b\b\b\b");
+    fgets(class1, 300, stdin);
     removeNewline(class1); 
     strcat(class1, "班"); 
     strcpy(node->class1, class1);  
