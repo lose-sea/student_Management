@@ -36,14 +36,13 @@ void addStudent(struct student* stu) {
     printf("请选择性别: \n"); 
     printf("M: 男\t F: 女\n");  
     while (1) {
-        scanf("%c", &sex); 
-
-        clearInputBuffer(); 
-
-        if (sex == 'M' || sex == 'm') {
+        sex = _getch(); 
+        if (sex == 'M' || sex == 'm') { 
+            printf("男"); 
             strcpy(node->sex, "男");  
             break; 
-        } else if (sex == 'F' || sex == 'f') {
+        } else if (sex == 'F' || sex == 'f') { 
+            printf("女"); 
             strcpy(node->sex, "女"); 
             break; 
         } else {
