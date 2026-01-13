@@ -12,7 +12,7 @@ void addStudent(struct student* stu) {
     } 
     // 为新的节点输入信息 
     // 输入学号
-    char id[30]; 
+    char id[300]; 
     printf("请输入学号: \n"); 
     fgets(id, 300, stdin);  
     removeNewline(id); 
@@ -67,8 +67,49 @@ void addStudent(struct student* stu) {
 
     // 输入联系方式
     printf("请输入联系方式: \n"); 
-    char telephone[100]; 
-    fgets(telephone, 100, stdin); 
+    char telephone[300]; 
+    fgets(telephone, 300, stdin); 
     removeNewline(telephone); 
     strcpy(node->telephone, telephone); 
+
+    // 输入专业
+    printf("请输入专业: \n");  
+    char major[300]; 
+    fgets(major, 300, stdin); 
+    removeNewline(major);  
+    strcpy(node->major, major); 
+
+    // 输入成绩 
+    printf("请输入成绩: \n"); 
+    double score;
+    while (1) {
+        int judgeScore = scanf("%lf", &score); 
+        clearInputBuffer(); 
+        if (judgeScore != 1 || score < 0 || score > 100) {
+            printf("输入错误, 请重新输入: "); 
+        } else {
+            node->score = score;  
+            break;  
+        } 
+    }  
+
+    // 输入年级
+    printf("请输入年级: \n");  
+    char grade[300];
+    fgets(grade, 62, stdin);  
+    removeNewline(grade);   
+    strcat(grade, "级"); 
+    strcpy(node->grade, grade); 
+
+    // 输入班级
+    printf("请输入班级: \n"); 
+    char class1[300]; 
+    fgets(class1, 60, stdin); 
+    removeNewline(class1); 
+    strcat(class1, "班"); 
+    strcpy(node->class1, class1);  
+
+    // 添加之后人数加一
+    stu->studentSize++; 
+    system("pause"); 
 }
