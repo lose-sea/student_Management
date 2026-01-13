@@ -1,0 +1,18 @@
+# Visual Studio 临时文件
+.vs/
+ipch/
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.opendb
+*.lastbuildstate
+*.vcxproj.user
+
+# 编译输出
+x64/
+Debug/
+Release/
+*.obj
+*.tlog
+# 新增
+output/

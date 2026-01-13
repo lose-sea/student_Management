@@ -24,7 +24,7 @@ typedef struct ListNode {
     char grade[300];        // 年纪
     char class1[300];       // 班级
     struct ListNode* next;  // 上一个节点
-    struct ListNode* prev;  // 下一个节点
+    struct ListNode* prev;  // 下一个节点 
 }ListNode;
 
 

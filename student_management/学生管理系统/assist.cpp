@@ -10,8 +10,8 @@ void removeNewline(char* str) {
     }
 }
 
-
-// 清除输入缓冲区
+ 
+// 清除输入缓冲区 
 void clearInputBuffer() {
     int c;
     while ((c = getchar()) != '\n' && c != EOF) {
@@ -34,3 +34,17 @@ bool isDigit(char* str) {
     }
     return true;
 }
+
+// 根据学号检查学生是否已经存在
+int findByid(struct student* stu, char* id) {
+    if (stu->studentSize == 0) {
+        return -1; 
+    } 
+    struct ListNode* curr = stu->head;  
+    for (int i = 0; i < stu->studentSize; i++) {
+        if (strcmp(id, curr->id) == 0) {
+            return i; 
+        }
+    }
+    return -1; 
+} 

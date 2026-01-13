@@ -1,4 +1,3 @@
-#pragma once
 #define _CRT_SECURE_NO_WARNINGS 
 #include"common.h"
 
@@ -18,18 +17,18 @@ bool isValid(int judge);
 // 检查输入的字符串是否由纯数字组成
 bool isDigit(char* str);
 
-//// 根据学号检查学生是否已经存在
-//int findByid(char* id);
-//
+// 根据学号检查学生是否已经存在
+int findByid(char* id);
+
 //// 根据姓名判断学生是否存在
 //int findStudentByname(char* name);
-//
-//// 根据成绩进行排序的比较函数 
-//int cmp(const void* e1, const void* e2);
 
-
-
-// 显示菜单
+//// 根据成绩进行排序的比较函数  
+//int cmp(const void* e1, const void* e2); 
+  
+ 
+ 
+// 显示菜单 
 void displayMenu();
 
 // 显示学生列表
