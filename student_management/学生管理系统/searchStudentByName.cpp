@@ -18,8 +18,8 @@ void searchStudentByName(struct student* stu, char* name) {
 			printf("年龄: %d\n", curr->age);
 			printf("电话: %s\n", curr->telephone);
 			printf("专业: %s\n", curr->major);
-			printf("语文成绩: %.2lf\n", curr->Chinese); 
-			printf("数学成绩: %.2lf\n", curr->math);
+			printf("语文成绩: %.2lf\n", curr->Math); 
+			printf("数学成绩: %.2lf\n", curr->History);
 			printf("英语成绩: %.2lf\n", curr->English);
 			printf("成绩: %.2f\n", curr->totalscore);
 			printf("年级: %s\n", curr->grade);

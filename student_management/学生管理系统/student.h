@@ -29,8 +29,8 @@ void displayMenu();
 // 显示班级学生具体信息
 void displayAllStudent(struct student* stu);
 
-// 添加学生
-void addStudent(); 
+// 添加学生信息 (头插)
+void addStudent(struct student* stu); 
 
 // 根据姓名查找学生信息
 void searchStudentByName(struct student* stu, char* name);
