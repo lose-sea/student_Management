@@ -3,7 +3,8 @@
 
 #include"student.h" 
 // 通过姓名查找学生
-void searchStudentByName(struct student* stu, char* name) {
+void searchStudentByName(struct student* stu, char* name) { 
+	system("cls");
 	if (stu->head == NULL) {
 		printf("当前暂无学生信息\n"); 
 		system("pause"); 

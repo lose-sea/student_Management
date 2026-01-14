@@ -3,7 +3,8 @@
 
 #include"student.h" 
 
-void deleteSrudent(struct student* stu) {
+void deleteSrudent(struct student* stu) { 
+	system("cls");
 	if (stu->studentSize == 0) {
 		printf("当前暂无学生信息\n"); 
 		system("pause"); 
