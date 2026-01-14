@@ -42,8 +42,8 @@ void updateStudent(struct student* stu);
 //// 根据成绩排序
 //void sortByScore();
 //
-//// 删除学生信息
-//void deleteStudent();
+// 删除学生信息
+void deleteStudent(struct student* stu);
 //
 //// 将学生信息保存到文件
 //void saveToFile();

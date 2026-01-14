@@ -133,6 +133,7 @@
   <ItemGroup>
     <ClCompile Include="addStudent.cpp" />
     <ClCompile Include="assist.cpp" />
+    <ClCompile Include="deleteStudent.cpp" />
     <ClCompile Include="displayAllstudent.cpp" />
     <ClCompile Include="displayMenu.cpp" />
     <ClCompile Include="main.cpp" />

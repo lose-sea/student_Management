@@ -44,5 +44,8 @@
     <ClCompile Include="updateStudent.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="deleteStudent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
