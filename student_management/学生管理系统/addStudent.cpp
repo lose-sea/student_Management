@@ -29,7 +29,7 @@ void addStudent(struct student* stu) {
         if (findByid(stu, id) != -1) {
             printf("已经存在该学号的学生\n");
             Sleep(2000);  
-            printf("\033[1A");    // 光标上移一行  
+            printf("\033[1A");    // 光标上移一行  e
             printf("\033[2K");    // 清除整行  
             system("pause");
             printf("是否重新输入： 是(Y) 否(N)\n");
@@ -56,8 +56,6 @@ void addStudent(struct student* stu) {
         }
     }
     
-    
-    
 
     // 输入姓名
     char name[300]; 
@@ -73,18 +71,16 @@ void addStudent(struct student* stu) {
     while (1) {  
         sex = _getch(); 
         if (sex == 'M' || sex == 'm') { 
-            printf("男"); 
+            printf("男\n"); 
             strcpy(node->sex, "男");  
             break; 
         } else if (sex == 'F' || sex == 'f') { 
-            printf("女"); 
+            printf("女\n"); 
             strcpy(node->sex, "女"); 
             break; 
         } else {
             printf("选择错误, 请重新选择\n"); 
-            Sleep(2000);
-            printf("\033[1A");    // 光标上移一行  
-            printf("\033[2K");    // 清除整行  
+            
         }
     }  
 
@@ -96,9 +92,7 @@ void addStudent(struct student* stu) {
         clearInputBuffer();  
         if (judgeAge != 1 || age < 0 || age > 150) { 
             printf("输入无效,请重新输入\n");  
-            Sleep(2000);
-            printf("\033[1A");    // 光标上移一行  
-            printf("\033[2K");    // 清除整行  
+            
         } else { 
             node->age = age;  
             break;  
@@ -126,10 +120,8 @@ void addStudent(struct student* stu) {
         int judgeScore = scanf("%lf", &Math); 
         clearInputBuffer(); 
         if (judgeScore != 1 || Math < 0 || Math > 100) {
-            printf("输入错误, 请重新输入: "); 
-            Sleep(2000);
-            printf("\033[1A");    // 光标上移一行  
-            printf("\033[2K");    // 清除整行  
+            printf("输入错误, 请重新输入: \n"); 
+           
         } else {
             node->Math = Math;  
             break;  
@@ -143,10 +135,8 @@ void addStudent(struct student* stu) {
         int judgeScore = scanf("%lf", &History);
         clearInputBuffer();
         if (judgeScore != 1 || History < 0 || History > 100) {
-            printf("输入错误, 请重新输入: "); 
-            Sleep(2000);
-            printf("\033[1A");    // 光标上移一行  
-            printf("\033[2K");    // 清除整行  
+            printf("输入错误, 请重新输入: \n"); 
+           
         } else {
             node->History = History;
             break;
@@ -160,10 +150,8 @@ void addStudent(struct student* stu) {
         int judgeScore = scanf("%lf", &English);
         clearInputBuffer();
         if (judgeScore != 1 || English < 0 || English > 100) {
-            printf("输入错误, 请重新输入: "); 
-            Sleep(2000);
-            printf("\033[1A");    // 光标上移一行  
-            printf("\033[2K");    // 清除整行  
+            printf("输入错误, 请重新输入: \n"); 
+            
         } else {
             node->English = English;
             break;
@@ -191,7 +179,9 @@ void addStudent(struct student* stu) {
     strcat(class1, "班"); 
     strcpy(node->class1, class1);  
 
-	printf("学生信息添加成功!\n");
+
+    system("cls"); 
+	printf("学生信息添加成功!\n"); 
 
     // 添加之后人数加一
     stu->studentSize++; 

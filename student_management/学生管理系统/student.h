@@ -41,12 +41,12 @@ void updateStudent(struct student* stu);
 
 //// 根据成绩排序
 //void sortByScore();
-//
+
 // 删除学生信息
-void deleteStudent(struct student* stu);
-//
-//// 将学生信息保存到文件
-//void saveToFile();
-//
-//// 从文件中读取学生信息
-//void loadFromFile();
+void deleteStudent(struct student* stu); 
+
+//将学生信息保存到文件(二进制) 
+void loadToFile(struct student* stu); 
+
+// 从文件中读取学生信息
+void readFromFile(struct student* stu);

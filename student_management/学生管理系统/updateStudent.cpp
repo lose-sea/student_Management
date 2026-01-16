@@ -18,10 +18,9 @@ void updateStudent(struct student* stu) {
     }
     if (curr == NULL) {
         printf("不存在学生 %s 的信息\n", name);
-        system("pause");
-        return;
+        system("pause"); 
     } else { 
-        while (1) {
+        while (1) { 
             printf("学号: %s\n", curr->id);
             printf("姓名: %s\n", curr->name);
             printf("性别: %s\n", curr->sex);
@@ -200,7 +199,7 @@ void updateStudent(struct student* stu) {
                 }
                 case 8: {
                     printf("你要修改的是年级: \n");
-                    printf("请输入新的年级: ");
+                    printf("请输入新的年级: \n");
                     char grade[300];
                     fgets(grade, 300, stdin);
                     removeNewline(grade);
@@ -212,7 +211,7 @@ void updateStudent(struct student* stu) {
                 }
                 case 9: {
                     printf("你要修改的是班级: \n");
-                    printf("请输入新的班级: ");
+                    printf("请输入新的班级: \n");
                     char class1[300];
                     fgets(class1, 300, stdin);
                     removeNewline(class1);
@@ -223,11 +222,8 @@ void updateStudent(struct student* stu) {
                     break;
                 } 
                 default: {
-                    printf("输入无效,请重新输入: ");
-                    Sleep(2000);
-                    printf("\033[1A");    // 光标上移一行  
-                    printf("\033[2K");    // 清除整行  
-                    printf("\r");         // 回到行首  
+                    printf("输入无效,请重新输入:\n");
+                    
                 }
             }
             printf("当前学生信息: \n");
@@ -251,10 +247,7 @@ void updateStudent(struct student* stu) {
                 clearInputBuffer();
                 if (judgeChose != 1) {
                     printf("输入无效,请重新输入\n"); 
-                    Sleep(2000);
-                    printf("\033[1A");    // 光标上移一行  
-                    printf("\033[2K");    // 清除整行  
-                    printf("\r");         // 回到行首  
+                 
                 } else if (chose == 'N' || chose == 'n') {
                     printf("退出\n");
                     system("pause");
@@ -265,10 +258,7 @@ void updateStudent(struct student* stu) {
                     break;
                 } else {
                     printf("输入无效,请重新输入\n"); 
-                    Sleep(2000);
-                    printf("\033[1A");    // 光标上移一行  
-                    printf("\033[2K");    // 清除整行  
-                    printf("\r");         // 回到行首  
+                    
                 } 
             }
         }
