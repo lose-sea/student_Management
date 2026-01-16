@@ -46,7 +46,7 @@ void updateStudent(struct student* stu);
 void deleteStudent(struct student* stu); 
 
 //将学生信息保存到文件(二进制) 
-void loadToFile(struct student* stu); 
+void saveToFile(struct student* stu); 
 
 // 从文件中读取学生信息
-void readFromFile(struct student* stu);
+void loadFromFile(struct student* stu);

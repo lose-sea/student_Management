@@ -47,10 +47,10 @@
     <ClCompile Include="deleteStudent.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="loadToFile.cpp">
+    <ClCompile Include="saveToFile.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="readFromFile.cpp">
+    <ClCompile Include="loadFromFile.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -21,7 +21,7 @@ typedef struct ListNode {
     char telephone[100];    // 电话
     char major[300];        // 专业 
     double Math;         // 高数
-	double History;            // 近代史
+	double History;          // 近代史
 	double English;         // 英语
     double totalscore;           // 总成绩
     char grade[300];        // 年级
