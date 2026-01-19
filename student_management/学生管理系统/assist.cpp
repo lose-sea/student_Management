@@ -44,13 +44,13 @@ int findByid(struct student* stu, char* id) {
     for (int i = 0; i < stu->studentSize; i++) {
         if (strcmp(id, curr->id) == 0) {
             return i; 
-        }
-    }
-    return -1; 
-} 
-
-// 通过姓名查找学生
-int findByName(struct student* stu, char* name) {
+        }  
+    }  
+    return -1;   
+}    
+ 
+// 通过姓名查找学生    
+int findByName(struct student* stu, char* name) {     
     if (stu->studentSize == 0) {
         return -1; 
     } 
@@ -61,4 +61,19 @@ int findByName(struct student* stu, char* name) {
         }
     }
 	return -1;
+} 
+
+// 清空链表
+void clearList(struct student* stu) { 
+    if (stu == NULL) {
+        return; 
+    }
+    struct ListNode* curr = stu->head; 
+    while (curr != NULL) {
+        struct ListNode* temp = curr; 
+        curr = curr->next; 
+        free(temp); 
+    } 
+    stu->head = NULL; 
+    stu->studentSize = 0; 
 }

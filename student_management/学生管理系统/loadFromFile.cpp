@@ -1,47 +1,52 @@
 #define _CRT_SECURE_NO_WARNINGS 
 #include"student.h"  
 
-// ä»æ–‡ä»¶ä¸­è¯»å–æ•°æ®(äºŒè¿›åˆ¶) 
-void loadFromFile(struct student* stu) { 
-
+// ´ÓÎÄ¼şÖĞ¶ÁÈ¡Êı¾İ(¶ş½øÖÆ) 
+void loadFromFile(struct student* stu) {  
+	if (stu == NULL) {
+		printf("µ±Ç°ÔİÎŞÑ§ÉúĞÅÏ¢\n"); 
+		system("pause"); 
+		return; 
+	}
 	FILE* pf = fopen("student.bin", "rb");  
 	if (pf == NULL) {
-		printf("æ–‡ä»¶æ‰“å¼€å¤±è´¥\n"); 
+		printf("ÎÄ¼ş´ò¿ªÊ§°Ü\n"); 
 		system("pause"); 
 		return; 
 	} 
-	// æ–‡ä»¶æ‰“å¼€æˆåŠŸ 
-	
-	// è¯»å–å­¦ç”Ÿæ•°é‡
+	// ÎÄ¼ş´ò¿ª³É¹¦ 
+	// ¶ÁÈ¡Ñ§ÉúÊıÁ¿
 	int count = 0; 
 	if (fread(&count, sizeof(int), 1, pf) != 1) {
-		printf("è¯»å–å¤±è´¥\n"); 
+		printf("¶ÁÈ¡Ê§°Ü\n"); 
 		fclose(pf); 
 		pf = NULL; 
 		return; 
 	} else { 
-		printf("å…± %d åå­¦ç”Ÿ\n", count); 
+		printf("¹² %d ÃûÑ§Éú\n", count);   
 	}
-	// é‡å»ºåŒå‘é“¾è¡¨
-	struct student* student = (struct student*)malloc(sizeof(struct student));
-	if (student == NULL) {
-		printf("è¯»å–å¤±è´¥\n");
-		system("pause");
-		return;
+	
+	// Çå¿ÕÏÖÓĞÊı¾İ
+	ListNode* curr = stu->head; 
+	while (curr != NULL) {
+		ListNode* temp = curr; 
+		curr = curr->next; 
+		free(temp); 
 	} 
-	student->studentSize = count; 
-	ListNode* prev = NULL; 
-	ListNode* curr = student->head;
+	stu->head = NULL; 
+	stu->studentSize = count;  
+	// ÖØ½¨Ë«ÏòÁ´±í  
+	struct ListNode* prev = NULL; 
 	for (int i = 1; i <= count; i++) {
 		ListNode* newNode = (ListNode*)malloc(sizeof(ListNode));
 		if (newNode == NULL) {
-			printf("å†…å­˜åˆ†é…å¤±è´¥\n"); 
+			printf("ÄÚ´æ·ÖÅäÊ§°Ü\n"); 
 			break; 
-		}
+		}    
+		// Î²²å 
 		newNode->next = NULL;
 		newNode->prev = prev;
-
-		// è¯»å–æ•°æ®  
+		// ¶ÁÈ¡Êı¾İ  
 		fread(newNode->id, sizeof(char), 300, pf);
 		fread(newNode->name, sizeof(char), 300, pf);
 		fread(newNode->sex, sizeof(char), 20, pf);
@@ -55,17 +60,23 @@ void loadFromFile(struct student* stu) {
 		fread(newNode->grade, sizeof(char), 300, pf);
 		fread(newNode->class1, sizeof(char), 300, pf);
 
-		if (student->head == NULL) {
-			student->head = newNode;
-		} else {
-			prev = newNode;  
-			student->studentSize++; 
+		if (stu->head == NULL) {
+			stu->head = newNode;
+		} else {  
+			prev->next = newNode; 
+			prev = newNode;   
+			stu->studentSize++; 
 		} 
-		// æ˜¾ç¤ºè¿›åº¦
-		printf("æ­£åœ¨è¯»å–ç¬¬ %d/%d ä¸ªå­¦ç”Ÿ: %s\n", i, curr->name);
-		Sleep(100);
+		// ÏÔÊ¾½ø¶È
+		printf("ÕıÔÚ¶ÁÈ¡µÚ %d/%d ¸öÑ§Éú: %s\n", i, stu->studentSize, newNode->name);
+		Sleep(800);  
+		// ÉÏÒÆÒ»ĞĞ
+		printf("\033[1A");
+		// Çå³ıµ±Ç°ĞĞ
+		printf("\033[2K"); 
+		printf("\r"); 
 	} 
 	fclose(pf); 
-	printf("æˆåŠŸåŠ è½½ %d åå­¦ç”Ÿä¿¡æ¯\n", stu->studentSize); 
+	printf("³É¹¦¼ÓÔØ %d ÃûÑ§ÉúĞÅÏ¢\n", stu->studentSize); 
 	system("pause"); 
 }

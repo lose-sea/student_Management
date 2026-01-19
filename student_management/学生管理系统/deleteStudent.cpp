@@ -13,15 +13,17 @@ void deleteSrudent(struct student* stu) {
 	printf("请输入你要删除的学生姓名: "); 
 	char name[300];
 	fgets(name, 300, stdin);
-	removeNewline(name);
-	struct ListNode* curr = stu->head;
-	while (curr != NULL) { 
-		if (strcmp(name, curr->name) == 0) {
+	removeNewline(name); 
+	struct ListNode* dummy = (struct ListNode*)malloc(sizeof(struct ListNode)); 
+	dummy->next = stu->head; 
+	struct ListNode* curr = dummy; 
+	while (curr->next != NULL) { 
+		if (strcmp(name, curr->next->name) == 0) {
 			break; 
 		}
 		curr = curr->next;
 	}
-	if (curr == NULL) {
+	if (curr->next == NULL) {
 		printf("不存在学生 %s 的信息\n", name);
 		system("pause");
 		return;

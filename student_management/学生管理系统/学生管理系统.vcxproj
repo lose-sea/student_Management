@@ -136,8 +136,9 @@
     <ClCompile Include="deleteStudent.cpp" />
     <ClCompile Include="displayAllstudent.cpp" />
     <ClCompile Include="displayMenu.cpp" />
-    <ClCompile Include="saveToFile.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="saveToFile.cpp" />
+    <ClCompile Include="test.cpp" />
     <ClCompile Include="loadFromFile.cpp" />
     <ClCompile Include="searchStudentByName.cpp" />
     <ClCompile Include="updateStudent.cpp" />

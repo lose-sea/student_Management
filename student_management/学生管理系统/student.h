@@ -19,7 +19,10 @@ bool isDigit(char* str);
 int findByid(struct student* stu, char* id); 
 
 // 通过姓名查找学生
-int findByName(struct student* stu, char* name); 
+int findByName(struct student* stu, char* name);  
+
+// 清空链表
+void clearList(struct student* stu); 
   
  
  
