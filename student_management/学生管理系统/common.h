@@ -33,6 +33,7 @@ typedef struct ListNode {
 
 // 学生链表
 typedef struct student {
-    ListNode* head;     // 头节点
+    ListNode* head;     // 头节点 
+	ListNode* tail;     // 尾节点
     int studentSize;    // 学生数量
 }student;

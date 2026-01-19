@@ -144,7 +144,7 @@ void  displayAllStudent(struct student* stu) {
             } else {
                 printf("输入无效, 请重新输入\n");
             }
-            Sleep(2000);
+            Sleep(1500);
             printf("\033[1A");    // 光标上移一行  
             printf("\033[2K");    // 清除整行  
             printf("\r");         // 回到行首  

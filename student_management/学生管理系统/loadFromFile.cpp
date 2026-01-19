@@ -33,19 +33,28 @@ void loadFromFile(struct student* stu) {
 		curr = curr->next; 
 		free(temp); 
 	} 
-	stu->head = NULL; 
+	stu->head = NULL;  
+	stu->tail = NULL;
 	stu->studentSize = count;  
 	// 重建双向链表  
-	struct ListNode* prev = NULL; 
 	for (int i = 1; i <= count; i++) {
 		ListNode* newNode = (ListNode*)malloc(sizeof(ListNode));
 		if (newNode == NULL) {
 			printf("内存分配失败\n"); 
 			break; 
 		}    
-		// 尾插 
+
+		// 尾插   
 		newNode->next = NULL;
-		newNode->prev = prev;
+		newNode->prev = stu->tail;
+		if (stu->head == NULL) {
+			stu->head = newNode; 
+			stu->tail = newNode; 
+		} else {
+			stu->tail->next = newNode;
+			stu->tail = newNode;
+		}
+		
 		// 读取数据  
 		fread(newNode->id, sizeof(char), 300, pf);
 		fread(newNode->name, sizeof(char), 300, pf);
@@ -60,16 +69,9 @@ void loadFromFile(struct student* stu) {
 		fread(newNode->grade, sizeof(char), 300, pf);
 		fread(newNode->class1, sizeof(char), 300, pf);
 
-		if (stu->head == NULL) {
-			stu->head = newNode;
-		} else {  
-			prev->next = newNode; 
-			prev = newNode;   
-			stu->studentSize++; 
-		} 
 		// 显示进度
 		printf("正在读取第 %d/%d 个学生: %s\n", i, stu->studentSize, newNode->name);
-		Sleep(800);  
+		Sleep(1500);  
 		// 上移一行
 		printf("\033[1A");
 		// 清除当前行

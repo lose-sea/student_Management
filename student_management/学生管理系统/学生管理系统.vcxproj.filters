@@ -56,5 +56,13 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="insertStudent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="student.bin">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -16,6 +16,7 @@ void deleteSrudent(struct student* stu) {
 	removeNewline(name); 
 	struct ListNode* dummy = (struct ListNode*)malloc(sizeof(struct ListNode)); 
 	dummy->next = stu->head; 
+	dummy->prev = NULL;
 	struct ListNode* curr = dummy; 
 	while (curr->next != NULL) { 
 		if (strcmp(name, curr->next->name) == 0) {
@@ -37,7 +38,8 @@ void deleteSrudent(struct student* stu) {
 		curr->next->prev = prev; 
 		free(curr); 
 		stu->studentSize--;		// 删除成功，学生数量减一
-		printf("已成功删除学生 %s 的信息\n", name);
+		printf("已成功删除学生 %s 的信息\n", name); 
+		free(dummy); 
 		system("pause");
 		return;
 	}
