@@ -15,9 +15,11 @@ void displayStudentList(struct student* stu) {
     int i = 1;		// 当前学生序号
     struct ListNode* curr = stu->head;
     while (1) {
-        printf("序号		高数		近代史		英语		总分\n");
+        printf("序号       姓名		高数		近代史		英语		总分\n");
         for (int j = 1; j < 20 && i <= stu->studentSize; j++) {
-            printf("%d		%-4.2lf		%-6.2lf		%-4.2lf		%-4.2lf\n", i, curr->Math, curr->History, curr->English, curr->totalscore);
+            printf("%d      %8s		%-4.2lf		%-6.2lf		%-4.2lf		%-4.2lf\n", i, curr->name, curr->Math, curr->History, curr->English, curr->totalscore); 
+            curr = curr->next;  
+            i++; 
         }
         // 显示导航
         printf("\n\n第 %d 页 / 共 %d 页\n\n", currpage, total_page);
@@ -41,9 +43,10 @@ void displayStudentList(struct student* stu) {
                     printf("当前已在最后一页\n");
                 } else { 
                     int skipNodes = stu->studentSize % 20; 
-                    curr = stu->tail; 
+                    curr = stu->tail;  
+                    i = stu->studentSize - skipNodes + 1; 
                     for (int j = 0; j < skipNodes - 1 && curr != NULL; j++) {
-                        curr = curr->prev; 
+                        curr = curr->prev;  
                     }
                     currpage = total_page;
                     printf("正在跳转...");

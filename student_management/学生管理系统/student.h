@@ -36,7 +36,10 @@ void  displayAllStudent(struct student* stu);
 void addStudent(struct student* stu); 
 
 // 根据姓名查找学生信息
-void searchStudentByName(struct student* stu, char* name);
+void searchStudentByName(struct student* stu, char* name); 
+
+// 显示学生成绩列表
+void displayStudentList(struct student* stu); 
 
 // 更新学生信息
 void updateStudent(struct student* stu);  

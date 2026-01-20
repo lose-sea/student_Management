@@ -7,30 +7,45 @@ void sortByScore(struct student* stu) {
 	if (stu->studentSize <= 1) {
 		return; // 学生数量小于等于1，无需排序
 	}
-	// 使用冒泡排序对链表进行排序
-	for (int i = 0; i < stu->studentSize - 1; i++) {
-		struct ListNode* curr = stu->head;
-		for (int j = 0; j < stu->studentSize - i - 1; j++) {
-			if (curr->totalscore < curr->next->totalscore) {
-				// 交换节点数据
-				struct ListNode temp = *curr;
-				*curr = *(curr->next);
-				*(curr->next) = temp;
-				// 修正指针关系
-				struct ListNode* nextNode = curr->next;
-				curr->next = nextNode->next;
-				nextNode->next = curr;
-				// 更新头指针和尾指针
-				if (j == 0) {
-					stu->head = nextNode;
+	// 使用冒泡排序对链表进行排序 
+	for (int i = 0; i < stu->studentSize - 1; i++) {  
+		struct ListNode* prev = stu->head;
+		for (int j = 0; j < stu->studentSize - i - 1; j++) { 
+			struct ListNode* curr = prev;
+			struct ListNode* nextNode = curr->next;
+			if (curr->totalscore < nextNode->totalscore) {  
+				if (curr == stu->head && nextNode == stu->tail) {
+					stu->head = nextNode; 
+					stu->tail = curr;  
+					curr->next = NULL;
+					nextNode->prev = NULL;  
+					curr->prev = nextNode; 
+					nextNode->next = curr; 
+				} else if (curr == stu->head) {
+					stu->head = nextNode;  
+					curr->next = nextNode->next; 
+					nextNode->next->prev = curr;  
+					nextNode->next = curr; 
+					curr->prev = nextNode;  
+					nextNode->prev = NULL;  
+				} else if (nextNode == stu->tail) {
+					stu->tail = curr;  
+					curr->next = NULL; 
+					curr->prev->next = nextNode; 
+					nextNode->prev = curr->prev; 
+					nextNode->next = curr; 
+					curr->prev = nextNode; 
+				} else {
+					curr->next = nextNode->next;
+					curr->prev->next = nextNode;
+					curr->next->prev = curr;
+					nextNode->prev = curr->prev;
+					curr->prev = nextNode;
+					nextNode->next = curr;
 				}
-				if (j == stu->studentSize - i - 2) {
-					stu->tail = curr;
-				}
-			} else {
-				curr = curr->next;
-			}
-		}
+			} 
+			prev = prev->next;
+		} 
 	}
 	printf("已根据成绩进行排序（降序）\n");
 	system("pause");
