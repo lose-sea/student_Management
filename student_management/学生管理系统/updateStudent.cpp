@@ -75,7 +75,14 @@ void updateStudent(struct student* stu) {
                     char id[300];
                     while (1) {
                         fgets(id, 300, stdin);
-                        removeNewline(id);
+                        removeNewline(id); 
+                        if (!isDigit(id)) {
+                            printf("学号应为纯数字, 请重新输入\n");
+                            Sleep(800);
+                            printf("\033[1A");    // 光标上移一行  
+                            printf("\033[2K");    // 清除整行  
+                            continue;
+                        }
                         if (findByid(stu, id) == -1 || strcmp(curr->id, id) == 0) {
                             break;
                         } else {

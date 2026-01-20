@@ -71,7 +71,7 @@ void loadFromFile(struct student* stu) {
 
 		// 显示进度
 		printf("正在读取第 %d/%d 个学生: %s\n", i, stu->studentSize, newNode->name);
-		Sleep(1500);  
+		Sleep(600);  
 		// 上移一行
 		printf("\033[1A");
 		// 清除当前行
@@ -80,5 +80,5 @@ void loadFromFile(struct student* stu) {
 	} 
 	fclose(pf); 
 	printf("成功加载 %d 名学生信息\n", stu->studentSize); 
-	Sleep(2000);
+	Sleep(800);
 }

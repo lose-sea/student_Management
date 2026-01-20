@@ -39,11 +39,13 @@ void addStudent(struct student* stu);
 void searchStudentByName(struct student* stu, char* name);
 
 // 更新学生信息
-void updateStudent(struct student* stu); 
+void updateStudent(struct student* stu);  
 
+// 插入学生信息
+void insertStudent(struct student* stu); 
 
-//// 根据成绩排序
-//void sortByScore();
+// 根据成绩总分排序(降序)
+void sortByScore();
 
 // 删除学生信息
 void deleteStudent(struct student* stu); 

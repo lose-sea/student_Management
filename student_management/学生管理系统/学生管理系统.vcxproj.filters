@@ -59,6 +59,9 @@
     <ClCompile Include="insertStudent.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="sortByScore.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="student.bin">

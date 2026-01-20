@@ -25,7 +25,14 @@ void addStudent(struct student* stu) {
     while (1) {
         printf("请输入学号: \n"); 
         fgets(id, 300, stdin);
-        removeNewline(id);
+        removeNewline(id); 
+        if (!isDigit(id)) {
+            printf("学号应为纯数字, 请重新输入\n");
+            Sleep(800);  
+            printf("\033[1A");    // 光标上移一行  
+            printf("\033[2K");    // 清除整行  
+            continue; 
+		}
         if (findByid(stu, id) != -1) {
             printf("已经存在该学号的学生\n");
             Sleep(2000);  
