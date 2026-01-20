@@ -8,15 +8,14 @@ void addStudent(struct student* stu) {
         printf("内存分配失败\n");
         Sleep(2000);
         return;
-    }
+    } 
+    node->next = NULL; 
+    node->prev = stu->tail; 
     if (stu->head == NULL) {        // 将新的节点插入到正确位置
         stu->head = node;
         stu->tail = node;
-        node->prev = NULL;
-        node->next = NULL;
     } else {
-        node->next = NULL;
-        node->prev = stu->tail;
+        stu->tail->next = node; 
         stu->tail = node;
     }
     // 为新的节点输入信息 

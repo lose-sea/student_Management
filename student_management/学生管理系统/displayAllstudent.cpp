@@ -57,7 +57,7 @@ void  displayAllStudent(struct student* stu) {
                     i = 1;
                     currpage = 1;
                     printf("正在跳转...");
-                    Sleep(1000);
+                    Sleep(600);
                     break;
                 }
             } else if (selection == 'L' || selection == 'l') {
@@ -71,7 +71,7 @@ void  displayAllStudent(struct student* stu) {
                     i = stu->studentSize;
                     currpage = totalpage;
                     printf("正在跳转...");
-                    Sleep(1000);
+                    Sleep(600);
                     break;
                 }
             }
@@ -88,7 +88,7 @@ void  displayAllStudent(struct student* stu) {
                     }
                     i = skipNodes + 1;
                     printf("正在跳转...");
-                    Sleep(1000);
+                    Sleep(600);
                     break; 
                 } else if (currpage <= directorypage){
                     // 计算要跳过的节点数
@@ -100,7 +100,7 @@ void  displayAllStudent(struct student* stu) {
                     i = skipNodes + 1;
                     currpage--; 
                     printf("正在跳转...");
-                    Sleep(1000);
+                    Sleep(600);
                     break;
                 } else { 
 					if (curr->prev != NULL) {
@@ -110,7 +110,7 @@ void  displayAllStudent(struct student* stu) {
 		
                     currpage--;                     
                     printf("正在跳转...");
-                    Sleep(1000);
+                    Sleep(600);
 					break;
                 }
             } else if (selection == 'N' || selection == 'n') {
@@ -121,7 +121,7 @@ void  displayAllStudent(struct student* stu) {
                     i = 1; 
                     currpage++; 
                     printf("正在跳转...");
-                    Sleep(1000); 
+                    Sleep(600); 
                     break; 
                 } else if (currpage > directorypage) {
                     if (curr != NULL) {
@@ -130,12 +130,12 @@ void  displayAllStudent(struct student* stu) {
                     i++;
                     currpage++;
                     printf("正在跳转...");
-                    Sleep(1000);
+                    Sleep(600);
                     break;
                 }  else {
                     currpage++;
                     printf("正在跳转...");
-                    Sleep(1000);
+                    Sleep(600);
                     break;
                 }
             } else if (selection == 'R' || selection == 'r') {
@@ -144,7 +144,7 @@ void  displayAllStudent(struct student* stu) {
             } else {
                 printf("输入无效, 请重新输入\n");
             }
-            Sleep(1500);
+            Sleep(600);
             printf("\033[1A");    // 光标上移一行  
             printf("\033[2K");    // 清除整行  
             printf("\r");         // 回到行首  

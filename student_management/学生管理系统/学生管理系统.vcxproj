@@ -147,6 +147,9 @@
     <ClCompile Include="searchStudentByName.cpp" />
     <ClCompile Include="updateStudent.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="student.bin" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
