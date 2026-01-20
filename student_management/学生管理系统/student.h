@@ -29,8 +29,8 @@ void clearList(struct student* stu);
 // 显示菜单 
 void displayMenu();
 
-// 显示班级学生具体信息
-void displayAllStudent(struct student* stu);
+// 显示班级学生具体信息 
+void  displayAllStudent(struct student* stu); 
 
 // 添加学生信息 (头插)
 void addStudent(struct student* stu); 
