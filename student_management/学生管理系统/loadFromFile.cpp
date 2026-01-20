@@ -80,5 +80,5 @@ void loadFromFile(struct student* stu) {
 	} 
 	fclose(pf); 
 	printf("成功加载 %d 名学生信息\n", stu->studentSize); 
-	system("pause"); 
+	Sleep(2000);
 }

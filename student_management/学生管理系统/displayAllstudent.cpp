@@ -20,10 +20,10 @@ void  displayAllStudent(struct student* stu) {
         system("cls");
         printf("当前班级有 %d 名学生\n", stu->studentSize); 
         if (currpage <= directorypage) { 
-            printf("=========== 显示学生目录 ===========\n"); 
+            printf("=========== 显示学生目录 ===========\n\n\n"); 
             for (int j = 0; j < 10 && i <= stu->studentSize && curr != NULL; j++) {
                 printf("序号:%d  ", i);
-                printf("姓名:%s  学号:%s  性别: %s \n", curr->name, curr->id, curr->sex); 
+                printf("姓名:%s  学号:%s  性别: %s \n\n", curr->name, curr->id, curr->sex); 
 				curr = curr->next;  
                 i++; 
             }
@@ -44,7 +44,7 @@ void  displayAllStudent(struct student* stu) {
             printf("班级: %s\n\n", curr->class1);
         }
         // 显示导航
-        printf("第 %d 页 / 共 %d 页\n", currpage, totalpage);
+        printf("\n\n第 %d 页 / 共 %d 页\n\n", currpage, totalpage);
         printf("返回首页(F)    最后一页(L)    上一页(P)    下一页(N)    \n退出(R)\n");
         char selection = '\0';
         while (1) {
@@ -57,7 +57,7 @@ void  displayAllStudent(struct student* stu) {
                     i = 1;
                     currpage = 1;
                     printf("正在跳转...");
-                    Sleep(1500);
+                    Sleep(1000);
                     break;
                 }
             } else if (selection == 'L' || selection == 'l') {
@@ -71,7 +71,7 @@ void  displayAllStudent(struct student* stu) {
                     i = stu->studentSize;
                     currpage = totalpage;
                     printf("正在跳转...");
-                    Sleep(1500);
+                    Sleep(1000);
                     break;
                 }
             }
@@ -88,7 +88,7 @@ void  displayAllStudent(struct student* stu) {
                     }
                     i = skipNodes + 1;
                     printf("正在跳转...");
-                    Sleep(1500);
+                    Sleep(1000);
                     break; 
                 } else if (currpage <= directorypage){
                     // 计算要跳过的节点数
@@ -100,7 +100,7 @@ void  displayAllStudent(struct student* stu) {
                     i = skipNodes + 1;
                     currpage--; 
                     printf("正在跳转...");
-                    Sleep(1500);
+                    Sleep(1000);
                     break;
                 } else { 
 					if (curr->prev != NULL) {
@@ -110,7 +110,7 @@ void  displayAllStudent(struct student* stu) {
 		
                     currpage--;                     
                     printf("正在跳转...");
-                    Sleep(1500);
+                    Sleep(1000);
 					break;
                 }
             } else if (selection == 'N' || selection == 'n') {
@@ -121,7 +121,7 @@ void  displayAllStudent(struct student* stu) {
                     i = 1; 
                     currpage++; 
                     printf("正在跳转...");
-                    Sleep(1500); 
+                    Sleep(1000); 
                     break; 
                 } else if (currpage > directorypage) {
                     if (curr != NULL) {
@@ -130,12 +130,12 @@ void  displayAllStudent(struct student* stu) {
                     i++;
                     currpage++;
                     printf("正在跳转...");
-                    Sleep(1500);
+                    Sleep(1000);
                     break;
                 }  else {
                     currpage++;
                     printf("正在跳转...");
-                    Sleep(1500);
+                    Sleep(1000);
                     break;
                 }
             } else if (selection == 'R' || selection == 'r') {

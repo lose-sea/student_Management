@@ -16,9 +16,9 @@ void insertStudent(struct student* stu) {
         curr = curr->next;
         i++;
     }
-    printf("请输入要插入的位置(1 到 %d): \n", stu->studentSize + 1);
-    while (1) {
-        int position;
+    printf("请输入要插入的位置(1 到 %d): \n", stu->studentSize + 1); 
+    int position;
+    while (1) { 
         int judgePosition = scanf("%d", &position);
         clearInputBuffer();
         if (judgePosition != 1 || position < 1 || position > stu->studentSize + 1) {
@@ -29,10 +29,10 @@ void insertStudent(struct student* stu) {
         }
         else {
             // 找到插入位置的前一个节点 
-            struct ListNode* prevNode = NULL;
+            struct ListNode* prevNode = stu->head; 
             for (int i = 1; i < position - 1; i++) {
                 prevNode = prevNode->next;
-            }
+            }      
             // 插入节点
             if (position == 1) {   // 插入到头部
                 node->next = stu->head;
@@ -240,7 +240,15 @@ void insertStudent(struct student* stu) {
 
 
         system("cls");
-        printf("学生信息添加成功!\n");
+        printf("学生信息插入成功!\n"); 
+
+        curr = stu->head;
+        for (int i = 0; i <= stu->studentSize && curr != NULL; i++) {
+            printf("序号:%d  ", i);
+            printf("姓名:%s  学号:%s  性别: %s \n", curr->name, curr->id, curr->sex);
+            curr = curr->next;
+            i++;
+        }
 
         // 添加之后人数加一
         stu->studentSize++;
