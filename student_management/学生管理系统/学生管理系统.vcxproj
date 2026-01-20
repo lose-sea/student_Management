@@ -143,6 +143,7 @@
     <ClCompile Include="insertStudent.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="saveToFile.cpp" />
+    <ClCompile Include="scoreAnalysis.cpp" />
     <ClCompile Include="sortByScore.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="loadFromFile.cpp" />

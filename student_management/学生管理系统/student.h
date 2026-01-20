@@ -1,8 +1,9 @@
 #define _CRT_SECURE_NO_WARNINGS 
 #include"common.h"
 
-// 
+
 // 辅助函数
+// 
 // 去除fgets输入的字符串末尾的换行符
 void removeNewline(char* str);
 
@@ -51,13 +52,25 @@ void updateStudent(struct student* stu);
 void insertStudent(struct student* stu);  
 
 // 删除尾部学生记录
-void deleteTailStudent(struct student* stu); 
+void deleteTailStudent(struct student* stu);  
+
+// 根据高数成绩排序(降序)
+void sortByMathScore(struct student* stu); 
+
+// 根据近代史成绩排序(降序) 
+void sortByHistoryScore(struct student* stu);  
+
+// 根据英语成绩排序(降序) 
+void sortByEnglishScore(struct student* stu);
 
 // 根据成绩总分排序(降序)
-void sortByScore(struct student* stu);
+void sortByTotalScore(struct student* stu); 
 
 // 删除学生信息
-void deleteStudent(struct student* stu); 
+void deleteStudent(struct student* stu);  
+
+// 成绩分析
+void scoreAnalysis(struct student* stu); 
 
 //将学生信息保存到文件(二进制) 
 void saveToFile(struct student* stu); 
