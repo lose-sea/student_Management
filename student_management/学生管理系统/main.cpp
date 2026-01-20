@@ -7,7 +7,8 @@ int main() {
 	stu.studentSize = 0; 
 	loadFromFile(&stu); 
 	displayAllStudent(&stu);
-	addStudent(&stu); 
+	// addStudent(&stu);  
+	deleteStudent(&stu); 
 	saveToFile(&stu);
 	return 0;
 }
