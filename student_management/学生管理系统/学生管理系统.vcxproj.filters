@@ -26,7 +26,7 @@
     <ClCompile Include="test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="displayMenu.cpp">
+    <ClCompile Include="displayMenuOfLogin.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="assist.cpp">
@@ -66,6 +66,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="displayStudentList.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="displayMenuOfAdministrator.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

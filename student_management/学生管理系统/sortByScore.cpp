@@ -3,15 +3,21 @@
 #include"student.h" 
 
 //根据成绩总分进行排序(降序) 
-void sortByScore(struct student* stu) {
+void sortByScore(struct student* stu) { 
+	if (stu == NULL) {
+		printf("暂无学生信息\n");  
+		system("pause"); 
+		return; 
+	}
 	if (stu->studentSize <= 1) {
-		return; // 学生数量小于等于1，无需排序
+		system("pause"); 
+		return; // 学生数量小于等于1，无需排序 
+		printf("已根据成绩进行排序（降序）\n");
 	}
 	// 使用冒泡排序对链表进行排序 
-	for (int i = 0; i < stu->studentSize - 1; i++) {  
-		struct ListNode* prev = stu->head;
+	for (int i = 0; i < stu->studentSize - 1; i++) {   
+		struct ListNode* curr = stu->head;
 		for (int j = 0; j < stu->studentSize - i - 1; j++) { 
-			struct ListNode* curr = prev;
 			struct ListNode* nextNode = curr->next;
 			if (curr->totalscore < nextNode->totalscore) {  
 				if (curr == stu->head && nextNode == stu->tail) {
@@ -42,9 +48,10 @@ void sortByScore(struct student* stu) {
 					nextNode->prev = curr->prev;
 					curr->prev = nextNode;
 					nextNode->next = curr;
-				}
+				} 
+				curr = nextNode; 
 			} 
-			prev = prev->next;
+			curr = curr->next; 
 		} 
 	}
 	printf("已根据成绩进行排序（降序）\n");

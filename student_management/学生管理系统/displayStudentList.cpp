@@ -14,9 +14,10 @@ void displayStudentList(struct student* stu) {
     int currpage = 1;
     int i = 1;		// 当前学生序号
     struct ListNode* curr = stu->head;
-    while (1) {
+    while (1) { 
+        system("cls"); 
         printf("序号       姓名		高数		近代史		英语		总分\n");
-        for (int j = 1; j < 20 && i <= stu->studentSize; j++) {
+        for (int j = 1; j <= 20 && i <= stu->studentSize; j++) {
             printf("%d      %8s		%-4.2lf		%-6.2lf		%-4.2lf		%-4.2lf\n", i, curr->name, curr->Math, curr->History, curr->English, curr->totalscore); 
             curr = curr->next;  
             i++; 
@@ -55,7 +56,7 @@ void displayStudentList(struct student* stu) {
                 }
             } else if (selection == 'P' || selection == 'p') {
                 if (currpage == 1) {
-                    printf("当前已在第一页\n");
+                    printf("当前已在第一页\n"); 
                 } else {
                     // 计算要跳过的节点数
                     int skipNodes = (currpage - 2) * 20;

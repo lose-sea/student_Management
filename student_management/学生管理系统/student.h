@@ -25,9 +25,12 @@ int findByName(struct student* stu, char* name);
 void clearList(struct student* stu); 
   
  
- 
-// 显示菜单 
-void displayMenu();
+
+// 显示登录菜单
+void displayMenuOfLogin();
+
+// 显示菜单(管理员端)
+void displayMenuOfAdministrator();
 
 // 显示班级学生具体信息 
 void  displayAllStudent(struct student* stu); 
