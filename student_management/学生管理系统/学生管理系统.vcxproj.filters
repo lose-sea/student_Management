@@ -62,10 +62,8 @@
     <ClCompile Include="addStudent.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="student.bin">
-      <Filter>资源文件</Filter>
-    </None>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
