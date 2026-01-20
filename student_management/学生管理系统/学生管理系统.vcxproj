@@ -138,6 +138,7 @@
     <ClCompile Include="deleteTailStudent.cpp" />
     <ClCompile Include="displayAllstudent.cpp" />
     <ClCompile Include="displayMenu.cpp" />
+    <ClCompile Include="displayStudentList.cpp" />
     <ClCompile Include="insertStudent.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="saveToFile.cpp" />

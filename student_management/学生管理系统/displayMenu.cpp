@@ -2,7 +2,7 @@
 #include"student.h"
 
 // 显示菜单(管理员端)
-void displayMenuAdministrator() {
+void displayMenu() {
     system("cls");  
     printf("=========== 学生管理系统 ==============\n");
     printf("********** 1. 显示所有学生信息 ********\n");

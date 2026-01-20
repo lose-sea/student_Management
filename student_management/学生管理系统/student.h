@@ -48,7 +48,7 @@ void insertStudent(struct student* stu);
 void deleteTailStudent(struct student* stu); 
 
 // 根据成绩总分排序(降序)
-void sortByScore();
+void sortByScore(struct student* stu);
 
 // 删除学生信息
 void deleteStudent(struct student* stu); 

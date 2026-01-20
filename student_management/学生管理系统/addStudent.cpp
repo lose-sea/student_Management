@@ -120,7 +120,7 @@ void addStudent(struct student* stu) {
     strcpy(node->major, major);
 
     // 输入高数成绩 
-    printf("请输入语文成绩: \n");
+    printf("请输入高数成绩: \n");
     double Math;
     while (1) {
         int judgeScore = scanf("%lf", &Math);
