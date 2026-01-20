@@ -32,9 +32,6 @@
     <ClCompile Include="assist.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="addStudent.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="displayAllstudent.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -53,13 +50,16 @@
     <ClCompile Include="loadFromFile.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="insertStudent.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="sortByScore.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="deleteTailStudent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="addStudent.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

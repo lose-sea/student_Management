@@ -42,7 +42,10 @@ void searchStudentByName(struct student* stu, char* name);
 void updateStudent(struct student* stu);  
 
 // 插入学生信息
-void insertStudent(struct student* stu); 
+void insertStudent(struct student* stu);  
+
+// 删除尾部学生记录
+void deleteTailStudent(struct student* stu); 
 
 // 根据成绩总分排序(降序)
 void sortByScore();
