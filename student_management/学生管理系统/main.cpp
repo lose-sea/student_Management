@@ -8,7 +8,6 @@ int main() {
     
     loadFromFile(&stu);   
     //displayStudentList(&stu);
-    
     displayAllStudent(&stu);  
     addStudent(&stu);
     saveToFile(&stu);

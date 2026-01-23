@@ -24,6 +24,12 @@ void addStudent(struct student* stu) {
             printf("\033[1A");    // 光标上移一行  
             printf("\033[2K");    // 清除整行  
             continue; 
+        } else if (strlen(id) == 0) {
+            printf("学号不能为空, 请重新输入\n");
+            Sleep(800);
+            printf("\033[1A");    // 光标上移一行  
+            printf("\033[2K");    // 清除整行  
+            continue;
         }
         if (findByid(stu, id) != -1) {
             printf("已经存在该学号的学生\n");
@@ -64,10 +70,19 @@ void addStudent(struct student* stu) {
     // 输入姓名
     char name[300];
     printf("请输入姓名: \n");
-    fgets(name, 300, stdin);
-    removeNewline(name);
-    strcpy(node->name, name);
-
+    while (1) {
+        fgets(name, 300, stdin);
+        removeNewline(name);
+        if (strlen(name) == 0) {
+            printf("姓名不能为空, 请重新输入\n");
+            Sleep(800);
+            printf("\033[1A");    // 光标上移一行  
+            printf("\033[2K");    // 清除整行  
+            continue;
+        }
+        strcpy(node->name, name);
+        break;
+    }
     // 选择性别
     char sex = 0;
     printf("请选择性别: \n");
@@ -106,9 +121,26 @@ void addStudent(struct student* stu) {
     // 输入联系方式
     printf("请输入联系方式: \n");
     char telephone[300];
-    fgets(telephone, 300, stdin);
-    removeNewline(telephone);
-    strcpy(node->telephone, telephone);
+    while (1) {
+        fgets(telephone, 300, stdin);
+        removeNewline(telephone);
+        if (strlen(telephone) == 0) {
+            printf("联系方式不能为空, 请重新输入\n");
+            Sleep(800);
+            printf("\033[1A");    // 光标上移一行  
+            printf("\033[2K");    // 清除整行  
+            continue;
+        } else if (!isDigit(telephone)) {
+            printf("联系方式应为纯数字, 请重新输入\n");
+            Sleep(800);
+            printf("\033[1A");    // 光标上移一行  
+            printf("\033[2K");    // 清除整行  
+            continue;
+        } else {
+            strcpy(node->telephone, telephone);
+            break;
+        }
+    }
 
     // 输入专业
     printf("请输入专业: \n");
