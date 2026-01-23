@@ -1,10 +1,9 @@
-﻿
-#include"student.h" 
+﻿#define _CRT_SECURE_NO_WARNINGS 
+#include"student.h"   
+
+struct student stu;
 int main() { 
-    struct student stu; 
-    stu.head = NULL; 
-    stu.tail = NULL; 
-    stu.studentSize = 0; 
+    
     
     loadFromFile(&stu);   
     //displayStudentList(&stu); 
