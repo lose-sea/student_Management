@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include<stdio.h> 
 #include<stdlib.h> 
 #include<limits.h> 
@@ -12,28 +12,47 @@
 
   
 
-// Ñ§Éú½Úµã
+// å­¦ç”ŸèŠ‚ç‚¹
 typedef struct ListNode {
-    char id[300];           // Ñ§ºÅ
-    char name[300];         // ĞÕÃû
-    char sex[20];           // ĞÔ±ğ
-    int age;                // ÄêÁä
-    char telephone[100];    // µç»°
-    char major[300];        // ×¨Òµ 
-    double Math;         // ¸ßÊı
-	double History;          // ½ü´úÊ·
-	double English;         // Ó¢Óï
-    double totalscore;           // ×Ü³É¼¨
-    char grade[300];        // Äê¼¶
-    char class1[300];       // °à¼¶
-    struct ListNode* next;  // ÉÏÒ»¸ö½Úµã
-    struct ListNode* prev;  // ÏÂÒ»¸ö½Úµã 
+    char id[300];           // å­¦å·0
+    char name[300];         // å§“å
+    char sex[20];           // æ€§åˆ«
+    int age;                // å¹´é¾„
+    char telephone[100];    // ç”µè¯
+    char major[300];        // ä¸“ä¸š 
+    double Math;            // é«˜æ•°
+	double History;          // è¿‘ä»£å²
+	double English;         // è‹±è¯­
+    double totalscore;           // æ€»æˆç»©
+    char grade[300];        // å¹´çº§
+    char class1[300];       // ç­çº§  
+
+    char username[300];     // ç”¨æˆ·å
+    char password[300];     // å¯†ç 
+    struct ListNode* next;  // ä¸Šä¸€ä¸ªèŠ‚ç‚¹
+    struct ListNode* prev;  // ä¸‹ä¸€ä¸ªèŠ‚ç‚¹ 
 }ListNode;
 
 
-// Ñ§ÉúÁ´±í
+// å­¦ç”Ÿé“¾è¡¨
 typedef struct student {
-    ListNode* head;     // Í·½Úµã 
-	ListNode* tail;     // Î²½Úµã
-    int studentSize;    // Ñ§ÉúÊıÁ¿
+    ListNode* head;     // å¤´èŠ‚ç‚¹ 
+	ListNode* tail;     // å°¾èŠ‚ç‚¹
+    int studentSize;    // å­¦ç”Ÿæ•°é‡
 }student;
+ 
+
+// æ•™å¸ˆé“¾è¡¨
+typedef struct teacher {  
+    char username[300];     // ç”¨æˆ·å
+    char password[300];     // å¯†ç 
+    struct teacher* next;   // ä¸‹ä¸€ä¸ªèŠ‚ç‚¹
+}teacher; 
+
+
+// ç®¡ç†å‘˜è´¦å·ä¿¡æ¯ 
+typedef struct manage {  
+    char username[300];     // ç”¨æˆ·å
+    char password[300];     // å¯†ç 
+	struct account* next;   // ä¸‹ä¸€ä¸ªèŠ‚ç‚¹
+}manage;

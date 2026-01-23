@@ -1,4 +1,4 @@
-
+﻿
 #include"student.h" 
 int main() { 
     struct student stu; 
@@ -7,9 +7,9 @@ int main() {
     stu.studentSize = 0; 
     
     loadFromFile(&stu);   
-    //displayStudentList(&stu);
+    //displayStudentList(&stu); 
     displayAllStudent(&stu);  
     addStudent(&stu);
     saveToFile(&stu);
     return 0; 
-}
+}   
