@@ -21,26 +21,17 @@ void addStudent(struct student* stu) {
         if (!isDigit(id)) {
             printf("学号应为纯数字, 请重新输入\n");
             Sleep(800);  
-            printf("\033[1A");    // 光标上移一行  
-            printf("\033[2K");    // 清除整行   
-            printf("\033[1A");    // 光标上移一行  
-            printf("\033[2K");    // 清除整行  
+            system("cls");
             continue; 
         } else if (strlen(id) == 0) {
             printf("学号不能为空, 请重新输入\n");
             Sleep(800);
-            printf("\033[1A");    // 光标上移一行  
-            printf("\033[2K");    // 清除整行  
+            system("cls");
             continue;
         }
         if (findByid(stu, id) != -1) {
             printf("已经存在该学号的学生\n");
-            Sleep(800);
-            printf("\033[1A");    // 光标上移一行  
-            printf("\033[2K");    // 清除整行   
-            printf("\033[1A");    // 光标上移一行  
-            printf("\033[2K");    // 清除整行  
-            system("pause");
+            system("cls"); 
             printf("是否重新输入： 是(Y) 否(N)\n");
             char selection = 0;
             while (1) {
@@ -57,6 +48,7 @@ void addStudent(struct student* stu) {
                     printf("选择错误, 请重新选择\n");
                     Sleep(800);
                     system("cls");
+                    continue;
                 }
             }
         } else {
