@@ -34,26 +34,29 @@ void addStudent(struct student* stu) {
               //}
         if (findByid(stu, id) != -1) {
             printf("已经存在该学号的学生\n");
-            Sleep(2000);
+            Sleep(800);
+            printf("\033[1A");    // 光标上移一行  
+            printf("\033[2K");    // 清除整行   
             printf("\033[1A");    // 光标上移一行  
             printf("\033[2K");    // 清除整行  
             system("pause");
             printf("是否重新输入： 是(Y) 否(N)\n");
-            int selection = 0;
+            char selection = 0;
             while (1) {
-                int judgeselection = scanf("%d", &selection);
-                clearInputBuffer();
-                if (judgeselection != 1 || selection != 'Y' || selection != 'y' || selection != 'N' || selection != 'n') {
-                    printf("选择错误, 请重新选择\n");
-                    Sleep(2000);
-                    printf("\033[1A");    // 光标上移一行  
-                    printf("\033[2K");    // 清除整行  
-                } else if (selection == 'Y' || 'y') {
+                selection = _getch();
+                if (selection == 'Y' || selection == 'y') {
                     break;
                 } else if (selection == 'N' || selection == 'n') {
                     printf("退出\n");
                     system("pause");
                     return;
+                } else {
+                    printf("选择错误, 请重新选择\n");
+                    Sleep(800);
+                    printf("\033[1A");    // 光标上移一行  
+                    printf("\033[2K");    // 清除整行   
+                    printf("\033[1A");    // 光标上移一行  
+                    printf("\033[2K");    // 清除整行  
                 }
             }
         } else {

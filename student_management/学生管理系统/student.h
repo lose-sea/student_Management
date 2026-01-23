@@ -31,7 +31,13 @@ void clearList(struct student* stu);
 void displayMenuOfLogin();
 
 // 显示菜单(管理员端)
-void displayMenuOfAdministrator();
+void displayMenuOfAdministrator();  
+
+// 显示菜单(教师端) 
+void displayMenuOfTeacther(); 
+
+// 显示菜单(学生端) 
+void displayOfStudent(); 
 
 // 显示班级学生具体信息 
 void  displayAllStudent(struct student* stu); 

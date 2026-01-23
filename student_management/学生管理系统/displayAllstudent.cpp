@@ -80,9 +80,9 @@ void  displayAllStudent(struct student* stu) {
                     printf("当前已在第一页\n"); 
                 } else if (currpage == directorypage + 1) {
                     curr = stu->head; 
-					currpage--; 
                     curr = stu->head;
-					int skipNodes = (currpage - 2) * 10;
+					int skipNodes = (currpage - 2) * 10; 
+                    currpage--;
                     for (int j = 0; j < skipNodes && curr != NULL; j++) {
                         curr = curr->next;
                     }
@@ -107,7 +107,7 @@ void  displayAllStudent(struct student* stu) {
                         curr = curr->prev;
                     }
                     i--; 
-		
+		            
                     currpage--;                     
                     printf("正在跳转...");
                     Sleep(600);

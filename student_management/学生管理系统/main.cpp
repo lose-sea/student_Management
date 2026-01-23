@@ -7,9 +7,10 @@ int main() {
     stu.studentSize = 0; 
     
     loadFromFile(&stu);   
-    displayStudentList(&stu);
-    addStudent(&stu); 
-    // displayAllStudent(&stu); 
+    //displayStudentList(&stu);
+    
+    displayAllStudent(&stu);  
+    addStudent(&stu);
     saveToFile(&stu);
     return 0; 
 }

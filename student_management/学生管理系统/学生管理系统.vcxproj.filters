@@ -68,9 +68,6 @@
     <ClCompile Include="displayStudentList.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="displayMenuOfAdministrator.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="scoreAnalysis.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
