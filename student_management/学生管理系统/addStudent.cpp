@@ -11,13 +11,6 @@ void addStudent(struct student* stu) {
     } 
     node->next = NULL; 
     node->prev = stu->tail; 
-    if (stu->head == NULL) {        // 将新的节点插入到正确位置
-        stu->head = node;
-        stu->tail = node;
-    } else {
-        stu->tail->next = node; 
-        stu->tail = node;
-    }
     // 为新的节点输入信息 
     // 输入学号
     char id[300];
@@ -25,13 +18,13 @@ void addStudent(struct student* stu) {
         printf("请输入学号: \n");
         fgets(id, 300, stdin);
         removeNewline(id);
-        //      if (!isDigit(id)) {
-        //          printf("学号应为纯数字, 请重新输入\n");
-        //          Sleep(800);  
-        //          printf("\033[1A");    // 光标上移一行  
-        //          printf("\033[2K");    // 清除整行  
-        //          continue; 
-              //}
+        if (!isDigit(id)) {
+            printf("学号应为纯数字, 请重新输入\n");
+            Sleep(800);  
+            printf("\033[1A");    // 光标上移一行  
+            printf("\033[2K");    // 清除整行  
+            continue; 
+        }
         if (findByid(stu, id) != -1) {
             printf("已经存在该学号的学生\n");
             Sleep(800);
@@ -46,8 +39,10 @@ void addStudent(struct student* stu) {
                 selection = _getch();
                 if (selection == 'Y' || selection == 'y') {
                     break;
-                } else if (selection == 'N' || selection == 'n') {
-                    printf("退出\n");
+                } else if (selection == 'N' || selection == 'n') { 
+                    free(node);  
+                    node = NULL; 
+                    printf("退出\n");  
                     system("pause");
                     return;
                 } else {
@@ -186,8 +181,15 @@ void addStudent(struct student* stu) {
     fgets(class1, 300, stdin);
     removeNewline(class1);
     strcat(class1, "班");
-    strcpy(node->class1, class1);
+    strcpy(node->class1, class1);  
 
+    if (stu->head == NULL) {        // 将新的节点插入到正确位置
+        stu->head = node;
+        stu->tail = node;
+    } else {
+        stu->tail->next = node; 
+        stu->tail = node;
+    }
 
     system("cls");
     printf("学生信息添加成功!\n");
