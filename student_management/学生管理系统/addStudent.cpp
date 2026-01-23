@@ -3,16 +3,8 @@
 // 添加学生信息 (尾插)
 void addStudent(struct student* stu) {
     system("cls");
-    struct ListNode* node = (struct ListNode*)malloc(sizeof(struct ListNode));
-    if (node == NULL) {
-        printf("内存分配失败\n");
-        Sleep(2000);
-        return;
-    } 
-    node->next = NULL; 
-    node->prev = stu->tail; 
-    // 为新的节点输入信息 
-    // 输入学号
+    
+    // 输入学号（先验证，再创建节点）
     char id[300];
     while (1) {
         printf("请输入学号: \n");
@@ -39,8 +31,6 @@ void addStudent(struct student* stu) {
                 if (selection == 'Y' || selection == 'y') {
                     break;
                 } else if (selection == 'N' || selection == 'n') { 
-                    free(node);  
-                    node = NULL; 
                     printf("退出\n");  
                     system("pause");
                     return;
@@ -52,10 +42,21 @@ void addStudent(struct student* stu) {
                 }
             }
         } else {
-            strcpy(node->id, id);
+            // 学号验证通过，跳出循环
             break;
         }
     }
+
+    // 学号验证通过后，创建节点
+    struct ListNode* node = (struct ListNode*)malloc(sizeof(struct ListNode));
+    if (node == NULL) {
+        printf("内存分配失败\n");
+        Sleep(2000);
+        return;
+    } 
+    node->next = NULL; 
+    node->prev = stu->tail;
+    strcpy(node->id, id);  // 保存学号
 
 
     // 输入姓名

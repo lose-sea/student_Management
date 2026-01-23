@@ -1,8 +1,8 @@
-#define _CRT_SECURE_NO_WARNINGS 
+ï»¿#define _CRT_SECURE_NO_WARNINGS 
 #include"student.h"
 
 
-// È¥³ıfgetsÊäÈëµÄ×Ö·û´®Ä©Î²µÄ»»ĞĞ·û
+// å»é™¤fgetsè¾“å…¥çš„å­—ç¬¦ä¸²æœ«å°¾çš„æ¢è¡Œç¬¦
 void removeNewline(char* str) {
     size_t len = strlen(str);
     if (len > 0 && str[len - 1] == '\n') {
@@ -11,7 +11,7 @@ void removeNewline(char* str) {
 }
 
  
-// Çå³ıÊäÈë»º³åÇø 
+// æ¸…é™¤è¾“å…¥ç¼“å†²åŒº
 void clearInputBuffer() {
     int c;
     while ((c = getchar()) != '\n' && c != EOF) {
@@ -20,14 +20,14 @@ void clearInputBuffer() {
 }
 
 
-// ¼ì²éÊäÈëµÄ×Ö·û´®ÊÇ·ñÓÉ´¿Êı×Ö×é³É
+// æ£€æŸ¥è¾“å…¥çš„å­—ç¬¦ä¸²æ˜¯å¦ç”±çº¯æ•°å­—ç»„æˆ
 bool isDigit(char* str) {
     int len = strlen(str); 
     if(len == 0) {
         return false; 
     }
     for (int i = 0; i < len; i++) { 
-        unsigned char ch = str[i];
+        unsigned char ch = (unsigned char)str[i]; 
         if (!isdigit(ch)) {
             return false;
         }
@@ -35,7 +35,7 @@ bool isDigit(char* str) {
     return true;
 }
 
-// ¸ù¾İÑ§ºÅ²éÕÒÑ§Éú
+// æ ¹æ®å­¦å·æŸ¥æ‰¾å­¦ç”Ÿ
 int findByid(struct student* stu, char* id) {
     if (stu->studentSize == 0) {
         return -1; 
@@ -50,7 +50,7 @@ int findByid(struct student* stu, char* id) {
     return -1;   
 }    
  
-// Í¨¹ıĞÕÃû²éÕÒÑ§Éú    
+// é€šè¿‡å§“åæŸ¥æ‰¾å­¦ç”Ÿ   
 int findByName(struct student* stu, char* name) {     
     if (stu->studentSize == 0) {
         return -1; 
@@ -64,7 +64,7 @@ int findByName(struct student* stu, char* name) {
 	return -1;
 } 
 
-// Çå¿ÕÁ´±í
+// æ¸…ç©ºé“¾è¡¨
 void clearList(struct student* stu) { 
     if (stu == NULL) {
         return; 
