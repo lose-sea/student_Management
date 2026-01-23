@@ -11,17 +11,17 @@ void sortByMathScore(struct student* stu) {
 		system("pause");
 		return;
 	}
-	if (stu->studentSize <= 1) {
+	if (stu->studentSize <= 1) { 
+		printf("学生数量小于等于1，无需排序\n");
 		system("pause");
 		return; // 学生数量小于等于1，无需排序 
-		printf("已根据高数成绩进行排序（降序）\n");
 	}
 	// 使用冒泡排序对链表进行排序 
 	for (int i = 0; i < stu->studentSize - 1; i++) {
 		struct ListNode* curr = stu->head;
 		for (int j = 0; j < stu->studentSize - i - 1; j++) {
 			struct ListNode* nextNode = curr->next;
-			if (curr->totalscore < nextNode->totalscore) {
+			if (curr->Math < nextNode->Math) {
 				if (curr == stu->head && nextNode == stu->tail) {
 					stu->head = nextNode;
 					stu->tail = curr;
@@ -69,16 +69,16 @@ void sortByHistoryScore(struct student* stu) {
 		return;
 	}
 	if (stu->studentSize <= 1) {
+		printf("学生数量小于等于1，无需排序\n");
 		system("pause");
 		return; // 学生数量小于等于1，无需排序 
-		printf("已根据近代史成绩进行排序（降序）\n");
 	}
 	// 使用冒泡排序对链表进行排序 
 	for (int i = 0; i < stu->studentSize - 1; i++) {
 		struct ListNode* curr = stu->head;
 		for (int j = 0; j < stu->studentSize - i - 1; j++) {
 			struct ListNode* nextNode = curr->next;
-			if (curr->totalscore < nextNode->totalscore) {
+			if (curr->History < nextNode->History) {
 				if (curr == stu->head && nextNode == stu->tail) {
 					stu->head = nextNode;
 					stu->tail = curr;
@@ -128,16 +128,16 @@ void sortByEnglishScore(struct student* stu) {
 		return;
 	}
 	if (stu->studentSize <= 1) {
+		printf("学生数量小于等于1，无需排序\n");
 		system("pause");
 		return; // 学生数量小于等于1，无需排序 
-		printf("已根据英语成绩进行排序（降序）\n");
 	}
 	// 使用冒泡排序对链表进行排序 
 	for (int i = 0; i < stu->studentSize - 1; i++) {
 		struct ListNode* curr = stu->head;
 		for (int j = 0; j < stu->studentSize - i - 1; j++) {
 			struct ListNode* nextNode = curr->next;
-			if (curr->totalscore < nextNode->totalscore) {
+			if (curr->English < nextNode->English) {
 				if (curr == stu->head && nextNode == stu->tail) {
 					stu->head = nextNode;
 					stu->tail = curr;
@@ -187,9 +187,9 @@ void sortByTotalScore(struct student* stu) {
 		return;
 	}
 	if (stu->studentSize <= 1) {
+		printf("学生数量小于等于1，无需排序\n");
 		system("pause");
 		return; // 学生数量小于等于1，无需排序 
-		printf("已根据总成绩进行排序（降序）\n");
 	}
 	// 使用冒泡排序对链表进行排序 
 	for (int i = 0; i < stu->studentSize - 1; i++) {
