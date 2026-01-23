@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS 
+﻿#define _CRT_SECURE_NO_WARNINGS 
 #include"student.h" 
 
 void insertStudent(struct student* stu) {
@@ -9,68 +9,10 @@ void insertStudent(struct student* stu) {
         Sleep(2000);
         return;
     }
-    struct ListNode* curr = stu->head;
-    for (int i = 0; i <= stu->studentSize && curr != NULL; i++) {
-        printf("序号:%d  ", i);
-        printf("姓名:%s  学号:%s  性别: %s \n", curr->name, curr->id, curr->sex);
-        curr = curr->next;
-        i++;
-    }
-    printf("请输入要插入的位置(1 到 %d): \n", stu->studentSize + 1); 
-    int position;
-    while (1) { 
-        int judgePosition = scanf("%d", &position);
-        clearInputBuffer();
-        if (judgePosition != 1 || position < 1 || position > stu->studentSize + 1) {
-            printf("输入无效, 请重新输入\n");
-            Sleep(600);
-            printf("\033[1A");    // 光标上移一行  
-            printf("\033[2K");    // 清除整行  
-        }
-        else {
-            // 找到插入位置的前一个节点 
-            struct ListNode* prevNode = stu->head; 
-            for (int i = 1; i < position - 1; i++) {
-                prevNode = prevNode->next;
-            }      
-            // 插入节点
-            if (position == 1) {   // 插入到头部
-                node->next = stu->head;
-                node->prev = NULL;
-                if (stu->head != NULL) {
-                    stu->head->prev = node;
-                }
-                stu->head = node;
-            }
-            else if (position == stu->studentSize + 1) { // 插入到尾部
-                node->next = NULL;
-                node->prev = stu->tail;
-                if (stu->tail != NULL) {
-                    stu->tail->next = node;
-                }
-                stu->tail = node;
-            }
-            else {
-                node->next = prevNode->next;
-                node->prev = prevNode;
-                prevNode->next->prev = node;
-                prevNode->next = node;
-            }
-            break;
-        }
-    }
-    if (stu->head == NULL) {        // 将新的节点插入到正确位置
-        stu->head = node;
-        stu->tail = node;
-        node->prev = NULL;
-        node->next = NULL;
-    }
-    else {
-        node->next = NULL;
-        node->prev = stu->tail;
-        stu->tail = node;
-    }
-    // 为新的节点输入信息 
+    
+    // 为新的节点输入信息  
+    // 输入学号 
+    printf("请输入要插入的学生信息: \n");
     char id[300];
     while (1) {
         printf("请输入学号: \n");
@@ -140,7 +82,7 @@ void insertStudent(struct student* stu) {
         sex = _getch();
         if (sex == 'M' || sex == 'm') {
             printf("男\n");
-            strcpy(node->sex, "男");
+            strcpy(node->sex, "男"); 
             break;
         } else if (sex == 'F' || sex == 'f') {
             printf("女\n");
@@ -261,22 +203,81 @@ void insertStudent(struct student* stu) {
     printf("         班\b\b\b\b\b\b\b\b\b\b\b\b");
     fgets(class1, 300, stdin);
     removeNewline(class1);
-    strcat(class1, "班");
-    strcpy(node->class1, class1);  
+    strcat(class1, "班"); 
+    strcpy(node->class1, class1);     
+    system("cls");
 
 
-        system("cls");
-        printf("学生信息插入成功!\n"); 
-
-        curr = stu->head;
-        for (int i = 0; i <= stu->studentSize && curr != NULL; i++) {
-            printf("序号:%d  ", i);
-            printf("姓名:%s  学号:%s  性别: %s \n", curr->name, curr->id, curr->sex);
-            curr = curr->next;
-            i++;
+    // 显示当前学生列表
+    struct ListNode* curr = stu->head;
+    for (int i = 1; i <= stu->studentSize && curr != NULL; i++) {
+        printf("序号:%d  ", i);
+        printf("姓名:%s  学号:%s  性别: %s \n", curr->name, curr->id, curr->sex);
+        curr = curr->next;
+    }
+    printf("请输入要插入的位置(1 到 %d): \n", stu->studentSize + 1); 
+    int position;
+    while (1) { 
+        int judgePosition = scanf("%d", &position);
+        clearInputBuffer();
+        if (judgePosition != 1 || position < 1 || position > stu->studentSize + 1) {
+            printf("输入无效, 请重新输入\n");
+            Sleep(600);
+            printf("\033[1A");    // 光标上移一行  
+            printf("\033[2K");    // 清除整行  
         }
+        else {
+            // 插入节点
+            if (position == 1) {   // 插入到头部
+                node->next = stu->head;
+                node->prev = NULL;
+                if (stu->head != NULL) {
+                    stu->head->prev = node;
+                } else {
+                    stu->tail = node;  
+                }
+                stu->head = node;
+            }
+            else if (position == stu->studentSize + 1) { // 插入到尾部
+                node->next = NULL;
+                node->prev = stu->tail;
+                if (stu->tail != NULL) {
+                    stu->tail->next = node;
+                } else {
+                    stu->head = node;  
+                }
+                stu->tail = node;
+            }
+            else {  // 插入到中间
+                struct ListNode* prevNode = stu->head; 
+                for (int i = 1; i < position - 1; i++) {
+                    prevNode = prevNode->next;
+                }
+                node->next = prevNode->next;
+                node->prev = prevNode;
+                prevNode->next->prev = node;
+                prevNode->next = node;
+            }
+            
+            // 更新学生数量
+            stu->studentSize++;
+            break;
+        }
+    }
 
-        // 添加之后人数加一
-        stu->studentSize++;
-        system("pause");
+
+    system("cls");
+    printf("学生信息插入成功!\n"); 
+
+    // 显示更新后的列表
+    curr = stu->head;
+    int index = 1;
+    while (curr != NULL) {
+        printf("序号:%d  ", index);
+        printf("姓名:%s  学号:%s  性别: %s \n", curr->name, curr->id, curr->sex);
+        curr = curr->next;
+        index++;
+    }
+
+    system("pause");
 }
