@@ -8,7 +8,9 @@ void insertStudent(struct student* stu) {
         printf("内存分配失败\n");
         Sleep(2000);
         return;
-    }
+    } 
+    node->next = NULL; 
+    node->prev = NULL; 
     
     // 为新的节点输入信息  
     // 输入学号 
@@ -230,7 +232,6 @@ void insertStudent(struct student* stu) {
             // 插入节点
             if (position == 1) {   // 插入到头部
                 node->next = stu->head;
-                node->prev = NULL;
                 if (stu->head != NULL) {
                     stu->head->prev = node;
                 } else {
@@ -268,16 +269,6 @@ void insertStudent(struct student* stu) {
 
     system("cls");
     printf("学生信息插入成功!\n"); 
-
-    // 显示更新后的列表
-    curr = stu->head;
-    int index = 1;
-    while (curr != NULL) {
-        printf("序号:%d  ", index);
-        printf("姓名:%s  学号:%s  性别: %s \n", curr->name, curr->id, curr->sex);
-        curr = curr->next;
-        index++;
-    }
 
     system("pause");
 }

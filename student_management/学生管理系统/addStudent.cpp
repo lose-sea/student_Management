@@ -22,8 +22,7 @@ void addStudent(struct student* stu) {
             continue;
         }
         if (findByid(stu, id) != -1) {
-            printf("已经存在该学号的学生\n");
-            system("cls"); 
+            printf("已经存在该学号的学生\n");  
             printf("是否重新输入： 是(Y) 否(N)\n");
             char selection = 0;
             while (1) {

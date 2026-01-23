@@ -70,8 +70,7 @@ void loadFromFile(struct student* stu) {
 		fread(newNode->class1, sizeof(char), 300, pf);
 
 		// 显示进度
-		printf("正在读取第 %d/%d 个学生: %s\n", i, stu->studentSize, newNode->name);
-		Sleep(2);  
+		printf("正在读取第 %d/%d 个学生: %s\n", i, stu->studentSize, newNode->name); 
 		// 上移一行
 		printf("\033[1A");
 		// 清除当前行
