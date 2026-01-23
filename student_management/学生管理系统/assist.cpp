@@ -44,7 +44,8 @@ int findByid(struct student* stu, char* id) {
     for (int i = 0; i < stu->studentSize; i++) {
         if (strcmp(id, curr->id) == 0) {
             return i; 
-        }  
+        }    
+        curr = curr->next;
     }  
     return -1;   
 }    
