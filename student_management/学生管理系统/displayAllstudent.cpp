@@ -22,8 +22,8 @@ void  displayAllStudent(struct student* stu) {
         if (currpage <= directorypage) { 
             printf("=========== 显示学生目录 ===========\n\n\n"); 
             for (int j = 0; j < 10 && i <= stu->studentSize && curr != NULL; j++) {
-                printf("序号:%d  ", i);
-                printf("姓名:%s  学号:%s  性别: %s \n\n", curr->name, curr->id, curr->sex); 
+                printf("序号:%-3d  ", i);
+                printf("姓名:%-8s  学号:%-6s  性别: %s \n\n", curr->name, curr->id, curr->sex); 
 				curr = curr->next;  
                 i++; 
             }

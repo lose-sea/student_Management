@@ -22,6 +22,8 @@ void addStudent(struct student* stu) {
             printf("学号应为纯数字, 请重新输入\n");
             Sleep(800);  
             printf("\033[1A");    // 光标上移一行  
+            printf("\033[2K");    // 清除整行   
+            printf("\033[1A");    // 光标上移一行  
             printf("\033[2K");    // 清除整行  
             continue; 
         } else if (strlen(id) == 0) {
@@ -54,10 +56,7 @@ void addStudent(struct student* stu) {
                 } else {
                     printf("选择错误, 请重新选择\n");
                     Sleep(800);
-                    printf("\033[1A");    // 光标上移一行  
-                    printf("\033[2K");    // 清除整行   
-                    printf("\033[1A");    // 光标上移一行  
-                    printf("\033[2K");    // 清除整行  
+                    system("cls");
                 }
             }
         } else {

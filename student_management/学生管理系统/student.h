@@ -10,9 +10,6 @@ void removeNewline(char* str);
 // 清除输入缓冲区
 void clearInputBuffer();
 
-// 检查输入是否合法
-bool isValid(int judge); 
-
 // 检查输入的字符串是否由纯数字组成
 bool isDigit(char* str);
 
