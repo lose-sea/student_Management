@@ -3,12 +3,12 @@
 
 struct student stu;
 int main() { 
-    
-    
-    loadFromFile(&stu);   
-    //displayStudentList(&stu); 
-    displayAllStudent(&stu);  
-    addStudent(&stu);
-    saveToFile(&stu);
+    loadFromFile(&stu); 
+	displayAllStudent(&stu); 
+    FILE* pf = fopen("studentAccount.bin", "w"); 
+    fclose(pf); 
+    pf = NULL; 
+    updateStudent(&stu); 
+    saveToFile(&stu); 
     return 0; 
 }   

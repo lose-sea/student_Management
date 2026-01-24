@@ -26,7 +26,7 @@ void addStudent(struct student* stu) {
             printf("是否重新输入： 是(Y) 否(N)\n");
             char selection = 0;
             while (1) {
-                selection = _getch();
+                selection = _getch();  
                 if (selection == 'Y' || selection == 'y') {
                     break;
                 } else if (selection == 'N' || selection == 'n') { 

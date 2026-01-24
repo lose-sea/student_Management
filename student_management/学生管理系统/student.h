@@ -20,7 +20,10 @@ int findByid(struct student* stu, char* id);
 int findByName(struct student* stu, char* name);  
 
 // 清空链表
-void clearList(struct student* stu); 
+void clearList(struct student* stu);  
+
+// 根据账号查找学生
+void findByAccount(struct ListNode* stu); 
   
  
 

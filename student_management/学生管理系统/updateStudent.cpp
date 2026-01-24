@@ -1,12 +1,12 @@
-#define _CRT_SECURE_NO_WARNINGS 
+ï»¿#define _CRT_SECURE_NO_WARNINGS 
 
 #include"student.h" 
 
-// ¸üĞÂÑ§ÉúĞÅÏ¢
+// æ›´æ–°å­¦ç”Ÿä¿¡æ¯
 void updateStudent(struct student* stu) {
     system("cls");
-    printf("ÇëÊäÈëÄãÒª¸üĞÂµÄÑ§ÉúĞÕÃû: ");
-    char name[300];
+    printf("è¯·è¾“å…¥ä½ è¦æ›´æ”¹çš„å­¦ç”Ÿå§“å: ");
+    char name[300]; 
     fgets(name, 300, stdin);
     removeNewline(name);
     struct ListNode* curr = stu->head;
@@ -17,246 +17,246 @@ void updateStudent(struct student* stu) {
         curr = curr->next;
     }
     if (curr == NULL) {
-        printf("²»´æÔÚÑ§Éú %s µÄĞÅÏ¢\n", name);
+        printf("ä¸å­˜åœ¨å­¦ç”Ÿ %s çš„ä¿¡æ¯\n", name);
         system("pause"); 
     } else { 
         while (1) { 
-            printf("Ñ§ºÅ: %s\n", curr->id);
-            printf("ĞÕÃû: %s\n", curr->name);
-            printf("ĞÔ±ğ: %s\n", curr->sex);
-            printf("ÄêÁä: %d\n", curr->age);
-            printf("µç»°: %s\n", curr->telephone);  
-            printf("×¨Òµ: %s\n", curr->major);
-            printf("¸ßÊı³É¼¨: %.2lf\n", curr->Math);
-            printf("½ü´úÊ·³É¼¨: %.2lf\n", curr->History);
-            printf("Ó¢Óï³É¼¨: %.2lf\n", curr->English);
-            printf("³É¼¨: %.2f\n", curr->totalscore);
-            printf("Äê¼¶: %s\n", curr->grade);
-            printf("°à¼¶: %s\n\n", curr->class1);
+            printf("å­¦å·: %s\n", curr->id);
+            printf("å§“å: %s\n", curr->name);
+            printf("æ€§åˆ«: %s\n", curr->sex);
+            printf("å¹´é¾„: %d\n", curr->age);
+            printf("ç”µè¯: %s\n", curr->telephone);  
+            printf("ä¸“ä¸š: %s\n", curr->major);
+            printf("é«˜æ•°æˆç»©: %.2lf\n", curr->Math);
+            printf("è¿‘ä»£å²æˆç»©: %.2lf\n", curr->History);
+            printf("è‹±è¯­æˆç»©: %.2lf\n", curr->English);
+            printf("æˆç»©: %.2f\n", curr->totalscore);
+            printf("å¹´çº§: %s\n", curr->grade);
+            printf("ç­çº§: %s\n\n", curr->class1);
 
-            printf("ÇëÑ¡ÔñÄãÒªĞŞ¸ÄµÄĞÅÏ¢: \n");
-            printf("1. Ñ§ºÅ\n");
-            printf("2. ĞÕÃû\n");
-            printf("3. ĞÔ±ğ\n");
-            printf("4. ÄêÁä\n");
-            printf("5. ÁªÏµ·½Ê½: \n");
-            printf("6. ×¨Òµ\n"); 
-			printf("7. ¸ßÊı³É¼¨\n");
-			printf("8. ½ü´úÊ·³É¼¨\n");
-            printf("9. Ó¢Óï³É¼¨\n");
-            printf("10. ×Ü³É¼¨\n");
-            printf("11. Äê¼¶: \n");
-            printf("12. °à¼¶: \n");
-            printf("0. È¡ÏûĞŞ¸Ä\n");
+            printf("è¯·é€‰æ‹©ä½ è¦ä¿®æ”¹çš„ä¿¡æ¯: \n");
+            printf("1. å­¦å·\n");
+            printf("2. å§“å\n");
+            printf("3. æ€§åˆ«\n");
+            printf("4. å¹´é¾„\n");
+            printf("5. è”ç³»æ–¹å¼: \n");
+            printf("6. ä¸“ä¸š\n"); 
+			printf("7. é«˜æ•°æˆç»©\n");
+			printf("8. è¿‘ä»£å²æˆç»©\n");
+            printf("9. è‹±è¯­æˆç»©\n");
+            printf("10. æ€»æˆç»©\n");
+            printf("11. å¹´çº§: \n");
+            printf("12. ç­çº§: \n");
+            printf("0. å–æ¶ˆä¿®æ”¹\n");
             int i = 0; 
             while (1) {
                 int judgeInput = scanf("%d", &i); 
                 clearInputBuffer(); 
                 if (judgeInput != 1 || i < 0 || i > 12) {
-                    printf("ÊäÈëÎŞĞ§,ÇëÖØĞÂÊäÈë: "); 
+                    printf("è¾“å…¥æ— æ•ˆ,è¯·é‡æ–°è¾“å…¥: "); 
                     Sleep(2000);
-                    printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
-                    printf("\033[2K");    // Çå³ıÕûĞĞ  
-                    printf("\r");         // »Øµ½ĞĞÊ×  
+                    printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
+                    printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ  
+                    printf("\r");         // å›åˆ°è¡Œé¦–  
                 } else {
                     break;
                 }
             }
             switch (i) {
                 case 0: {
-                    printf("È¡ÏûĞŞ¸Ä,·µ»ØÖ÷½çÃæ\n");
+                    printf("å–æ¶ˆä¿®æ”¹,è¿”å›ä¸»ç•Œé¢\n");
                     system("pause");
                     system("cls");
                     return;
                 }
                 case 1: {
-                    printf("ÄãÒªĞŞ¸ÄµÄÊÇÑ§ºÅ: \n");
-                    printf("ÇëÊäÈëĞÂµÄÑ§ºÅ: ");
+                    printf("ä½ è¦ä¿®æ”¹çš„æ˜¯å­¦å·: \n");
+                    printf("è¯·è¾“å…¥æ–°çš„å­¦å·: ");
                     char id[300];
                     while (1) {
                         fgets(id, 300, stdin);
                         removeNewline(id); 
                         //if (!isDigit(id)) {
-                        //    printf("Ñ§ºÅÓ¦Îª´¿Êı×Ö, ÇëÖØĞÂÊäÈë\n");
+                        //    printf("å­¦å·åº”ä¸ºçº¯æ•°å­—, è¯·é‡æ–°è¾“å…¥\n");
                         //    Sleep(800);
-                        //    printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
-                        //    printf("\033[2K");    // Çå³ıÕûĞĞ  
+                        //    printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
+                        //    printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ  
                         //    continue;
                         //}
                         if (findByid(stu, id) == -1 || strcmp(curr->id, id) == 0) {
                             break;
                         } else {
-                            printf("ÒÑ´æÔÚ¸ÃÑ§ºÅ, ÇëÖØĞÂÊäÈë: ");
+                            printf("å·²å­˜åœ¨è¯¥å­¦å·, è¯·é‡æ–°è¾“å…¥: ");
                             Sleep(2000);
-                            printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
-                            printf("\033[2K");    // Çå³ıÕûĞĞ  
-                            printf("\r");         // »Øµ½ĞĞÊ×  
+                            printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
+                            printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ  
+                            printf("\r");         // å›åˆ°è¡Œé¦–  
                         }
                     }
 
                     strcpy(curr->id, id);
-                    printf("ĞŞ¸Ä³É¹¦, ÒÑ½«Ñ§ºÅĞŞ¸ÄÎª%s", id);
+                    printf("ä¿®æ”¹æˆåŠŸ, å·²å°†å­¦å·ä¿®æ”¹ä¸º%s", id);
                     system("pause");
                     break;
                 }
                 case 2: {
-                    printf("ÄãÒªĞŞ¸ÄµÄÊÇĞÕÃû: \n");
-                    printf("ÇëÊäÈëĞÂµÄĞÕÃû: ");
+                    printf("ä½ è¦ä¿®æ”¹çš„æ˜¯å§“å: \n");
+                    printf("è¯·è¾“å…¥æ–°çš„å§“å: ");
                     char name[300];
                     fgets(name, 300, stdin);
                     removeNewline(name);
                     strcpy(curr->name, name);
-                    printf("ÒÑ½«ĞÕÃûĞŞ¸ÄÎª %s \n", name);
+                    printf("å·²å°†å§“åä¿®æ”¹ä¸º %s \n", name);
                     system("pause");
                     break;
                 }
                 case 3: {
-                    printf("ÄãÒªĞŞ¸ÄµÄÊÇĞÔ±ğ: \n");
-                    printf("M: ÄĞ\t F: Å®\n");
-                    printf("ÇëÑ¡ÔñĞÂµÄĞÔ±ğ : ");
+                    printf("ä½ è¦ä¿®æ”¹çš„æ˜¯æ€§åˆ«: \n");
+                    printf("M: ç”·\t F: å¥³\n");
+                    printf("è¯·é€‰æ‹©æ–°çš„æ€§åˆ« : ");
                     char sex;
                     while (1) {
                         sex = _getch();
 
                         if (sex == 'M' || sex == 'm') {
-                            printf("ÄĞ\n");
-                            strcpy(curr->sex, "ÄĞ");
+                            printf("ç”·\n");
+                            strcpy(curr->sex, "ç”·");
                             break;
                         } else if (sex == 'F' || sex == 'f') {
-                            printf("Å®");
-                            strcpy(curr->sex, "Å®");
+                            printf("å¥³");
+                            strcpy(curr->sex, "å¥³");
                             break;
                         } else {
-                            printf("Ñ¡Ôñ´íÎó, ÇëÖØĞÂÑ¡Ôñ\n");
+                            printf("é€‰æ‹©é”™è¯¯, è¯·é‡æ–°é€‰æ‹©\n");
                             Sleep(2000);
-                            printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
-                            printf("\033[2K");    // Çå³ıÕûĞĞ  
-                            printf("\r");         // »Øµ½ĞĞÊ×  
+                            printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
+                            printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ  
+                            printf("\r");         // å›åˆ°è¡Œé¦–  
                         }
                     }
-                    printf("ĞŞ¸Ä³É¹¦\n");
+                    printf("ä¿®æ”¹æˆåŠŸ\n");
                     system("pause");
                     break;
                 }
                 case 4: {
-                    printf("ÄãÒªĞŞ¸ÄµÄÊÇÄêÁä: \n");
-                    printf("ÇëÊäÈëĞÂµÄÄêÁä: ");
+                    printf("ä½ è¦ä¿®æ”¹çš„æ˜¯å¹´é¾„: \n");
+                    printf("è¯·è¾“å…¥æ–°çš„å¹´é¾„: ");
                     int age;
                     while (1) {
                         int judgeAge = scanf("%d", &age);
                         clearInputBuffer();
                         if (judgeAge != 1 || age < 0) {
-                            printf("ÊäÈë´íÎó,ÇëÖØĞÂÊäÈë\n");
+                            printf("è¾“å…¥é”™è¯¯,è¯·é‡æ–°è¾“å…¥\n");
                             Sleep(2000);
-                            printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
-                            printf("\033[2K");    // Çå³ıÕûĞĞ  
-                            printf("\r");         // »Øµ½ĞĞÊ×  
+                            printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
+                            printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ  
+                            printf("\r");         // å›åˆ°è¡Œé¦–  
                         } else {
                             curr->age = age;
                             break;
                         }
                     }
-                    printf("ÒÑ½«ÄêÁäĞŞ¸ÄÎª %d \n", age);
+                    printf("å·²å°†å¹´é¾„ä¿®æ”¹ä¸º %d \n", age);
                     system("pause");
                     break;
                 }
                 case 5: {
-                    printf("ÄãÒªĞŞ¸ÄµÄÊÇÁªÏµ·½Ê½: \n");
-                    printf("ÇëÊäÈëĞÂµÄÁªÏµ·½Ê½: ");
+                    printf("ä½ è¦ä¿®æ”¹çš„æ˜¯è”ç³»æ–¹å¼: \n");
+                    printf("è¯·è¾“å…¥æ–°çš„è”ç³»æ–¹å¼: ");
                     char telephone[100];
                     fgets(telephone, 100, stdin);
                     removeNewline(telephone);
                     strcpy(curr->telephone, telephone);
-                    printf("ÒÑ½«ÁªÏµ·½Ê½ĞŞ¸ÄÎª %s \n", telephone);
+                    printf("å·²å°†è”ç³»æ–¹å¼ä¿®æ”¹ä¸º %s \n", telephone);
                     system("pause");
                     break;
                 }
                 case 6: {
-                    printf("ÄãÒªĞŞ¸ÄµÄÊÇ×¨Òµ: \n");
-                    printf("ÇëÊäÈëĞÂµÄ×¨Òµ: ");
+                    printf("ä½ è¦ä¿®æ”¹çš„æ˜¯ä¸“ä¸š: \n");
+                    printf("è¯·è¾“å…¥æ–°çš„ä¸“ä¸š: ");
                     char major[300];
                     fgets(major, 300, stdin);
                     removeNewline(major);
                     strcpy(curr->major, major);
-                    printf("ÒÑ½«×¨ÒµĞŞ¸ÄÎª %s \n", major);
+                    printf("å·²å°†ä¸“ä¸šä¿®æ”¹ä¸º %s \n", major);
                     system("pause");
                     break;
                 }
                 case 7: {
-                    printf("ÄãÒªĞŞ¸ÄµÄÊÇ×Ü³É¼¨: \n");
-                    printf("ÇëÊäÈëĞÂµÄ³É¼¨: ");
+                    printf("ä½ è¦ä¿®æ”¹çš„æ˜¯æ€»æˆç»©: \n");
+                    printf("è¯·è¾“å…¥æ–°çš„æˆç»©: ");
                     double totalscore;
                     while (1) {
                         int judgescore = scanf("%lf", &totalscore);
                         clearInputBuffer();
                         if (judgescore != 1 || totalscore < 0 || totalscore > 100) {
-                            printf("ÊäÈë´íÎó,ÇëÖØĞÂÊäÈë\n");
+                            printf("è¾“å…¥é”™è¯¯,è¯·é‡æ–°è¾“å…¥\n");
                             Sleep(2000);
-                            printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
-                            printf("\033[2K");    // Çå³ıÕûĞĞ  
-                            printf("\r");         // »Øµ½ĞĞÊ×  
+                            printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
+                            printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ  
+                            printf("\r");         // å›åˆ°è¡Œé¦–  
                         } else {
                             curr->totalscore = totalscore;
                             break;
                         }
                     }
-                    printf("ÒÑ½«³É¼¨ĞŞ¸ÄÎª %.2lf \n", totalscore);
+                    printf("å·²å°†æˆç»©ä¿®æ”¹ä¸º %.2lf \n", totalscore);
                     system("pause");
                     break;
                 }
                 case 8: {
-                    printf("ÄãÒªĞŞ¸ÄµÄÊÇÄê¼¶: \n");
-                    printf("ÇëÊäÈëĞÂµÄÄê¼¶: \n");
+                    printf("ä½ è¦ä¿®æ”¹çš„æ˜¯å¹´çº§: \n");
+                    printf("è¯·è¾“å…¥æ–°çš„å¹´çº§: \n");
                     char grade[300];
                     fgets(grade, 300, stdin);
                     removeNewline(grade);
-                    strcat(grade, "¼¶");
+                    strcat(grade, "çº§");
                     strcpy(curr->grade, grade);
-                    printf("ÒÑ½«Äê¼¶ĞŞ¸ÄÎª %s \n", curr->grade);
+                    printf("å·²å°†å¹´çº§ä¿®æ”¹ä¸º %s \n", curr->grade);
                     system("pause");
                     break;
                 }
                 case 9: {
-                    printf("ÄãÒªĞŞ¸ÄµÄÊÇ°à¼¶: \n");
-                    printf("ÇëÊäÈëĞÂµÄ°à¼¶: \n");
+                    printf("ä½ è¦ä¿®æ”¹çš„æ˜¯ç­çº§: \n");
+                    printf("è¯·è¾“å…¥æ–°çš„ç­çº§: \n");
                     char class1[300];
                     fgets(class1, 300, stdin);
                     removeNewline(class1);
-                    strcat(class1, "°à");
+                    strcat(class1, "ç­");
                     strcpy(curr->class1, class1);
-                    printf("ÒÑ½«°à¼¶ĞŞ¸ÄÎª %s \n", curr->class1);
+                    printf("å·²å°†ç­çº§ä¿®æ”¹ä¸º %s \n", curr->class1);
                     system("pause");
                     break;
                 } 
                 default: {
-                    printf("ÊäÈëÎŞĞ§,ÇëÖØĞÂÊäÈë:\n");
+                    printf("è¾“å…¥æ— æ•ˆ,è¯·é‡æ–°è¾“å…¥:\n");
                     
                 }
             }
-            printf("µ±Ç°Ñ§ÉúĞÅÏ¢: \n");
-            printf("Ñ§ºÅ: %s\n", curr->id);
-            printf("ĞÕÃû: %s\n", curr->name);
-            printf("ĞÔ±ğ: %s\n", curr->sex);
-            printf("ÄêÁä: %d\n", curr->age);
-            printf("µç»°: %s\n", curr->telephone);
-            printf("×¨Òµ: %s\n", curr->major);
-            printf("¸ßÊı³É¼¨: %.2lf\n", curr->Math);
-            printf("½ü´úÊ·³É¼¨: %.2lf\n", curr->History);
-            printf("Ó¢Óï³É¼¨: %.2lf\n", curr->English);
-            printf("³É¼¨: %.2f\n", curr->totalscore);
-            printf("Äê¼¶: %s\n", curr->grade);
-            printf("°à¼¶: %s\n\n", curr->class1);
-            printf("ÊÇ·ñÑ¡Ôñ¼ÌĞøĞŞ¸Ä\n");
-            printf("****** ¼ÌĞøĞŞ¸Ä(Y) ********** ÍË³ö(N) *******");
+            printf("å½“å‰å­¦ç”Ÿä¿¡æ¯: \n");
+            printf("å­¦å·: %s\n", curr->id);
+            printf("å§“å: %s\n", curr->name);
+            printf("æ€§åˆ«: %s\n", curr->sex);
+            printf("å¹´é¾„: %d\n", curr->age);
+            printf("ç”µè¯: %s\n", curr->telephone);
+            printf("ä¸“ä¸š: %s\n", curr->major);
+            printf("é«˜æ•°æˆç»©: %.2lf\n", curr->Math);
+            printf("è¿‘ä»£å²æˆç»©: %.2lf\n", curr->History);
+            printf("è‹±è¯­æˆç»©: %.2lf\n", curr->English);
+            printf("æˆç»©: %.2f\n", curr->totalscore);
+            printf("å¹´çº§: %s\n", curr->grade);
+            printf("ç­çº§: %s\n\n", curr->class1);
+            printf("æ˜¯å¦é€‰æ‹©ç»§ç»­ä¿®æ”¹\n");
+            printf("****** ç»§ç»­ä¿®æ”¹(Y) ********** é€€å‡º(N) *******");
             char chose;
             while (1) {
                 int judgeChose = scanf("%c", &chose);
                 clearInputBuffer();
                 if (judgeChose != 1) {
-                    printf("ÊäÈëÎŞĞ§,ÇëÖØĞÂÊäÈë\n"); 
+                    printf("è¾“å…¥æ— æ•ˆ,è¯·é‡æ–°è¾“å…¥\n"); 
                  
                 } else if (chose == 'N' || chose == 'n') {
-                    printf("ÍË³ö\n");
+                    printf("é€€å‡º\n");
                     system("pause");
                     system("cls");
                     return;
@@ -264,7 +264,7 @@ void updateStudent(struct student* stu) {
                     system("cls");
                     break;
                 } else {
-                    printf("ÊäÈëÎŞĞ§,ÇëÖØĞÂÊäÈë\n"); 
+                    printf("è¾“å…¥æ— æ•ˆ,è¯·é‡æ–°è¾“å…¥\n"); 
                     
                 } 
             }
