@@ -11,19 +11,28 @@ void removeNewline(char* str);
 void clearInputBuffer();
 
 // 检查输入的字符串是否由纯数字组成
-bool isDigit(char* str);
+bool isDigit(char* str); 
+
+// 判断输入的字符串是否有数字或英文字符组成
+bool isAlphanumeric(char* str); 
 
 // 根据学号查找学生
-int findByid(struct student* stu, char* id); 
+struct ListNode* findByid(struct student* stu, char* id); 
 
 // 通过姓名查找学生
-int findByName(struct student* stu, char* name);  
+int findByName(struct student* stu, char* name);   
 
 // 清空链表
 void clearList(struct student* stu);  
 
 // 根据账号查找学生
-void findByAccount(struct ListNode* stu); 
+struct ListNode* findStudentByAccount(struct student* stu, char* account);  
+
+//根据账号查找教师
+struct teacher* findTeacherByAccount(struct teacher* teacher, char* account); 
+
+// 根据账号查找管理员
+struct manager* findAdministratorByAccount(struct manager* administrator, char* account); 
   
  
 

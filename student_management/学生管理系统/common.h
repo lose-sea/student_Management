@@ -27,7 +27,7 @@ typedef struct ListNode {
     char grade[300];        // 年级
     char class1[300];       // 班级  
 
-    char username[300];     // 用户名
+    char account[300];     // 用户名
     char password[300];     // 密码
     struct ListNode* next;  // 上一个节点
     struct ListNode* prev;  // 下一个节点 
@@ -44,19 +44,20 @@ typedef struct student {
 
 // 教师账号信息
 typedef struct teacher {  
-    char username[300];     // 用户名
+    char account[300];     // 用户名
     char password[300];     // 密码
     struct teacher* next;   // 下一个节点
 }teacher; 
 
 
 // 管理员账号信息 
-typedef struct manage {  
-    char username[300];     // 用户名
+typedef struct manager {  
+    char account[300];     // 用户名
     char password[300];     // 密码
 	struct account* next;   // 下一个节点
 }manage;
 
-extern struct student stu;
+extern struct student stu; 
+extern struct teacher teacher; 
 
 

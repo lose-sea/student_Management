@@ -23,7 +23,7 @@ void loadFromFile(struct student* stu) {
 		pf = NULL; 
 		return; 
 	} else { 
-		printf("共 %d 名学生\n", count);   
+		// printf("共 %d 名学生\n", count);   
 	}
 	
 	// 清空现有数据
@@ -69,15 +69,15 @@ void loadFromFile(struct student* stu) {
 		fread(newNode->grade, sizeof(char), 300, pf);
 		fread(newNode->class1, sizeof(char), 300, pf);
 
-		// 显示进度
-		printf("正在读取第 %d/%d 个学生: %s\n", i, stu->studentSize, newNode->name); 
+		//// 显示进度
+		//printf("正在读取第 %d/%d 个学生: %s\n", i, stu->studentSize, newNode->name); 
 		// 上移一行
-		printf("\033[1A");
-		// 清除当前行
-		printf("\033[2K"); 
-		printf("\r"); 
+		//printf("\033[1A");
+		//// 清除当前行
+		//printf("\033[2K"); 
+		//printf("\r"); 
 	} 
 	fclose(pf); 
-	printf("成功加载 %d 名学生信息\n", stu->studentSize);  
+	printf("加载成功\n"); 
 	system("pause"); 
 }

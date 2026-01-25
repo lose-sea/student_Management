@@ -1,36 +1,36 @@
-#define _CRT_SECURE_NO_WARNINGS 
+ï»¿#define _CRT_SECURE_NO_WARNINGS 
 
 
 #include"student.h" 
 
-//½«Ñ§ÉúĞÅÏ¢±£´æµ½ÎÄ¼ş(¶ş½øÖÆ) 
+//å°†å­¦ç”Ÿä¿¡æ¯ä¿å­˜åˆ°æ–‡ä»¶(äºŒè¿›åˆ¶) 
 void saveToFile(struct student* stu) { 
 	if (stu == NULL) {
-		printf("µ±Ç°ÔİÎŞÑ§ÉúĞÅÏ¢\n"); 
+		printf("å½“å‰æš‚æ— å­¦ç”Ÿä¿¡æ¯\n"); 
 		system("pause"); 
 		return; 
 	}  
 	if (stu->studentSize == 0) {
-		printf("µ±Ç°ÔİÎŞÑ§ÉúĞÅÏ¢\n"); 
+		printf("å½“å‰æš‚æ— å­¦ç”Ÿä¿¡æ¯\n"); 
 		system("pause"); 
 		return; 
 	}
 	FILE* pf = fopen("student.bin", "wb"); 
 	if (pf == NULL) {
-		printf("ÎÄ¼ş´ò¿ªÊ§°Ü\n"); 
+		printf("æ–‡ä»¶æ‰“å¼€å¤±è´¥\n"); 
 		system("pause"); 
 		return; 
 	} 
-	// ÎÄ¼ş´ò¿ª³É¹¦  
-	// ÏÈ½«Ñ§ÉúÈËÊıĞ´ÈëÎÄ¼ş¿ªÍ·
+	// æ–‡ä»¶æ‰“å¼€æˆåŠŸ  
+	// å…ˆå°†å­¦ç”Ÿäººæ•°å†™å…¥æ–‡ä»¶å¼€å¤´
 	int writeCount = fwrite(&stu->studentSize, sizeof(int), 1, pf);  
 	if (writeCount != 1) {
-		printf("±£´æÊ§°Ü"); 
+		printf("ä¿å­˜å¤±è´¥"); 
 	} 
-	// ±éÀúÁ´±íĞ´ÈëÃ¿¸ö½ÚµãÊı¾İ 
+	// éå†é“¾è¡¨å†™å…¥æ¯ä¸ªèŠ‚ç‚¹æ•°æ® 
 	ListNode* curr = stu->head;
 	while (curr != NULL) {
-		// Ö»±£´æÊı¾İ²¿·Ö£¬²»±£´æ next ºÍ prev Ö¸Õë
+		// åªä¿å­˜æ•°æ®éƒ¨åˆ†ï¼Œä¸ä¿å­˜ next å’Œ prev æŒ‡é’ˆ
 		fwrite(curr->id, sizeof(char), 300, pf);
 		fwrite(curr->name, sizeof(char), 300, pf);
 		fwrite(curr->sex, sizeof(char), 20, pf);
@@ -47,6 +47,6 @@ void saveToFile(struct student* stu) {
 	} 
 	fclose(pf);  
 	pf = NULL;
-	printf("ÒÑ³É¹¦±£´æ %d ÃûÑ§ÉúĞÅÏ¢\n", stu->studentSize); 
+	printf("åŠ è½½æˆåŠŸ\n"); 
 	system("pause"); 
 }

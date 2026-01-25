@@ -31,7 +31,7 @@ void insertStudent(struct student* stu) {
             system("cls");
             continue;
         }
-        if (findByid(stu, id) != -1) {
+        if (findByid(stu, id) != NULL) {
             printf("已经存在该学号的学生\n");
             system("cls"); 
             printf("是否重新输入： 是(Y) 否(N)\n");
@@ -70,7 +70,8 @@ void insertStudent(struct student* stu) {
             printf("姓名不能为空, 请重新输入\n");
             Sleep(800);
             printf("\033[1A");    // 光标上移一行  
-            printf("\033[2K");    // 清除整行  
+            printf("\033[2K");    // 清除整行   
+            printf("\r"); 
             continue;
         }
         strcpy(node->name, name);
@@ -121,7 +122,8 @@ void insertStudent(struct student* stu) {
             printf("联系方式不能为空, 请重新输入\n");
             Sleep(800);
             printf("\033[1A");    // 光标上移一行  
-            printf("\033[2K");    // 清除整行  
+            printf("\033[2K");    // 清除整行   
+            printf("\r"); 
             continue;
         } else if (!isDigit(telephone)) {
             printf("联系方式应为纯数字, 请重新输入\n");

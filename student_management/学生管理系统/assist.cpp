@@ -33,21 +33,38 @@ bool isDigit(char* str) {
         }
     }
     return true;
+}  
+
+
+// 判断输入的字符串是否有数字或英文字符组成
+bool isAlphanumeric(char* str) {
+    int len = strlen(str); 
+    if (len == 0) {
+        return true; 
+    } 
+    for (int i = 0; i < len; i++) {
+        unsigned char ch = (unsigned char)str[i]; 
+        if (!isalnum(ch)) {
+            return false; 
+        } 
+    } 
+    return true; 
 }
 
+
 // 根据学号查找学生
-int findByid(struct student* stu, char* id) {
+struct ListNode* findByid(struct student* stu, char* id) {
     if (stu->studentSize == 0) {
-        return -1; 
+        return NULL; 
     } 
     struct ListNode* curr = stu->head;  
     for (int i = 0; i < stu->studentSize; i++) {
         if (strcmp(id, curr->id) == 0) {
-            return i; 
+            return curr; 
         }    
         curr = curr->next;
     }  
-    return -1;   
+    return NULL;   
 }    
  
 // 通过姓名查找学生   
@@ -63,6 +80,52 @@ int findByName(struct student* stu, char* name) {
     }
 	return -1;
 } 
+
+// 通过账号查找学生
+struct ListNode* findStudentByAccount(struct student* stu, char* account) {
+    if (stu->studentSize == 0) {
+        return NULL; 
+    } 
+    struct ListNode* curr = stu->head;  
+    while (curr != NULL) {
+        if (strcpy(curr->account, account) == 0) {
+            return curr; 
+        } 
+        curr = curr->next; 
+    } 
+    return NULL; 
+}  
+
+//根据账号查找教师
+struct teacher* findTeacherByAccount(struct teacher* teacher, char* account) {
+    if (teacher == NULL) {
+        return NULL; 
+    } 
+    struct teacher* curr = teacher; 
+    while (curr != NULL) {
+        if (curr->account == account) {
+            return curr; 
+        }
+    } 
+    return NULL; 
+} 
+
+
+// 根据账号查找管理员
+struct manager* findAdministratorByAccount(struct manager* administrator, char* account) {
+    if (administrator == NULL) {
+        return NULL;
+    }
+    struct manager* curr = administrator ;
+    while (curr != NULL) {
+        if (curr->account == account) {
+            return curr;
+        }
+    }
+    return NULL;
+}
+
+
 
 // 清空链表
 void clearList(struct student* stu) { 

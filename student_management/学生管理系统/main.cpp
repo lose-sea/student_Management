@@ -1,7 +1,8 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS 
 #include"student.h"   
 
-struct student stu;
+struct student stu; 
+struct teacher teacther; 
 int main() { 
     loadFromFile(&stu); 
 	displayAllStudent(&stu); 
