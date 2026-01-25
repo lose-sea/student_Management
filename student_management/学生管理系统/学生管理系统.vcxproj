@@ -154,6 +154,7 @@
   <ItemGroup>
     <None Include="administrator.bin" />
     <None Include="student.bin" />
+    <None Include="studentInformation.bin" />
     <None Include="teacher.bin" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

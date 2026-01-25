@@ -88,5 +88,8 @@
     <None Include="administrator.bin">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="studentInformation.bin">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>
