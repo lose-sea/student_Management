@@ -54,10 +54,11 @@ typedef struct teacher {
 typedef struct manager {  
     char account[300];     // 用户名
     char password[300];     // 密码
-	struct account* next;   // 下一个节点
-}manage;
+	struct manager* next;   // 下一个节点
+}manager;
 
 extern struct student* stu; 
-extern struct teacher* teacher; 
+extern struct teacher* teacher;  
+extern struct manager* manager; 
 
 

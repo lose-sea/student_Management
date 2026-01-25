@@ -82,7 +82,10 @@
     <None Include="student.bin">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="studentAccount.bin">
+    <None Include="teacher.bin">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="administrator.bin">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>

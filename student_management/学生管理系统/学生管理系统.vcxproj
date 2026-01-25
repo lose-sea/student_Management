@@ -152,8 +152,9 @@
     <ClCompile Include="updateStudent.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="administrator.bin" />
     <None Include="student.bin" />
-    <None Include="studentAccount.bin" />
+    <None Include="teacher.bin" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

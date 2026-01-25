@@ -189,6 +189,73 @@ void createAccount() {
             saveToFile(); 
             node->next = teacher;  
             teacher = node; 
+        } 
+        case '3': {
+            printf("请输入账号(账号至少为8为数字或英文字母): \n");
+            struct manager* node = (struct manager*)malloc(sizeof(struct manager));
+            char account[300];
+            while (1) {
+                fgets(account, 300, stdin);
+                removeNewline(account);
+                if (strlen(account) < 8 || !isAlphanumeric(account)) {
+                    printf("账号至少为8位数字或英文字母\n");
+                    Sleep(800);
+                    printf("\033[1A");    // 光标上移一行    
+                    printf("\033[2K");    // 清除整行      
+                    printf("\033[1A");    // 光标上移一行    
+                    printf("\033[2K");    // 清除整行     
+                    printf("\r");
+                } else if (findStudentByAccount(stu, account) != NULL) {
+                    printf("已存在该账号\n");
+                    Sleep(800);
+                    printf("\033[1A");    // 光标上移一行  
+                    printf("\033[2K");    // 清除整行   
+                    printf("\033[1A");    // 光标上移一行  
+                    printf("\033[2K");    // 清除整行   
+                    printf("\r");
+                    printf("是否重新输入： 是(Y) 否(N)\n");
+                    char selection = 0;
+                    while (1) {
+                        selection = _getch();
+                        if (selection == 'Y' || selection == 'y') {
+                            break;
+                        } else if (selection == 'N' || selection == 'n') {
+                            printf("返回上一层\n");
+                            system("pause");
+                            return;
+                        } else {
+                            printf("选择错误, 请重新选择\n");
+                            Sleep(800);
+                            printf("\033[1A");    // 光标上移一行  
+                            printf("\033[2K");    // 清除整行   
+                            printf("\r");
+                        }
+                    }
+                } else {
+                    break;
+                }
+            }
+            char password[300];
+            while (1) {
+                fgets(password, 300, stdin);
+                removeNewline(password);
+                if (strlen(password) < 8 || !isAlphanumeric(password)) {
+                    printf("密码至少为8位数字或英文字母\n");
+                    Sleep(800);
+                    printf("\033[1A");    // 光标上移一行  
+                    printf("\033[2K");    // 清除整行   
+                    printf("\033[1A");    // 光标上移一行    
+                    printf("\033[2K");    // 清除整行   
+                    printf("\r");
+                } else {
+                    break;
+                }
+            }
+            strcpy(node->account, account);
+            strcpy(node->password, password);
+            saveToFile();
+            node->next = manager; 
+            manager = node;
         }
     }  
 }  
