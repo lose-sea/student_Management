@@ -91,7 +91,7 @@ void deleteStudent(struct student* stu);
 void scoreAnalysis(struct student* stu); 
 
 //将学生信息保存到文件(二进制) 
-void saveToFile(struct student* stu); 
+void saveToFile(); 
 
 // 从文件中读取学生信息
-void loadFromFile(struct student* stu);
+void loadFromFile();

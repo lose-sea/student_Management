@@ -4,7 +4,7 @@
 #include"student.h" 
 
 //将学生信息保存到文件(二进制) 
-void saveToFile(struct student* stu) { 
+void saveToFile() { 
 	if (stu == NULL) {
 		printf("当前暂无学生信息\n"); 
 		system("pause"); 

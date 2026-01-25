@@ -55,7 +55,7 @@ void createAccount() {
                     printf("\r");
                     continue;
                 }
-                if (findByid(&stu, id) == NULL) {
+                if (findByid(stu, id) == NULL) {
                     printf("该学生不存在\n");
                     printf("是否重新输入： 是(Y) 否(N)\n");
                     char selection = 0;
@@ -77,7 +77,7 @@ void createAccount() {
                     }
                 }
             }
-            struct ListNode* curr = findByid(&stu, id);
+            struct ListNode* curr = findByid(stu, id);
             printf("请输入账号(账号至少为8为数字或英文字母): \n");
             char account[300];
             while (1) {
@@ -91,7 +91,7 @@ void createAccount() {
                     printf("\033[1A");    // 光标上移一行    
                     printf("\033[2K");    // 清除整行     
                     printf("\r");  
-                } else if (findStudentByAccount(&stu, account) != NULL) {  
+                } else if (findStudentByAccount(stu, account) != NULL) {  
                     printf("已存在该账号\n");  
                     Sleep(800);  
                     printf("\033[1A");    // 光标上移一行  
@@ -121,7 +121,7 @@ void createAccount() {
             }  
             strcpy(curr->account, account);  
             strcpy(curr->password, password);   
-            saveToFile(&stu); 
+            saveToFile(); 
         }    
         case '2': { 
             printf("请输入账号(账号至少为8为数字或英文字母): \n"); 
@@ -138,16 +138,34 @@ void createAccount() {
                     printf("\033[1A");    // 光标上移一行    
                     printf("\033[2K");    // 清除整行     
                     printf("\r");
-                } else if (findStudentByAccount(&stu, account) != NULL) {
+                } else if (findStudentByAccount(stu, account) != NULL) {
                     printf("已存在该账号\n");
                     Sleep(800);
                     printf("\033[1A");    // 光标上移一行  
                     printf("\033[2K");    // 清除整行   
                     printf("\033[1A");    // 光标上移一行  
                     printf("\033[2K");    // 清除整行   
-                    printf("\r");
+                    printf("\r"); 
+                    printf("是否重新输入： 是(Y) 否(N)\n");
+                    char selection = 0;
+                    while (1) {
+                        selection = _getch();
+                        if (selection == 'Y' || selection == 'y') {
+                            break;
+                        } else if (selection == 'N' || selection == 'n') {
+                            printf("返回上一层\n");
+                            system("pause");
+                            return;
+                        } else {
+                            printf("选择错误, 请重新选择\n");
+                            Sleep(800);
+                            printf("\033[1A");    // 光标上移一行  
+                            printf("\033[2K");    // 清除整行   
+                            printf("\r");
+                        }
+                    }
                 } else {
-                    break;
+                    break; 
                 }
             }
             char password[300];
@@ -168,7 +186,9 @@ void createAccount() {
             }
             strcpy(node->account, account);
             strcpy(node->password, password);
-            saveToFile(&stu);
+            saveToFile(); 
+            node->next = teacher;  
+            teacher = node; 
         }
     }  
 }  

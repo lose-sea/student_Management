@@ -57,7 +57,7 @@ typedef struct manager {
 	struct account* next;   // 下一个节点
 }manage;
 
-extern struct student stu; 
-extern struct teacher teacher; 
+extern struct student* stu; 
+extern struct teacher* teacher; 
 
 

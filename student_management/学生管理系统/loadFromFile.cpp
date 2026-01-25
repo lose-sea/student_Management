@@ -2,7 +2,7 @@
 #include"student.h"  
 
 // 从文件中读取数据(二进制) 
-void loadFromFile(struct student* stu) {  
+void loadFromFile() {  
 	if (stu == NULL) {
 		printf("当前暂无学生信息\n"); 
 		system("pause"); 

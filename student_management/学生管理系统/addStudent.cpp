@@ -3,7 +3,6 @@
 // 添加学生信息 (尾插)
 void addStudent(struct student* stu) {
     system("cls");
-    
     // 输入学号（先验证，再创建节点）
     char id[300];
     while (1) {
