@@ -48,7 +48,7 @@ void saveToFile() {
 
 	fclose(pf);  
 	pf = NULL;
-	printf("加载成功\n"); 
+	printf("保存成功\n"); 
 	system("pause"); 
 }
 
