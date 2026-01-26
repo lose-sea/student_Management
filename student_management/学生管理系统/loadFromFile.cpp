@@ -11,7 +11,7 @@ void loadFromFile() {
 	}
 	FILE* pf = fopen("student.bin", "rb");  
 	if (pf == NULL) {
-		printf("文件打开失败\n"); 
+		printf("学生文件打开失败\n"); 
 		system("pause"); 
 		return; 
 	} 
@@ -70,9 +70,6 @@ void loadFromFile() {
 		fread(newNode->grade, sizeof(char), 300, pf);
 		fread(newNode->class1, sizeof(char), 300, pf);  
 
-		// fread(newNode, sizeof(struct ListNode), 1, pf); 
- 
-
 		// 显示进度
 		printf("正在读取第 %d/%d 个学生: %s\n", i, stu->studentSize, newNode->name); 
 		 // 上移一行
@@ -82,19 +79,50 @@ void loadFromFile() {
 		printf("\r"); 
 	}   
 	fclose(pf); 
-	pf = NULL;  
-	//pf = fopen("teacher.bin", "rb");   
-	//if (pf == NULL) {
-	//	printf("文件打开失败\n"); 
-	//	system("pause"); 
-	//	return; 
-	//}
-	//struct teacher* curr = teacher;  
-	//
+
+	// 读取教师数据
+	pf = fopen("teacher.bin", "rb");
+	if (pf == NULL) {
+		printf("文件打开失败\n"); 
+		system("pause"); 
+		return; 
+	}
+	
+	struct teacher* curr = teach; 
+	while ()
+	
 	
 	printf("加载成功\n"); 
 	system("pause"); 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
