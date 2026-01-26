@@ -2,16 +2,16 @@
 #include"student.h"   
 
 struct student* stu = NULL; 
-struct teacher* teacher = NULL;  
-struct manager* manager = NULL; 
+struct teacher* teach = NULL;  
+struct manager* manage = NULL; 
 int main() {  
     stu = (struct student*)malloc(sizeof(struct student));
     stu->head = NULL;
     stu->tail = NULL;
     stu->studentSize = 0;
        
-    teacher = (struct teacher*)malloc(sizeof(struct teacher)); 
-    manager = (struct manager*)malloc(sizeof(struct manager)); 
+    teach = (struct teacher*)malloc(sizeof(struct teacher)); 
+    manage = (struct manager*)malloc(sizeof(struct manager)); 
 
     loadFromFile(); 
 	displayAllStudent(stu); 

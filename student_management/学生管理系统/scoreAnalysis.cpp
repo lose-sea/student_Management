@@ -3,15 +3,15 @@
 
 #include"student.h"
 
-// ³É¼¨·ÖÎö
+// æˆç»©åˆ†æ
 void scoreAnalysis(struct student* stu) {
 	if (stu == NULL) {
-		printf("ÔİÎŞÑ§ÉúĞÅÏ¢\n");
+		printf("æš‚æ— å­¦ç”Ÿä¿¡æ¯\n");
 		system("pause");
 		return;
 	}
 	if (stu->studentSize == 0) {
-		printf("ÔİÎŞÑ§ÉúĞÅÏ¢\n");
+		printf("æš‚æ— å­¦ç”Ÿä¿¡æ¯\n");
 		system("pause");
 		return;
 	}
@@ -28,9 +28,9 @@ void scoreAnalysis(struct student* stu) {
 	double avgMath = totalMath / stu->studentSize;
 	double avgHistory = totalHistory / stu->studentSize;
 	double avgEnglish = totalEnglish / stu->studentSize;
-	printf("³É¼¨·ÖÎö½á¹û:\n");
-	printf("¸ßÊıÆ½¾ù·Ö: %.2lf\n", avgMath);
-	printf("½ü´úÊ·Æ½¾ù·Ö: %.2lf\n", avgHistory);
-	printf("Ó¢ÓïÆ½¾ù·Ö: %.2lf\n", avgEnglish);
+	printf("æˆç»©åˆ†æç»“æœ:\n");
+	printf("é«˜æ•°å¹³å‡åˆ†: %.2lf\n", avgMath);
+	printf("è¿‘ä»£å²å¹³å‡åˆ†: %.2lf\n", avgHistory);
+	printf("è‹±è¯­å¹³å‡åˆ†: %.2lf\n", avgEnglish);
 	system("pause");
 }

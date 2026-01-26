@@ -58,7 +58,7 @@ typedef struct manager {
 }manager;
 
 extern struct student* stu; 
-extern struct teacher* teacher;  
-extern struct manager* manager; 
+extern struct teacher* teach;  
+extern struct manager* manage; 
 
 

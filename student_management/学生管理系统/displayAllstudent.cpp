@@ -2,67 +2,67 @@
 
 #include"student.h" 
 
-// ÏÔÊ¾°à¼¶Ñ§Éú¾ßÌåĞÅÏ¢ 
+// æ˜¾ç¤ºç­çº§å­¦ç”Ÿå…·ä½“ä¿¡æ¯ 
 void  displayAllStudent(struct student* stu) {
     system("cls");
     if (stu->studentSize == 0) {
-        printf("ÔİÎŞÑ§ÉúĞÅÏ¢\n");
+        printf("æš‚æ— å­¦ç”Ÿä¿¡æ¯\n");
         system("pause");
         return;
     }
-    int directorypage = (stu->studentSize + 9) / 10;        // Ä¿Â¼Ò³Êı  
-	int totalpage = directorypage + stu->studentSize;       // ×ÜÒ³Êı£¨Ä¿Â¼Ò³Êı + Ñ§ÉúĞÅÏ¢Ò³Êı£©
-    int currpage = 1;               // µ±Ç°Ò³Âë 
-    int i = 1;                  // µ±Ç°ÏÔÊ¾µÄÑ§ÉúĞòºÅ
+    int directorypage = (stu->studentSize + 9) / 10;        // ç›®å½•é¡µæ•°  
+	int totalpage = directorypage + stu->studentSize;       // æ€»é¡µæ•°ï¼ˆç›®å½•é¡µæ•° + å­¦ç”Ÿä¿¡æ¯é¡µæ•°ï¼‰
+    int currpage = 1;               // å½“å‰é¡µç  
+    int i = 1;                  // å½“å‰æ˜¾ç¤ºçš„å­¦ç”Ÿåºå·
     struct ListNode* curr = stu->head;
 
     while (1) {
         system("cls");
-        printf("µ±Ç°°à¼¶ÓĞ %d ÃûÑ§Éú\n", stu->studentSize); 
+        printf("å½“å‰ç­çº§æœ‰ %d åå­¦ç”Ÿ\n", stu->studentSize); 
         if (currpage <= directorypage) { 
-            printf("=========== ÏÔÊ¾Ñ§ÉúÄ¿Â¼ ===========\n\n\n"); 
+            printf("=========== æ˜¾ç¤ºå­¦ç”Ÿç›®å½• ===========\n\n\n"); 
             for (int j = 0; j < 10 && i <= stu->studentSize && curr != NULL; j++) {
-                printf("ĞòºÅ:%-3d  ", i);
-                printf("ĞÕÃû:%-8s  Ñ§ºÅ:%-6s  ĞÔ±ğ: %s \n\n", curr->name, curr->id, curr->sex); 
+                printf("åºå·:%-3d  ", i);
+                printf("å§“å:%-8s  å­¦å·:%-6s  æ€§åˆ«: %s \n\n", curr->name, curr->id, curr->sex); 
 				curr = curr->next;  
                 i++; 
             }
 		} else if (currpage > directorypage) {
-            printf("=========== ÏÔÊ¾Ñ§ÉúĞÅÏ¢ ===========\n");
-            printf("ĞòºÅ:%d  \n", i);
-            printf("Ñ§ºÅ: %s\n", curr->id);
-            printf("ĞÕÃû: %s\n", curr->name);
-            printf("ĞÔ±ğ: %s\n", curr->sex);
-            printf("ÄêÁä: %d\n", curr->age);
-            printf("µç»°: %s\n", curr->telephone);
-            printf("×¨Òµ: %s\n", curr->major);
-            printf("¸ßÊı³É¼¨: %.2lf\n", curr->Math);
-            printf("½ü´úÊ·³É¼¨: %.2lf\n", curr->History);
-            printf("Ó¢Óï³É¼¨: %.2lf\n", curr->English);
-            printf("³É¼¨: %.2f\n", curr->totalscore);
-            printf("Äê¼¶: %s\n", curr->grade);
-            printf("°à¼¶: %s\n\n", curr->class1);
+            printf("=========== æ˜¾ç¤ºå­¦ç”Ÿä¿¡æ¯ ===========\n");
+            printf("åºå·:%d  \n", i);
+            printf("å­¦å·: %s\n", curr->id);
+            printf("å§“å: %s\n", curr->name);
+            printf("æ€§åˆ«: %s\n", curr->sex);
+            printf("å¹´é¾„: %d\n", curr->age);
+            printf("ç”µè¯: %s\n", curr->telephone);
+            printf("ä¸“ä¸š: %s\n", curr->major);
+            printf("é«˜æ•°æˆç»©: %.2lf\n", curr->Math);
+            printf("è¿‘ä»£å²æˆç»©: %.2lf\n", curr->History);
+            printf("è‹±è¯­æˆç»©: %.2lf\n", curr->English);
+            printf("æˆç»©: %.2f\n", curr->totalscore);
+            printf("å¹´çº§: %s\n", curr->grade);
+            printf("ç­çº§: %s\n\n", curr->class1);
         }
-        // ÏÔÊ¾µ¼º½
-        printf("\n\nµÚ %d Ò³ / ¹² %d Ò³\n\n", currpage, totalpage);
-        printf("·µ»ØÊ×Ò³(F)    ×îºóÒ»Ò³(L)    ÉÏÒ»Ò³(P)    ÏÂÒ»Ò³(N)    \nÍË³ö(R)\n");
+        // æ˜¾ç¤ºå¯¼èˆª
+        printf("\n\nç¬¬ %d é¡µ / å…± %d é¡µ\n\n", currpage, totalpage);
+        printf("è¿”å›é¦–é¡µ(F)    æœ€åä¸€é¡µ(L)    ä¸Šä¸€é¡µ(P)    ä¸‹ä¸€é¡µ(N)    \né€€å‡º(R)\n");
         char selection = '\0';
         while (1) {
             selection = _getch();
             if (selection == 'F' || selection == 'f') {
-                if (currpage == 1) {              // Ã¿Ò³ÏÔÊ¾10¸öÍ¬Ñ§ĞÅÏ¢
-                    printf("µ±Ç°ÒÑÔÚµÚÒ»Ò³\n");
+                if (currpage == 1) {              // æ¯é¡µæ˜¾ç¤º10ä¸ªåŒå­¦ä¿¡æ¯
+                    printf("å½“å‰å·²åœ¨ç¬¬ä¸€é¡µ\n");
                 } else {
                     curr = stu->head;
                     i = 1;
                     currpage = 1;
-                    printf("ÕıÔÚÌø×ª...");
+                    printf("æ­£åœ¨è·³è½¬...");
                     Sleep(600);
                     break;
                 }
             } else if (selection == 'L' || selection == 'l') {
                 if (currpage == totalpage) {
-                    printf("µ±Ç°ÒÑÔÚ×îºóÒ»Ò³\n");
+                    printf("å½“å‰å·²åœ¨æœ€åä¸€é¡µ\n");
                 } else {
                     curr = stu->head;
                     for (int j = 0; j  < stu->studentSize - 1; j++) {
@@ -70,14 +70,14 @@ void  displayAllStudent(struct student* stu) {
 					}
                     i = stu->studentSize;
                     currpage = totalpage;
-                    printf("ÕıÔÚÌø×ª...");
+                    printf("æ­£åœ¨è·³è½¬...");
                     Sleep(600);
                     break;
                 }
             }
             else if (selection == 'P' || selection == 'p') {
                 if (currpage == 1) {
-                    printf("µ±Ç°ÒÑÔÚµÚÒ»Ò³\n"); 
+                    printf("å½“å‰å·²åœ¨ç¬¬ä¸€é¡µ\n"); 
                 } else if (currpage == directorypage + 1) {
                     curr = stu->head; 
                     curr = stu->head;
@@ -87,11 +87,11 @@ void  displayAllStudent(struct student* stu) {
                         curr = curr->next;
                     }
                     i = skipNodes + 1;
-                    printf("ÕıÔÚÌø×ª...");
+                    printf("æ­£åœ¨è·³è½¬...");
                     Sleep(600);
                     break; 
                 } else if (currpage <= directorypage){
-                    // ¼ÆËãÒªÌø¹ıµÄ½ÚµãÊı
+                    // è®¡ç®—è¦è·³è¿‡çš„èŠ‚ç‚¹æ•°
                     int skipNodes = (currpage - 2) * 10;
                     curr = stu->head;
                     for (int j = 0; j < skipNodes && curr != NULL; j++) {
@@ -99,7 +99,7 @@ void  displayAllStudent(struct student* stu) {
                     }
                     i = skipNodes + 1;
                     currpage--; 
-                    printf("ÕıÔÚÌø×ª...");
+                    printf("æ­£åœ¨è·³è½¬...");
                     Sleep(600);
                     break;
                 } else { 
@@ -109,18 +109,18 @@ void  displayAllStudent(struct student* stu) {
                     i--; 
 		            
                     currpage--;                     
-                    printf("ÕıÔÚÌø×ª...");
+                    printf("æ­£åœ¨è·³è½¬...");
                     Sleep(600);
 					break;
                 }
             } else if (selection == 'N' || selection == 'n') {
                 if (currpage == totalpage) {
-                    printf("µ±Ç°ÒÑÔÚ×îºóÒ»Ò³\n");
+                    printf("å½“å‰å·²åœ¨æœ€åä¸€é¡µ\n");
                 } else if (currpage == directorypage) {
                     curr = stu->head; 
                     i = 1; 
                     currpage++; 
-                    printf("ÕıÔÚÌø×ª...");
+                    printf("æ­£åœ¨è·³è½¬...");
                     Sleep(600); 
                     break; 
                 } else if (currpage > directorypage) {
@@ -129,12 +129,12 @@ void  displayAllStudent(struct student* stu) {
 					} 
                     i++;
                     currpage++;
-                    printf("ÕıÔÚÌø×ª...");
+                    printf("æ­£åœ¨è·³è½¬...");
                     Sleep(600);
                     break;
                 }  else {
                     currpage++;
-                    printf("ÕıÔÚÌø×ª...");
+                    printf("æ­£åœ¨è·³è½¬...");
                     Sleep(600);
                     break;
                 }
@@ -142,12 +142,12 @@ void  displayAllStudent(struct student* stu) {
                 system("pause");
                 return;
             } else {
-                printf("ÊäÈëÎŞĞ§, ÇëÖØĞÂÊäÈë\n");
+                printf("è¾“å…¥æ— æ•ˆ, è¯·é‡æ–°è¾“å…¥\n");
             }
             Sleep(600);
-            printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
-            printf("\033[2K");    // Çå³ıÕûĞĞ  
-            printf("\r");         // »Øµ½ĞĞÊ×  
+            printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
+            printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ  
+            printf("\r");         // å›åˆ°è¡Œé¦–  
         }
     }
 }
