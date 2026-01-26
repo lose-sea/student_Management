@@ -70,28 +70,100 @@ void loadFromFile() {
 		fread(newNode->grade, sizeof(char), 300, pf);
 		fread(newNode->class1, sizeof(char), 300, pf);  
 
-		// 显示进度
-		printf("正在读取第 %d/%d 个学生: %s\n", i, stu->studentSize, newNode->name); 
-		 // 上移一行
-		printf("\033[1A");
-		// 清除当前行
-		printf("\033[2K"); 
-		printf("\r"); 
+		// // 显示进度
+		// printf("正在读取第 %d/%d 个学生: %s\n", i, stu->studentSize, newNode->name); 
+		//  // 上移一行
+		// printf("\033[1A");
+		// // 清除当前行
+		// printf("\033[2K"); 
+		// printf("\r"); 
 	}   
 	fclose(pf); 
 
 	// 读取教师数据
 	pf = fopen("teacher.bin", "rb");
-	if (pf == NULL) {
-		printf("文件打开失败\n"); 
+	if (pf == NULL) {   
+		printf("教师文件打开失败\n"); 
 		system("pause"); 
 		return; 
 	}
 	
-	struct teacher* curr = teach; 
-	while ()
+	// 清空现有数据
+	struct teacher* currteach = teach;   
+	while (currteach != NULL) {   
+		struct teacher* temp = currteach;   
+		currteach = currteach->next; 	
+		free(temp); 
+	}   
+	teach = NULL;  // 清空链表头
 	
+	size_t read_count;  
+	while (1) {
+		// 在判断之前创建节点
+		struct teacher* newNode = (struct teacher*)malloc(sizeof(struct teacher)); 
+		if (newNode == NULL) {   
+			printf("教师内存分配失败\n");    
+			break; 
+		}    
+		
+		// 读取数据
+		read_count = fread(newNode, sizeof(struct teacher), 1, pf);
+		if (read_count == 0) {
+			free(newNode);  // 读取失败，释放节点 
+			if (feof(pf)) {
+				// 文件正常结束
+				break;
+			} else {
+				// 读取错误
+				printf("读取教师文件失败\n");
+				break;
+			}
+		}
+		
+		// 头插法插入链表
+		newNode->next = teach;
+		teach = newNode;
+	}
+	fclose(pf); 
+
+	pf = fopen("administrator.bin", "rb"); 
+	if (pf == NULL) {   
+		printf("管理员文件打开失败\n"); 
+		system("pause"); 
+		return; 
+	}  
+	// 清空现有数据
+	struct manager* currmanager = manage; 
+	while (currmanager != NULL) {
+		struct manager* temp = currmanager;   
+		currmanager = currmanager->next; 	
+		free(temp); 
+	}   
+	manage = NULL;  // 清空链表头
 	
+	while (1) {
+		struct manager* newNode = (struct manager*)malloc(sizeof(struct manager)); 
+		if (newNode == NULL) {   
+			printf("管理员内存分配失败\n");   
+			break;   
+		}    
+		// 读取数据
+		read_count = fread(newNode, sizeof(struct manager), 1, pf);
+		if (read_count == 0) {
+			free(newNode);  // 读取失败，释放节点  
+			if (feof(pf)) {
+				break;
+			} else {
+				printf("读取管理员文件失败\n");
+				break;
+			}
+		}
+		// 头插法插入链表
+		newNode->next = manage;
+		manage = newNode;
+	}
+	fclose(pf); 
+	pf = NULL; 
 	printf("加载成功\n"); 
 	system("pause"); 
 }
