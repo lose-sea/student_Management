@@ -10,15 +10,15 @@ int main() {
     stu->tail = NULL;
     stu->studentSize = 0;
        
-    teach = (struct teacher*)malloc(sizeof(struct teacher)); 
-    manage = (struct manager*)malloc(sizeof(struct manager)); 
+    teach = NULL;  // 链表头指针初始化为 NULL
+    manage = NULL;  // 链表头指针初始化为 NULL 
 
     loadFromFile(); 
-	displayAllStudent(stu); 
+	displayAllStudent(stu);     
     FILE* pf = fopen("studentAccount.bin", "w"); 
     fclose(pf); 
-    pf = NULL; 
-    updateStudent(stu); 
+    pf = NULL;  
+    addStudent(stu);    
     saveToFile(); 
     return 0; 
 }   
