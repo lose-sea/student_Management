@@ -4,7 +4,8 @@
 struct student* stu = NULL; 
 struct teacher* teach = NULL;  
 struct manager* manage = NULL; 
-int main() {  
+int main() {   
+
     stu = (struct student*)malloc(sizeof(struct student));
     stu->head = NULL;
     stu->tail = NULL;
