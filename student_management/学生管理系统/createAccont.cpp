@@ -5,9 +5,9 @@
 
 // 注册账号
 void createAccount() {
-	printf("===== 注册账号 =====\n"); 
+	printf("========= 注册账号 =========\n"); 
 	printf("请输入你要注册的账号类型\n"); 
-	printf("1.学生		2.教师		3.管理员"); 
+	printf("1.学生		2.教师		3.管理员\n"); 
 	char selection; 
 	while (1) {
 		selection = _getch(); 
