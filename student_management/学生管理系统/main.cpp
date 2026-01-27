@@ -10,7 +10,7 @@ int main() {
     stu->head = NULL;
     stu->tail = NULL;
     stu->studentSize = 0;
-       
+    
     teach = NULL;  // 链表头指针初始化为 NULL
     manage = NULL;  // 链表头指针初始化为 NULL 
 
