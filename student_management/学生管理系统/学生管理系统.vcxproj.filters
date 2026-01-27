@@ -65,7 +65,7 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="displayStudentList.cpp">
+    <ClCompile Include="displayStudentScoreList.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="scoreAnalysis.cpp">
@@ -77,6 +77,9 @@
     <ClCompile Include="createAccont.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="retrievePassword.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="student.bin">
@@ -86,9 +89,6 @@
       <Filter>资源文件</Filter>
     </None>
     <None Include="administrator.bin">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="studentInformation.bin">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>

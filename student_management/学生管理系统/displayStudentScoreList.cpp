@@ -4,7 +4,7 @@
 #include"student.h" 
 
 // 显示学生成绩列表
-void displayStudentList(struct student* stu) {
+void displayStudenScoretList(struct student* stu) {
     if (stu == NULL) {
         printf("暂无学生信息\n");
         system("pause");
@@ -23,7 +23,7 @@ void displayStudentList(struct student* stu) {
             i++; 
         }
         // 显示导航
-        printf("\n\n第 %d 页 / 共 %d 页\n\n", currpage, total_page);
+        printf("\n\n第 %d 页 / 共 %d 页\n\n", currpage, total_page);  
         printf("返回首页(F)    最后一页(L)    上一页(P)    下一页(N)    \n退出(R)\n");
         char selection = '\0';
         while (1) {

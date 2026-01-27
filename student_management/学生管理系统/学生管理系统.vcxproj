@@ -140,9 +140,10 @@
     <ClCompile Include="displayAllstudent.cpp" />
     <ClCompile Include="displayMenuOfLogin.cpp" />
     <ClCompile Include="displayMenuOfUser.cpp" />
-    <ClCompile Include="displayStudentList.cpp" />
+    <ClCompile Include="displayStudentScoreList.cpp" />
     <ClCompile Include="insertStudent.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="retrievePassword.cpp" />
     <ClCompile Include="saveToFile.cpp" />
     <ClCompile Include="scoreAnalysis.cpp" />
     <ClCompile Include="sortByScore.cpp" />
@@ -154,7 +155,6 @@
   <ItemGroup>
     <None Include="administrator.bin" />
     <None Include="student.bin" />
-    <None Include="studentInformation.bin" />
     <None Include="teacher.bin" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

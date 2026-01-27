@@ -1,9 +1,9 @@
-//#define _CRT_SECURE_NO_WARNINGS 
+ï»¿#define _CRT_SECURE_NO_WARNINGS 
 //#include"student.h" 
 //int main() {
-//	// printf("µ±Ç°ÒÑÔÚµÚÒ»Ò³\n");
+//	// printf("å½“å‰å·²åœ¨ç¬¬ä¸€é¡µ\n");
 //    // Sleep(2000);
-//    // // ÏÈ»Øµ½ĞĞÊ×£¬ÔÙÇå³ıÕûĞĞ
+//    // // å…ˆå›åˆ°è¡Œé¦–ï¼Œå†æ¸…é™¤æ•´è¡Œ
 //    // printf("\033[1A\r\033[K");
 //	// int i = 0;  
 //	// scanf("%d", &i); 
@@ -24,30 +24,32 @@
 //
 //	/*char grade[300]; 
 //	
-//	printf("      ¼¶\b\b\b\b\b\b\b\b\b\b\b\b\b\b"); 
+//	printf("      çº§\b\b\b\b\b\b\b\b\b\b\b\b\b\b"); 
 //	fgets(grade, 300, stdin);*/
 //
-//	// ÊäÈëÄê¼¶
-//	//printf("ÇëÊäÈëÄê¼¶: (ÀıÈç£º25)\n");
+//	// è¾“å…¥å¹´çº§
+//	//printf("è¯·è¾“å…¥å¹´çº§: (ä¾‹å¦‚ï¼š25)\n");
 //	//char grade[300];
-//	//printf("       ¼¶\b\b\b\b\b\b\b\b\b\b");
+//	//printf("       çº§\b\b\b\b\b\b\b\b\b\b");
 //	//fgets(grade, 300, stdin);
 //	//removeNewline(grade);
-//	//strcat(grade, "¼¶");
+//	//strcat(grade, "çº§");
 //	//printf("%s\n", grade);
 //
-//	//// ÊäÈë°à¼¶
-//	//printf("ÇëÊäÈë°à¼¶: (ÀıÈç:¼Æ¿Æ2501\n");
+//	//// è¾“å…¥ç­çº§
+//	//printf("è¯·è¾“å…¥ç­çº§: (ä¾‹å¦‚:è®¡ç§‘2501\n");
 //	//char class1[300];
-//	//printf("         °à\b\b\b\b\b\b\b\b\b\b\b\b");
+//	//printf("         ç­\b\b\b\b\b\b\b\b\b\b\b\b");
 //	//fgets(class1, 300, stdin);
 //	//removeNewline(class1);
-//	//strcat(class1, "°à");
+//	//strcat(class1, "ç­");
 //	//printf("%s\n", class1); 
 //
 //	student stu;
 //	stu.head = NULL; 
 //	stu.studentSize = 0; 
-//	addStudent(&stu);
+//	addStudent(&stu); 
 //	return 0; 
-//}  
+//}    
+
+

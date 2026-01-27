@@ -61,7 +61,7 @@ void addStudent(struct student* stu);
 void searchStudentByName(struct student* stu, char* name); 
 
 // 显示学生成绩列表
-void displayStudentList(struct student* stu); 
+void displayStudenScoretList(struct student* stu);
 
 // 更新学生信息
 void updateStudent(struct student* stu);  

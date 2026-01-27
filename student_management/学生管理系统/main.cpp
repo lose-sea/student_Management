@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS 
+﻿#define _CRT_SECURE_NO_WARNINGS 
 #include"student.h"   
 
 struct student* stu = NULL; 
@@ -15,6 +15,11 @@ int main() {
     manage = NULL;  // 链表头指针初始化为 NULL 
 
     loadFromFile(); 
+
+
+
+
+
 	displayAllStudent(stu);     
     FILE* pf = fopen("studentAccount.bin", "w"); 
     fclose(pf); 
