@@ -4,20 +4,24 @@
 #include"student.h" 
 
 // 注册账号
-void createAccount() {
+void createAccount() { 
+    system("cls"); 
 	printf("========= 注册账号 =========\n"); 
 	printf("请输入你要注册的账号类型\n"); 
-	printf("1.学生		2.教师		3.管理员\n"); 
+	printf("1.学生		2.教师		3.管理员\n");   
 	char selection; 
 	while (1) {
-		selection = _getch(); 
-		if (selection == '1') {
+		selection = _getch();  
+		if (selection == '1') { 
+            system("cls");
 			printf("学生端\n"); 
 			break; 
-		} else if (selection == '2') {
+		} else if (selection == '2') { 
+            system("cls");
 			printf("教师端\n"); 
 			break;     
-		} else if (selection == '3') {
+		} else if (selection == '3') { 
+            system("cls");
 			printf("管理员端\n"); 
 			break; 
 		} else {
@@ -32,38 +36,29 @@ void createAccount() {
     switch (selection) { 
         case '1': {
             char id[300];
-            printf("请输入学号: \n");
-            while (1) { 
-                clearInputBuffer(); 
+            while (1) {  
+                printf("请输入学号: \n");
                 fgets(id, 300, stdin);
                 removeNewline(id);
                 if (!isDigit(id)) {    
                     printf("学号应为纯数字, 请重新输入\n");
                     Sleep(800);
-                    printf("\033[1A");    // 光标上移一行  
-                    printf("\033[2K");    // 清除整行    
-                    printf("\033[1A");    // 光标上移一行      
-                    printf("\033[2K");    // 清除整行     
-                    printf("\r");    
+                    system("cls"); 
                     continue;
                 } else if (strlen(id) == 0) {
                     printf("学号不能为空, 请重新输入\n");
                     Sleep(800);
-                    printf("\033[1A");    // 光标上移一行  
-                    printf("\033[2K");    // 清除整行   
-                    printf("\033[1A");    // 光标上移一行  
-                    printf("\033[2K");    // 清除整行   
-                    printf("\r");
+                    system("cls");
                     continue;
                 }
                 if (findByid(stu, id) == NULL) {
                     printf("该学生不存在\n");
                     printf("是否重新输入： 是(Y) 否(N)\n");
                     char selection = 0;
-                    while (1) { 
-                        clearInputBuffer(); 
+                    while (1) {  
                         selection = _getch();
-                        if (selection == 'Y' || selection == 'y') {
+                        if (selection == 'Y' || selection == 'y') { 
+                            system("cls");
                             break;
                         } else if (selection == 'N' || selection == 'n') {
                             printf("退出\n");
@@ -85,7 +80,6 @@ void createAccount() {
             printf("请输入账号(账号至少为8为数字或英文字母): \n");
             char account[300];
             while (1) { 
-                clearInputBuffer(); 
                 fgets(account, 300, stdin);
                 removeNewline(account);
                 if (strlen(account) < 8 || !isAlphanumeric(account)) {
@@ -111,16 +105,21 @@ void createAccount() {
             printf("请输入密码(密码至少为8为数字或英文字母): \n");
             char password[300] = {0};
             while (1) { 
-                clearInputBuffer(); 
                 int i = 0;  
                 char ch; 
-                while((ch = _getch()) != '\n') {
-                    password[i++] = ch; 
-                    printf("*"); 
-                } 
+                while ((ch = _getch()) != '\r')  // 检测回车按键 '\r'
+                {
+                    if (ch == '\b' && i > 0) { // 处理退格键
+                        i--;
+                        printf("\b \b");  // 退格并清空显示
+                    } else if (ch != '\b') {
+                        password[i++] = ch;
+                        printf("*");
+                    }
+                }
                 password[i] = '\0';
                 if (strlen(password) < 8 || !isAlphanumeric(password)) {    
-                    printf("密码至少为8位数字或英文字母\n");   
+                    printf("\n密码至少为8位数字或英文字母\n");   
                     Sleep(800);  
                     printf("\033[1A");    // 光标上移一行  
                     printf("\033[2K");    // 清除整行   
@@ -141,7 +140,6 @@ void createAccount() {
             struct teacher* node = (struct teacher*)malloc(sizeof(struct teacher)); 
             char account[300];
             while (1) { 
-                clearInputBuffer(); 
                 fgets(account, 300, stdin);
                 removeNewline(account); 
                 if (strlen(account) < 8 || !isAlphanumeric(account)) {
@@ -162,8 +160,7 @@ void createAccount() {
                     printf("\r"); 
                     printf("是否重新输入： 是(Y) 否(N)\n");
                     char selection = 0;
-                    while (1) { 
-                        clearInputBuffer(); 
+                    while (1) {  
                         selection = _getch();
                         if (selection == 'Y' || selection == 'y') {
                             break;
@@ -186,16 +183,21 @@ void createAccount() {
             printf("请输入密码(密码至少为8为数字或英文字母): \n");
             char password[300] = {0};
             while (1) { 
-                clearInputBuffer(); 
                 int i = 0;  
                 char ch; 
-                while((ch = _getch()) != '\n') {
-                    password[i++] = ch; 
-                    printf("*"); 
-                } 
+                while ((ch = _getch()) != '\r')  // 检测回车按键 '\r'
+                {
+                    if (ch == '\b' && i > 0) {
+                        i--;
+                        printf("\b \b");  // 退格并清空显示
+                    } else if (ch != '\b') {
+                        password[i++] = ch;
+                        printf("*");
+                    }
+                }
                 password[i] = '\0';
                 if (strlen(password) < 8 || !isAlphanumeric(password)) {
-                    printf("密码至少为8位数字或英文字母\n");
+                    printf("\n密码至少为8位数字或英文字母\n");
                     Sleep(800);
                     printf("\033[1A");    // 光标上移一行  
                     printf("\033[2K");    // 清除整行   
@@ -218,10 +220,8 @@ void createAccount() {
             struct manager* node = (struct manager*)malloc(sizeof(struct manager));
             char account[300];
             while (1) { 
-                clearInputBuffer(); 
                 fgets(account, 300, stdin);
                 removeNewline(account);
-                clearInputBuffer(); 
                 if (strlen(account) < 8 || !isAlphanumeric(account)) {
                     printf("账号至少为8位数字或英文字母\n");
                     Sleep(800);
@@ -241,7 +241,6 @@ void createAccount() {
                     printf("是否重新输入： 是(Y) 否(N)\n");
                     char selection = 0;
                     while (1) { 
-                        clearInputBuffer(); 
                         selection = _getch();
                         if (selection == 'Y' || selection == 'y') {
                             break;
@@ -264,16 +263,21 @@ void createAccount() {
             printf("请输入密码(密码至少为8为数字或英文字母): \n");
             char password[300] = {0};
             while (1) { 
-                clearInputBuffer(); 
                 int i = 0;  
                 char ch; 
-                while((ch = _getch()) != '\n') {
-                    password[i++] = ch; 
-                    printf("*"); 
-                } 
+                while ((ch = _getch()) != '\r')  // 检测回车按键 '\r'
+                {
+                    if (ch == '\b' && i > 0) {
+                        i--;
+                        printf("\b \b");  // 退格并清空显示
+                    } else if (ch != '\b') {
+                        password[i++] = ch;
+                        printf("*");
+                    }
+                }
                 password[i] = '\0';
                 if (strlen(password) < 8 || !isAlphanumeric(password)) {
-                    printf("密码至少为8位数字或英文字母\n");
+                    printf("\n密码至少为8位数字或英文字母\n");
                     Sleep(800);
                     printf("\033[1A");    // 光标上移一行  
                     printf("\033[2K");    // 清除整行   

@@ -35,6 +35,8 @@ struct teacher* findTeacherByAccount(struct teacher* teacher, char* account);
 struct manager* findAdministratorByAccount(struct manager* administrator, char* account); 
   
  
+// 显示初始界面
+void displayInitialInterfal(); 
 
 // 显示登录菜单
 void displayMenuOfLogin(); 
@@ -49,7 +51,10 @@ void displayMenuOfAdministrator();
 void displayMenuOfTeacther(); 
 
 // 显示菜单(学生端) 
-void displayOfStudent(); 
+void displayOfStudent();  
+
+// 找回密码 
+void retrievePassword(); 
 
 // 显示班级学生具体信息 
 void  displayAllStudent(struct student* stu); 

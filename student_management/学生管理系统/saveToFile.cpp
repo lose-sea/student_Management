@@ -123,7 +123,7 @@ void saveToFile() {
 
 	fclose(pf);  
 	pf = NULL; 
-	printf("保存成功\n"); 
+	printf("\n保存成功\n"); 
 	system("pause"); 
 }
 

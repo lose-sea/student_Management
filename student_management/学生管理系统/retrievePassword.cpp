@@ -92,10 +92,16 @@ void retrievePassword() {
 				clearInputBuffer();
 				int i = 0;
 				char ch;
-				while ((ch = _getch()) != '\n') {  
-					password[i++] = ch;  
-					printf("*");  
-				}  
+				while ((ch = _getch()) != '\r')  // 检测回车按键 '\r'
+				{
+					if (ch == '\b' && i > 0) { // 处理退格键
+						i--;
+						printf("\b \b");  // 退格并清空显示
+					} else if (ch != '\b') {
+						password[i++] = ch;
+						printf("*");
+					}
+				}
 				password[i] = '\0';
 				if (strlen(password) < 8 || !isAlphanumeric(password)) {
 					printf("密码至少为8位数字或英文字母\n");
@@ -105,9 +111,15 @@ void retrievePassword() {
 					char temp[300] = {0};
 					i = 0;
 					printf("请再次输入新密码确认: \n");
-					while ((ch = _getch()) != '\n') {
-						temp[i++] = ch;
-						printf("*");
+					while ((ch = _getch()) != '\r')  // 检测回车按键 '\r'
+					{
+						if (ch == '\b' && i > 0) { // 处理退格键
+							i--;
+							printf("\b \b");  // 退格并清空显示
+						} else if (ch != '\b') {
+							password[i++] = ch;
+							printf("*");
+						}
 					}
 					temp[i] = '\0'; 
 					if (strcmp(temp, password) != 0) {
@@ -155,9 +167,15 @@ void retrievePassword() {
 				clearInputBuffer();
 				int i = 0;
 				char ch;
-				while ((ch = _getch()) != '\n') {
-					password[i++] = ch;
-					printf("*");
+				while ((ch = _getch()) != '\r')  // 检测回车按键 '\r'
+				{
+					if (ch == '\b' && i > 0) { // 处理退格键
+						i--;
+						printf("\b \b");  // 退格并清空显示
+					} else if (ch != '\b') {
+						password[i++] = ch;
+						printf("*");
+					}
 				}
 				password[i] = '\0';
 				if (strlen(password) < 8 || !isAlphanumeric(password)) {
@@ -168,9 +186,15 @@ void retrievePassword() {
 					char temp[300] = {0};
 					i = 0;
 					printf("请再次输入新密码确认: \n");
-					while ((ch = _getch()) != '\n') {
-						temp[i++] = ch;
-						printf("*");
+					while ((ch = _getch()) != '\r')  // 检测回车按键 '\r'
+					{
+						if (ch == '\b' && i > 0) { // 处理退格键
+							i--;
+							printf("\b \b");  // 退格并清空显示
+						} else if (ch != '\b') {
+							password[i++] = ch;
+							printf("*");
+						}
 					}
 					temp[i] = '\0';
 					if (strcmp(temp, password) != 0) {
@@ -218,9 +242,15 @@ void retrievePassword() {
 				clearInputBuffer();
 				int i = 0;
 				char ch;
-				while ((ch = _getch()) != '\n') {
-					password[i++] = ch;
-					printf("*");
+				while ((ch = _getch()) != '\r')  // 检测回车按键 '\r'
+				{
+					if (ch == '\b' && i > 0) { // 处理退格键
+						i--;
+						printf("\b \b");  // 退格并清空显示
+					} else if (ch != '\b') {
+						password[i++] = ch;
+						printf("*");
+					}
 				}
 				password[i] = '\0';
 				if (strlen(password) < 8 || !isAlphanumeric(password)) {
@@ -231,9 +261,15 @@ void retrievePassword() {
 					char temp[300] = {0};
 					i = 0;
 					printf("请再次输入新密码确认: \n");
-					while ((ch = _getch()) != '\n') {
-						temp[i++] = ch;
-						printf("*");
+					while ((ch = _getch()) != '\r')  // 检测回车按键 '\r'
+					{
+						if (ch == '\b' && i > 0) { // 处理退格键
+							i--;
+							printf("\b \b");  // 退格并清空显示
+						} else if (ch != '\b') {
+							password[i++] = ch;
+							printf("*");
+						}
 					}
 					temp[i] = '\0';
 					if (strcmp(temp, password) != 0) {
