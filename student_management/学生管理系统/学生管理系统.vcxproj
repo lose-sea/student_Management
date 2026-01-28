@@ -142,6 +142,7 @@
     <ClCompile Include="displayMenuOfUser.cpp" />
     <ClCompile Include="displayStudentScoreList.cpp" />
     <ClCompile Include="insertStudent.cpp" />
+    <ClCompile Include="login.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="retrievePassword.cpp" />
     <ClCompile Include="saveToFile.cpp" />

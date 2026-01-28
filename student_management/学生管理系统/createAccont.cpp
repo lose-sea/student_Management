@@ -82,8 +82,8 @@ void createAccount() {
             while (1) { 
                 fgets(account, 300, stdin);
                 removeNewline(account);
-                if (strlen(account) < 8 || !isAlphanumeric(account)) {
-                    printf("账号至少为8位数字或英文字母\n");
+                if (strlen(account) < 6 || !isAlphanumeric(account)) {
+                    printf("账号至少为6位数字或英文字母\n");
                     Sleep(800);
                     printf("\033[1A");    // 光标上移一行    
                     printf("\033[2K");    // 清除整行      
@@ -102,7 +102,7 @@ void createAccount() {
                     break;
                 }
             }
-            printf("请输入密码(密码至少为8为数字或英文字母): \n");
+            printf("请输入密码(密码至少为6为数字或英文字母): \n");
             char password[300] = {0};
             while (1) { 
                 int i = 0;  
@@ -118,8 +118,8 @@ void createAccount() {
                     }
                 }
                 password[i] = '\0';
-                if (strlen(password) < 8 || !isAlphanumeric(password)) {    
-                    printf("\n密码至少为8位数字或英文字母\n");   
+                if (strlen(password) < 6 || !isAlphanumeric(password)) {    
+                    printf("\n密码至少为6位数字或英文字母\n");   
                     Sleep(800);  
                     printf("\033[1A");    // 光标上移一行  
                     printf("\033[2K");    // 清除整行   
@@ -136,14 +136,14 @@ void createAccount() {
             break; 
         }    
         case '2': { 
-            printf("请输入账号(账号至少为8为数字或英文字母): \n"); 
+            printf("请输入账号(账号至少为6为数字或英文字母): \n"); 
             struct teacher* node = (struct teacher*)malloc(sizeof(struct teacher)); 
             char account[300];
             while (1) { 
                 fgets(account, 300, stdin);
                 removeNewline(account); 
-                if (strlen(account) < 8 || !isAlphanumeric(account)) {
-                    printf("账号至少为8位数字或英文字母\n");
+                if (strlen(account) < 6 || !isAlphanumeric(account)) {
+                    printf("账号至少为6位数字或英文字母\n");
                     Sleep(800);
                     printf("\033[1A");    // 光标上移一行    
                     printf("\033[2K");    // 清除整行      
@@ -180,7 +180,7 @@ void createAccount() {
                     break; 
                 }
             }
-            printf("请输入密码(密码至少为8为数字或英文字母): \n");
+            printf("请输入密码(密码至少为6位数字或英文字母): \n");
             char password[300] = {0};
             while (1) { 
                 int i = 0;  
@@ -196,8 +196,8 @@ void createAccount() {
                     }
                 }
                 password[i] = '\0';
-                if (strlen(password) < 8 || !isAlphanumeric(password)) {
-                    printf("\n密码至少为8位数字或英文字母\n");
+                if (strlen(password) < 6 || !isAlphanumeric(password)) {
+                    printf("\n密码至少为6位数字或英文字母\n");
                     Sleep(800);
                     printf("\033[1A");    // 光标上移一行  
                     printf("\033[2K");    // 清除整行   
@@ -216,14 +216,14 @@ void createAccount() {
             break; 
         } 
         case '3': {
-            printf("请输入账号(账号至少为8为数字或英文字母): \n");
+            printf("请输入账号(账号至少为6位数字或英文字母): \n");
             struct manager* node = (struct manager*)malloc(sizeof(struct manager));
             char account[300];
             while (1) { 
                 fgets(account, 300, stdin);
                 removeNewline(account);
-                if (strlen(account) < 8 || !isAlphanumeric(account)) {
-                    printf("账号至少为8位数字或英文字母\n");
+                if (strlen(account) < 6 || !isAlphanumeric(account)) {
+                    printf("账号至少为6位数字或英文字母\n");
                     Sleep(800);
                     printf("\033[1A");    // 光标上移一行    
                     printf("\033[2K");    // 清除整行      
@@ -260,7 +260,7 @@ void createAccount() {
                     break;
                 }
             } 
-            printf("请输入密码(密码至少为8为数字或英文字母): \n");
+            printf("请输入密码(密码至少为6位数字或英文字母): \n");
             char password[300] = {0};
             while (1) { 
                 int i = 0;  
@@ -276,8 +276,8 @@ void createAccount() {
                     }
                 }
                 password[i] = '\0';
-                if (strlen(password) < 8 || !isAlphanumeric(password)) {
-                    printf("\n密码至少为8位数字或英文字母\n");
+                if (strlen(password) < 6 || !isAlphanumeric(password)) {
+                    printf("\n密码至少为6位数字或英文字母\n");
                     Sleep(800);
                     printf("\033[1A");    // 光标上移一行  
                     printf("\033[2K");    // 清除整行   

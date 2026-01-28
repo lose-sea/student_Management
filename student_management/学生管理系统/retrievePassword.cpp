@@ -30,7 +30,7 @@ void retrievePassword() {
 	switch (selection) {
 		case '1': {
 			char account[300];
-			printf("请输入账号(账号至少为8为数字或英文字母): \n");
+			printf("请输入账号(账号至少为6位数字或英文字母): \n");
 			while (1) {
 				clearInputBuffer();
 				fgets(account, 300, stdin);
@@ -88,7 +88,7 @@ void retrievePassword() {
 			char password[300] = {0};
 			while (1) {  
 				system("cls"); 
-				printf("请输入新的密码(密码至少为8为数字或英文字母): \n");
+				printf("请输入新的密码(密码至少为6位数字或英文字母): \n");
 				clearInputBuffer();
 				int i = 0;
 				char ch;
@@ -103,8 +103,8 @@ void retrievePassword() {
 					}
 				}
 				password[i] = '\0';
-				if (strlen(password) < 8 || !isAlphanumeric(password)) {
-					printf("密码至少为8位数字或英文字母\n");
+				if (strlen(password) < 6 || !isAlphanumeric(password)) {
+					printf("密码至少为6位数字或英文字母\n");
 					Sleep(800);
 					continue; 
 				} else {
@@ -134,7 +134,7 @@ void retrievePassword() {
 		}  
 		case '2': {
 			char account[300];
-			printf("请输入账号(账号至少为8为数字或英文字母): \n");
+			printf("请输入账号(账号至少位数字或英文字母): \n");
 			while (1) {
 				clearInputBuffer();
 				fgets(account, 300, stdin);
@@ -163,7 +163,7 @@ void retrievePassword() {
 			char password[300] = {0};
 			while (1) {
 				system("cls");
-				printf("请输入新的密码(密码至少为8为数字或英文字母): \n");
+				printf("请输入新的密码(密码至少6位数字或英文字母): \n");
 				clearInputBuffer();
 				int i = 0;
 				char ch;
@@ -178,8 +178,8 @@ void retrievePassword() {
 					}
 				}
 				password[i] = '\0';
-				if (strlen(password) < 8 || !isAlphanumeric(password)) {
-					printf("密码至少为8位数字或英文字母\n");
+				if (strlen(password) < 6 || !isAlphanumeric(password)) {
+					printf("密码至少为6位数字或英文字母\n");
 					Sleep(800);
 					continue;
 				} else {
@@ -209,7 +209,7 @@ void retrievePassword() {
 		} 
 		case '3': {
 			char account[300];
-			printf("请输入账号(账号至少为8为数字或英文字母): \n");
+			printf("请输入账号(账号至少为6位数字或英文字母): \n");
 			while (1) {
 				clearInputBuffer();
 				fgets(account, 300, stdin);
@@ -238,7 +238,7 @@ void retrievePassword() {
 			char password[300] = {0};
 			while (1) {
 				system("cls");
-				printf("请输入新的密码(密码至少为8为数字或英文字母): \n");
+				printf("请输入新的密码(密码至少为6位数字或英文字母): \n");
 				clearInputBuffer();
 				int i = 0;
 				char ch;
@@ -253,8 +253,8 @@ void retrievePassword() {
 					}
 				}
 				password[i] = '\0';
-				if (strlen(password) < 8 || !isAlphanumeric(password)) {
-					printf("密码至少为8位数字或英文字母\n");
+				if (strlen(password) < 6 || !isAlphanumeric(password)) {
+					printf("密码至少为6位数字或英文字母\n");
 					Sleep(800);
 					continue;
 				} else {

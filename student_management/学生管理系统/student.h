@@ -39,7 +39,10 @@ struct manager* findAdministratorByAccount(struct manager* administrator, char* 
 void displayInitialInterfal(); 
 
 // 显示登录菜单
-void displayMenuOfLogin(); 
+void displayMenuOfLogin();  
+
+// 登录
+void login(); 
 
 // 注册账号
 void createAccount(); 

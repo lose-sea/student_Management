@@ -15,40 +15,57 @@ int main() {
     manage = NULL;  // 链表头指针初始化为 NULL 
 
     loadFromFile(); 
-	/*int mark = 1; 
-	while (mark) { 
-		displayInitialInterfal();
-		char selection = '\0';
-		while (1) {
-			selection = _getch();
-			if (selection == '1' || selection == '2' || selection == '3' || selection == '0') {
-				break;
-			} else {
-				printf("选择无效，请重新输入:\n");
-			}
-		}
-		if (selection == '1') {
-			system("cls");
-			displayMenuOfLogin(); 
-			mark = 0; 
-		} else if (selection == '2') {
-			system("cls");
-			createAccount(); 
-			break; 
-		} else if (selection == '3') {
-			system("cls");
-			retrievePassword(); 
-			break; 
-		} else if (selection == '0') {
-			printf("感谢使用学生管理系统，程序即将退出...\n");
-			system("pause"); 
-			return 0;
-		} else {
-			printf("选择无效，请重新输入:\n");
-		}
-	}*/
-	
-	createAccount(); 
+	//int mark = 1; 
+	//while (mark) { 
+	//	displayInitialInterfal();
+	//	char selection = '\0';
+	//	while (1) {
+	//		selection = _getch();
+	//		if (selection == '1' || selection == '2' || selection == '3' || selection == '0') {
+	//			break;
+	//		} else {
+	//			printf("选择无效，请重新输入:\n");
+	//		}
+	//	}
+	//	if (selection == '1') {
+	//		system("cls");
+	//		displayMenuOfLogin(); 
+	//		mark = 0; 
+	//	} else if (selection == '2') {
+	//		system("cls");
+	//		createAccount(); 
+	//		break; 
+	//	} else if (selection == '3') {
+	//		system("cls");
+	//		retrievePassword(); 
+	//		break; 
+	//	} else if (selection == '0') {
+	//		printf("感谢使用学生管理系统，程序即将退出...\n");
+	//		system("pause"); 
+	//		return 0;
+	//	} else {
+	//		printf("选择无效，请重新输入:\n");
+	//	}
+	//} 
+
+	//// 进入了登录
+	//displayMenuOfLogin(); 
+	//char selection = '\0'; 
+	//while (1) {
+	//	selection = _getch();  
+	//	if (selection == '1' || selection == '2' || selection == '3' || selection == '0') {
+	//		break; 
+	//	} else {
+	//		printf("选择无效，请重新输入:\n"); 
+	//	}
+	//} 
+	//if (selection == '0') {
+	//	printf("即将退出\n");  
+	//	system("pause"); 
+	//	return 0; 
+	//} 
+
+	login(); 
 
 	//displayAllStudent(stu);       
  //   addStudent(stu);    
