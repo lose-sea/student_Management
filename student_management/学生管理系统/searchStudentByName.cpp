@@ -2,34 +2,34 @@
 
 
 #include"student.h" 
-// 通过姓名查找学生
+// 閫氳繃濮撳悕鏌ユ壘瀛︾敓
 void searchStudentByName(struct student* stu, char* name) { 
 	system("cls");
 	if (stu->head == NULL) {
-		printf("当前暂无学生信息\n"); 
+		printf("褰撳墠鏆傛棤瀛︾敓淇℃伅\n"); 
 		system("pause"); 
 		return; 
 	}  
 	struct ListNode* curr = stu->head; 
 	while (curr != NULL) {
 		if (strcmp(name, curr->name) == 0) {
-			printf("学号: %s\n", curr->id);
-			printf("姓名: %s\n", curr->name);
-			printf("性别: %s\n", curr->sex);
-			printf("年龄: %d\n", curr->age);
-			printf("电话: %s\n", curr->telephone);
-			printf("专业: %s\n", curr->major);
-			printf("语文成绩: %.2lf\n", curr->Math); 
-			printf("数学成绩: %.2lf\n", curr->History);
-			printf("英语成绩: %.2lf\n", curr->English);
-			printf("成绩: %.2f\n", curr->totalscore);
-			printf("年级: %s\n", curr->grade);
-			printf("班级: %s\n\n", curr->class1);
+			printf("瀛﹀彿: %s\n", curr->id);
+			printf("濮撳悕: %s\n", curr->name);
+			printf("鎬у埆: %s\n", curr->sex);
+			printf("骞撮緞: %d\n", curr->age);
+			printf("鐢佃瘽: %s\n", curr->telephone);
+			printf("涓撲笟: %s\n", curr->major);
+			printf("璇枃鎴愮哗: %.2lf\n", curr->Math); 
+			printf("鏁板鎴愮哗: %.2lf\n", curr->History);
+			printf("鑻辫鎴愮哗: %.2lf\n", curr->English);
+			printf("鎴愮哗: %.2f\n", curr->totalscore);
+			printf("骞寸骇: %s\n", curr->grade);
+			printf("鐝骇: %s\n\n", curr->class1);
 			system("pause");
 			return;
 		}
 		curr = curr->next;
 	}
-	printf("未找到该学生信息\n");
+	printf("鏈壘鍒拌瀛︾敓淇℃伅\n");
 	system("pause");
 }

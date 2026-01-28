@@ -77,7 +77,7 @@ void createAccount() {
                 }
             }
             struct ListNode* curr = findByid(stu, id);
-            printf("请输入账号(账号至少为8为数字或英文字母): \n");
+            printf("请输入账号(账号至少为6位数字或英文字母): \n");
             char account[300];
             while (1) { 
                 fgets(account, 300, stdin);

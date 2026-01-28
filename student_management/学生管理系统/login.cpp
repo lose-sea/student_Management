@@ -1,9 +1,9 @@
-ï»¿#define _CRT_SECURE_NO_WARNINGS 
+#define _CRT_SECURE_NO_WARNINGS 
 
 
 #include"student.h" 
 
-// ç™»å½•åŠŸèƒ½
+// µÇÂ¼¹¦ÄÜ
 void login() {
 	system("cls");
 	displayMenuOfLogin(); 
@@ -20,10 +20,10 @@ void login() {
 			system("cls");
 			break;
 		} else {
-			printf("è¾“å…¥é”™è¯¯, è¯·é‡æ–°è¾“å…¥\n");
+			printf("ÊäÈë´íÎó, ÇëÖØĞÂÊäÈë\n");
 			Sleep(800);
-			printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
-			printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ  
+			printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
+			printf("\033[2K");    // Çå³ıÕûĞĞ  
 		}
 	}
 	switch (selection) {
@@ -33,25 +33,26 @@ void login() {
 			struct ListNode* curr = NULL; 
 			bool mark = true; 
 			while (mark) {  
-				printf("å­¦ç”Ÿç«¯\n");
-				printf("è¯·è¾“å…¥è´¦å·: ");
+				printf("Ñ§Éú¶Ë\n");
+				printf("ÇëÊäÈëÕËºÅ: ");
 				fgets(account, 300, stdin);
 				removeNewline(account); 
 				curr = findStudentByAccount(stu, account); 
 				if (strlen(account) < 6 || !isAlphanumeric(account)) {
-					printf("è´¦å·è‡³å°‘ä¸º6ä½æ•°å­—æˆ–è‹±æ–‡å­—æ¯\n"); 
+					printf("ÕËºÅÖÁÉÙÎª6Î»Êı×Ö»òÓ¢ÎÄ×ÖÄ¸\n"); 
 					Sleep(800);
 					system("cls");  
 					continue; 
-				}  
+				}   
+				printf("ÇëÊäÈëÃÜÂë: "); 
 				fgets(password, 300, stdin); 
-				if (strcmp(curr->password, password) != 0) {
-					printf("è´¦å·æˆ–å¯†ç è¾“å…¥é”™è¯¯, è¯·é‡æ–°è¾“å…¥\n");  
+				if (curr == NULL || strcmp(curr->password, password) != 0) {
+					printf("ÕËºÅ»òÃÜÂëÊäÈë´íÎó, ÇëÖØĞÂÊäÈë\n");  
 					Sleep(800);
 					system("cls"); 
 					continue; 
 				} else { 
-					printf("ç™»å½•æˆåŠŸ"); 
+					printf("µÇÂ¼³É¹¦"); 
 					break; 
 				}
 			} 
@@ -63,25 +64,26 @@ void login() {
 			struct teacher* curr = NULL;
 			bool mark = true;
 			while (mark) {
-				printf("æ•™å¸ˆç«¯\n");
-				printf("è¯·è¾“å…¥è´¦å·: ");
+				printf("½ÌÊ¦¶Ë\n");
+				printf("ÇëÊäÈëÕËºÅ: ");
 				fgets(account, 300, stdin);
 				removeNewline(account);
 				curr = findTeacherByAccount(teach, account);
 				if (strlen(account) < 6 || !isAlphanumeric(account)) {
-					printf("è´¦å·è‡³å°‘ä¸º6ä½æ•°å­—æˆ–è‹±æ–‡å­—æ¯\n");
+					printf("ÕËºÅÖÁÉÙÎª6Î»Êı×Ö»òÓ¢ÎÄ×ÖÄ¸\n");
 					Sleep(800);
 					system("cls");
 					continue;
-				}
+				} 
+				printf("ÇëÊäÈëÃÜÂë: ");
 				fgets(password, 300, stdin);
-				if (strcmp(curr->password, password) != 0) {
-					printf("è´¦å·æˆ–å¯†ç è¾“å…¥é”™è¯¯, è¯·é‡æ–°è¾“å…¥\n");
+				if (curr == NULL || strcmp(curr->password, password) != 0) {
+					printf("ÕËºÅ»òÃÜÂëÊäÈë´íÎó, ÇëÖØĞÂÊäÈë\n");
 					Sleep(800);
 					system("cls");
 					continue;
 				} else {
-					printf("ç™»å½•æˆåŠŸ");
+					printf("µÇÂ¼³É¹¦");
 					break;
 				}
 			}
@@ -93,25 +95,26 @@ void login() {
 			struct manager* curr = NULL;
 			bool mark = true;
 			while (mark) {
-				printf("ç®¡ç†å‘˜ç«¯\n");
-				printf("è¯·è¾“å…¥è´¦å·: ");
+				printf("¹ÜÀíÔ±¶Ë\n");
+				printf("ÇëÊäÈëÕËºÅ: ");
 				fgets(account, 300, stdin);
 				removeNewline(account);
 				curr = findAdministratorByAccount(manage, account);
 				if (strlen(account) < 6 || !isAlphanumeric(account)) {
-					printf("è´¦å·è‡³å°‘ä¸º6ä½æ•°å­—æˆ–è‹±æ–‡å­—æ¯\n");
+					printf("ÕËºÅÖÁÉÙÎª6Î»Êı×Ö»òÓ¢ÎÄ×ÖÄ¸\n");
 					Sleep(800);
 					system("cls");
 					continue;
-				}
+				} 
+				printf("ÇëÊäÈëÃÜÂë: ");
 				fgets(password, 300, stdin);
-				if (strcmp(curr->password, password) != 0) {
-					printf("è´¦å·æˆ–å¯†ç è¾“å…¥é”™è¯¯, è¯·é‡æ–°è¾“å…¥\n");
+				if (curr == NULL || strcmp(curr->password, password) != 0) {
+					printf("ÕËºÅ»òÃÜÂëÊäÈë´íÎó, ÇëÖØĞÂÊäÈë\n");
 					Sleep(800);
 					system("cls");
 					continue;
 				} else {
-					printf("ç™»å½•æˆåŠŸ");
+					printf("µÇÂ¼³É¹¦");
 					break;
 				}
 			}

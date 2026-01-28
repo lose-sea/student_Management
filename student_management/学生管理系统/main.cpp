@@ -63,9 +63,12 @@ int main() {
 	//	printf("即将退出\n");  
 	//	system("pause"); 
 	//	return 0; 
-	//} 
+	//}  
+	printf("%s \n  %s", stu->head->account, stu->head->password); 
 
-	login(); 
+	//createAccount(); 
+	//login();  
+
 
 	//displayAllStudent(stu);       
  //   addStudent(stu);    

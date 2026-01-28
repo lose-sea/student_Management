@@ -1,36 +1,36 @@
-ï»¿#define _CRT_SECURE_NO_WARNINGS 
+#define _CRT_SECURE_NO_WARNINGS 
 
 
 #include"student.h" 
 
-// //å°†å­¦ç”Ÿä¿¡æ¯ä¿å­˜åˆ°æ–‡ä»¶(äºŒè¿›åˆ¶) 
+// //½«Ñ§ÉúĞÅÏ¢±£´æµ½ÎÄ¼ş(¶ş½øÖÆ) 
 // void saveToFile() { 
 // 	if (stu == NULL) {
-// 		printf("å½“å‰æš‚æ— å­¦ç”Ÿä¿¡æ¯\n"); 
+// 		printf("µ±Ç°ÔİÎŞÑ§ÉúĞÅÏ¢\n"); 
 // 		system("pause"); 
 // 		return; 
 // 	}  
 // 	if (stu->studentSize == 0) {
-// 		printf("å½“å‰æš‚æ— å­¦ç”Ÿä¿¡æ¯\n"); 
+// 		printf("µ±Ç°ÔİÎŞÑ§ÉúĞÅÏ¢\n"); 
 // 		system("pause"); 
 // 		return; 
 // 	}
 // 	FILE* pf = fopen("student.bin", "wb"); 
 // 	if (pf == NULL) {
-// 		printf("æ–‡ä»¶æ‰“å¼€å¤±è´¥\n"); 
+// 		printf("ÎÄ¼ş´ò¿ªÊ§°Ü\n"); 
 // 		system("pause"); 
 // 		return; 
 // 	} 
-// 	// æ–‡ä»¶æ‰“å¼€æˆåŠŸ  
-// 	// å…ˆå°†å­¦ç”Ÿäººæ•°å†™å…¥æ–‡ä»¶å¼€å¤´
+// 	// ÎÄ¼ş´ò¿ª³É¹¦  
+// 	// ÏÈ½«Ñ§ÉúÈËÊıĞ´ÈëÎÄ¼ş¿ªÍ·
 // 	int writeCount = fwrite(&stu->studentSize, sizeof(int), 1, pf);  
 // 	if (writeCount != 1) {
-// 		printf("ä¿å­˜å¤±è´¥"); 
+// 		printf("±£´æÊ§°Ü"); 
 // 	} 
-// 	// // éå†é“¾è¡¨å†™å…¥æ¯ä¸ªèŠ‚ç‚¹æ•°æ® 
+// 	// // ±éÀúÁ´±íĞ´ÈëÃ¿¸ö½ÚµãÊı¾İ 
 // 	ListNode* curr = stu->head;
 // 	while (curr != NULL) {
-// 		// åªä¿å­˜æ•°æ®éƒ¨åˆ†ï¼Œä¸ä¿å­˜ next å’Œ prev æŒ‡é’ˆ
+// 		// Ö»±£´æÊı¾İ²¿·Ö£¬²»±£´æ next ºÍ prev Ö¸Õë
 // 		fwrite(curr->id, sizeof(char), 300, pf);
 // 		fwrite(curr->name, sizeof(char), 300, pf);
 // 		fwrite(curr->sex, sizeof(char), 20, pf);
@@ -48,39 +48,39 @@
 
 // 	fclose(pf);  
 // 	pf = NULL;
-// 	printf("ä¿å­˜æˆåŠŸ\n"); 
+// 	printf("±£´æ³É¹¦\n"); 
 // 	system("pause"); 
 // }
 
 
-//å°†å­¦ç”Ÿä¿¡æ¯ä¿å­˜åˆ°æ–‡ä»¶(äºŒè¿›åˆ¶) 
+//½«Ñ§ÉúĞÅÏ¢±£´æµ½ÎÄ¼ş(¶ş½øÖÆ) 
 void saveToFile() { 
 	if (stu == NULL) {
-		printf("å½“å‰æš‚æ— å­¦ç”Ÿä¿¡æ¯\n"); 
+		printf("µ±Ç°ÔİÎŞÑ§ÉúĞÅÏ¢\n"); 
 		system("pause"); 
 		return; 
 	}  
 	if (stu->studentSize == 0) {
-		printf("å½“å‰æš‚æ— å­¦ç”Ÿä¿¡æ¯\n"); 
+		printf("µ±Ç°ÔİÎŞÑ§ÉúĞÅÏ¢\n"); 
 		system("pause"); 
 		return; 
 	}
 	FILE* pf = fopen("student.bin", "wb"); 
 	if (pf == NULL) {
-		printf("æ–‡ä»¶æ‰“å¼€å¤±è´¥\n"); 
+		printf("ÎÄ¼ş´ò¿ªÊ§°Ü\n"); 
 		system("pause"); 
 		return; 
 	} 
-	// æ–‡ä»¶æ‰“å¼€æˆåŠŸ  
-	// å…ˆå°†å­¦ç”Ÿäººæ•°å†™å…¥æ–‡ä»¶å¼€å¤´
+	// ÎÄ¼ş´ò¿ª³É¹¦  
+	// ÏÈ½«Ñ§ÉúÈËÊıĞ´ÈëÎÄ¼ş¿ªÍ·
 	int writeCount = fwrite(&stu->studentSize, sizeof(int), 1, pf);  
 	if (writeCount != 1) {
-		printf("ä¿å­˜å¤±è´¥"); 
+		printf("±£´æÊ§°Ü"); 
 	} 
-	// // éå†é“¾è¡¨å†™å…¥æ¯ä¸ªèŠ‚ç‚¹æ•°æ® 
+	// // ±éÀúÁ´±íĞ´ÈëÃ¿¸ö½ÚµãÊı¾İ 
 	ListNode* curr = stu->head;
 	while (curr != NULL) {
-		// åªä¿å­˜æ•°æ®éƒ¨åˆ†ï¼Œä¸ä¿å­˜ next å’Œ prev æŒ‡é’ˆ
+		// Ö»±£´æÊı¾İ²¿·Ö£¬²»±£´æ next ºÍ prev Ö¸Õë
 		fwrite(curr->id, sizeof(char), 300, pf);
 		fwrite(curr->name, sizeof(char), 300, pf);
 		fwrite(curr->sex, sizeof(char), 20, pf);
@@ -99,7 +99,7 @@ void saveToFile() {
 	fclose(pf);  
 	pf = fopen("teacher.bin", "wb"); 
 	if (pf == NULL) {
-		printf("æ–‡ä»¶æ‰“å¼€å¤±è´¥\n"); 
+		printf("ÎÄ¼ş´ò¿ªÊ§°Ü\n"); 
 		system("pause"); 
 		return; 
 	}  
@@ -111,7 +111,7 @@ void saveToFile() {
 
 	pf = fopen("administrator.bin", "wb"); 
 	if (pf == NULL) {
-		printf("æ–‡ä»¶æ‰“å¼€å¤±è´¥\n"); 
+		printf("ÎÄ¼ş´ò¿ªÊ§°Ü\n"); 
 		system("pause"); 
 		return; 
 	}  
@@ -123,7 +123,7 @@ void saveToFile() {
 
 	fclose(pf);  
 	pf = NULL; 
-	printf("\nä¿å­˜æˆåŠŸ\n"); 
+	printf("\n±£´æ³É¹¦\n"); 
 	system("pause"); 
 }
 
@@ -150,34 +150,34 @@ void saveToFile() {
 
 
 
-////å°†å­¦ç”Ÿä¿¡æ¯ä¿å­˜åˆ°æ–‡ä»¶(äºŒè¿›åˆ¶) 
+////½«Ñ§ÉúĞÅÏ¢±£´æµ½ÎÄ¼ş(¶ş½øÖÆ) 
 //void saveToFile() {
 //	if (stu == NULL) {
-//		printf("å½“å‰æš‚æ— å­¦ç”Ÿä¿¡æ¯\n");
+//		printf("µ±Ç°ÔİÎŞÑ§ÉúĞÅÏ¢\n");
 //		system("pause");
 //		return;
 //	}
 //	if (stu->studentSize == 0) {
-//		printf("å½“å‰æš‚æ— å­¦ç”Ÿä¿¡æ¯\n");
+//		printf("µ±Ç°ÔİÎŞÑ§ÉúĞÅÏ¢\n");
 //		system("pause");
 //		return;
 //	}
 //	FILE* pf = fopen("studentInformation.bin", "wb");
 //	if (pf == NULL) {
-//		printf("æ–‡ä»¶æ‰“å¼€å¤±è´¥\n");
+//		printf("ÎÄ¼ş´ò¿ªÊ§°Ü\n");
 //		system("pause");
 //		return;
 //	}
-//	// æ–‡ä»¶æ‰“å¼€æˆåŠŸ  
-//	// å…ˆå°†å­¦ç”Ÿäººæ•°å†™å…¥æ–‡ä»¶å¼€å¤´
+//	// ÎÄ¼ş´ò¿ª³É¹¦  
+//	// ÏÈ½«Ñ§ÉúÈËÊıĞ´ÈëÎÄ¼ş¿ªÍ·
 //	int writeCount = fwrite(&stu->studentSize, sizeof(int), 1, pf);
 //	if (writeCount != 1) {
-//		printf("ä¿å­˜å¤±è´¥");
+//		printf("±£´æÊ§°Ü");
 //	}
-//	// // éå†é“¾è¡¨å†™å…¥æ¯ä¸ªèŠ‚ç‚¹æ•°æ® 
+//	// // ±éÀúÁ´±íĞ´ÈëÃ¿¸ö½ÚµãÊı¾İ 
 //	ListNode* curr = stu->head;
 //	//while (curr != NULL) {
-//	//	// åªä¿å­˜æ•°æ®éƒ¨åˆ†ï¼Œä¸ä¿å­˜ next å’Œ prev æŒ‡é’ˆ
+//	//	// Ö»±£´æÊı¾İ²¿·Ö£¬²»±£´æ next ºÍ prev Ö¸Õë
 //	//	fwrite(curr->id, sizeof(char), 300, pf);
 //	//	fwrite(curr->name, sizeof(char), 300, pf);
 //	//	fwrite(curr->sex, sizeof(char), 20, pf);
@@ -197,6 +197,6 @@ void saveToFile() {
 //
 //	fclose(pf);
 //	pf = NULL;
-//	printf("åŠ è½½æˆåŠŸ\n");
+//	printf("¼ÓÔØ³É¹¦\n");
 //	system("pause");
 //}
