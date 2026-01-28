@@ -2,34 +2,28 @@
 
 
 #include"student.h" 
-// 閫氳繃濮撳悕鏌ユ壘瀛︾敓
-void searchStudentByName(struct student* stu, char* name) { 
-	system("cls");
+// 成绩分析
+void scoreAnalis() {
 	if (stu->head == NULL) {
-		printf("褰撳墠鏆傛棤瀛︾敓淇℃伅\n"); 
+		printf("当前无学生信息，无法进行成绩分析！\n"); 
 		system("pause"); 
 		return; 
-	}  
+	} 
+	double Math_sum = 0.0;  
+	double History_sum = 0.0;  
+	double English_sum = 0.0;
 	struct ListNode* curr = stu->head; 
-	while (curr != NULL) {
-		if (strcmp(name, curr->name) == 0) {
-			printf("瀛﹀彿: %s\n", curr->id);
-			printf("濮撳悕: %s\n", curr->name);
-			printf("鎬у埆: %s\n", curr->sex);
-			printf("骞撮緞: %d\n", curr->age);
-			printf("鐢佃瘽: %s\n", curr->telephone);
-			printf("涓撲笟: %s\n", curr->major);
-			printf("璇枃鎴愮哗: %.2lf\n", curr->Math); 
-			printf("鏁板鎴愮哗: %.2lf\n", curr->History);
-			printf("鑻辫鎴愮哗: %.2lf\n", curr->English);
-			printf("鎴愮哗: %.2f\n", curr->totalscore);
-			printf("骞寸骇: %s\n", curr->grade);
-			printf("鐝骇: %s\n\n", curr->class1);
-			system("pause");
-			return;
-		}
-		curr = curr->next;
-	}
-	printf("鏈壘鍒拌瀛︾敓淇℃伅\n");
-	system("pause");
+	while (curr) {
+		Math_sum += curr->Math; 
+		History_sum += curr->History;  
+		English_sum += curr->English;
+		curr = curr->next; 
+	} 
+	double Math_avarage = Math_sum / stu->studentSize; 
+	double History_avarage = History_sum / stu->studentSize;  
+	double English_avarage = English_sum / stu->studentSize;
+	printf("高数平均分: %.2lf\n", Math_avarage); 
+	printf("近代史平均分: %.2lf\n", History_avarage);  
+	printf("英语平均分: %.2lf\n", English_avarage);  
+
 }

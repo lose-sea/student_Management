@@ -92,8 +92,10 @@ void saveToFile() {
 		fwrite(&curr->English, sizeof(double), 1, pf);
 		fwrite(&curr->totalscore, sizeof(double), 1, pf);
 		fwrite(curr->grade, sizeof(char), 300, pf);
-		fwrite(curr->class1, sizeof(char), 300, pf);
-		curr = curr->next;
+		fwrite(curr->class1, sizeof(char), 300, pf); 
+		fwrite(curr->account, sizeof(char), 300, pf); 
+		fwrite(curr->password, sizeof(char), 300, pf);
+		curr = curr->next; 
 	}  
 
 	fclose(pf);  

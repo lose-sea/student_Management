@@ -1,4 +1,4 @@
-ï»¿#define _CRT_SECURE_NO_WARNINGS 
+#define _CRT_SECURE_NO_WARNINGS 
 #include"student.h"   
 
 struct student* stu = NULL; 
@@ -11,8 +11,8 @@ int main() {
     stu->tail = NULL;
     stu->studentSize = 0;
 
-    teach = NULL;  // é“¾è¡¨å¤´æŒ‡é’ˆåˆå§‹åŒ–ä¸º NULL
-    manage = NULL;  // é“¾è¡¨å¤´æŒ‡é’ˆåˆå§‹åŒ–ä¸º NULL 
+    teach = NULL;  // Á´±íÍ·Ö¸Õë³õÊ¼»¯Îª NULL
+    manage = NULL;  // Á´±íÍ·Ö¸Õë³õÊ¼»¯Îª NULL 
 
     loadFromFile(); 
 	//int mark = 1; 
@@ -24,7 +24,7 @@ int main() {
 	//		if (selection == '1' || selection == '2' || selection == '3' || selection == '0') {
 	//			break;
 	//		} else {
-	//			printf("é€‰æ‹©æ— æ•ˆï¼Œè¯·é‡æ–°è¾“å…¥:\n");
+	//			printf("Ñ¡ÔñÎÞÐ§£¬ÇëÖØÐÂÊäÈë:\n");
 	//		}
 	//	}
 	//	if (selection == '1') {
@@ -40,15 +40,15 @@ int main() {
 	//		retrievePassword(); 
 	//		break; 
 	//	} else if (selection == '0') {
-	//		printf("æ„Ÿè°¢ä½¿ç”¨å­¦ç”Ÿç®¡ç†ç³»ç»Ÿï¼Œç¨‹åºå³å°†é€€å‡º...\n");
+	//		printf("¸ÐÐ»Ê¹ÓÃÑ§Éú¹ÜÀíÏµÍ³£¬³ÌÐò¼´½«ÍË³ö...\n");
 	//		system("pause"); 
 	//		return 0;
 	//	} else {
-	//		printf("é€‰æ‹©æ— æ•ˆï¼Œè¯·é‡æ–°è¾“å…¥:\n");
+	//		printf("Ñ¡ÔñÎÞÐ§£¬ÇëÖØÐÂÊäÈë:\n");
 	//	}
 	//} 
 
-	//// è¿›å…¥äº†ç™»å½•
+	//// ½øÈëÁËµÇÂ¼
 	//displayMenuOfLogin(); 
 	//char selection = '\0'; 
 	//while (1) {
@@ -56,22 +56,23 @@ int main() {
 	//	if (selection == '1' || selection == '2' || selection == '3' || selection == '0') {
 	//		break; 
 	//	} else {
-	//		printf("é€‰æ‹©æ— æ•ˆï¼Œè¯·é‡æ–°è¾“å…¥:\n"); 
+	//		printf("Ñ¡ÔñÎÞÐ§£¬ÇëÖØÐÂÊäÈë:\n"); 
 	//	}
 	//} 
 	//if (selection == '0') {
-	//	printf("å³å°†é€€å‡º\n");  
+	//	printf("¼´½«ÍË³ö\n");  
 	//	system("pause"); 
 	//	return 0; 
 	//}  
+	//  printf("%s \n  %s", stu->head->account, stu->head->password); 
+
+	createAccount();  
 	printf("%s \n  %s", stu->head->account, stu->head->password); 
-
-	//createAccount(); 
-	//login();  
+	login();  
 
 
-	//displayAllStudent(stu);       
+	// displayAllStudent(stu);       
  //   addStudent(stu);    
- //   saveToFile(); 
+	saveToFile(); 
     return 0; 
 }   
