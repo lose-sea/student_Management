@@ -102,30 +102,30 @@ void loadFromFile() {
 	
 	size_t read_count;  
 	while (1) {
-		// 在判断之前创建节点
-		struct teacher* newNode = (struct teacher*)malloc(sizeof(struct teacher)); 
-		if (newNode == NULL) {   
-			printf("教师内存分配失败\n");    
-			break; 
-		}    
-		
-		// 读取数据
-		read_count = fread(newNode, sizeof(struct teacher), 1, pf);
-		if (read_count == 0) {
-			free(newNode);  // 读取失败，释放节点 
-			if (feof(pf)) {
-				// 文件正常结束
-				break;
-			} else {
-				// 读取错误
-				printf("读取教师文件失败\n");
-				break;
-			}
+		struct teacher* newNode = (struct teacher*)malloc(sizeof(struct teacher));
+		if (newNode == NULL) {
+			printf("教师内存分配失败\n");
+			break;
 		}
-		
-		// 头插法插入链表
+
+		// 正确方式：逐个字段读取
+		if (fread(newNode->account, sizeof(char), 300, pf) != 300) {
+			free(newNode);
+			break;
+		}
+		if (fread(newNode->password, sizeof(char), 300, pf) != 300) {
+			free(newNode);
+			break;
+		}
+
+		// 初始化next指针
 		newNode->next = teach;
 		teach = newNode;
+
+		// 检查是否到达文件末尾
+		if (feof(pf)) {
+			break;
+		}
 	}
 	fclose(pf); 
 
@@ -145,25 +145,30 @@ void loadFromFile() {
 	manage = NULL;  // 清空链表头
 	
 	while (1) {
-		struct manager* newNode = (struct manager*)malloc(sizeof(struct manager)); 
-		if (newNode == NULL) {   
-			printf("管理员内存分配失败\n");   
-			break;   
-		}    
-		// 读取数据
-		read_count = fread(newNode, sizeof(struct manager), 1, pf);
-		if (read_count == 0) {
-			free(newNode);  // 读取失败，释放节点  
-			if (feof(pf)) {
-				break;
-			} else {
-				printf("读取管理员文件失败\n");
-				break;
-			}
+		struct manager* newNode = (struct manager*)malloc(sizeof(struct teacher));
+		if (newNode == NULL) {
+			printf("管理员内存分配失败\n");
+			break;
 		}
-		// 头插法插入链表
+
+		// 逐个字段读取
+		if (fread(newNode->account, sizeof(char), 300, pf) != 300) {
+			free(newNode);
+			break;
+		}
+		if (fread(newNode->password, sizeof(char), 300, pf) != 300) {
+			free(newNode);
+			break;
+		}
+
+		// 初始化next指针
 		newNode->next = manage;
 		manage = newNode;
+
+		// 检查是否到达文件末尾
+		if (feof(pf)) {
+			break;
+		}
 	}
 	fclose(pf); 
 	pf = NULL; 

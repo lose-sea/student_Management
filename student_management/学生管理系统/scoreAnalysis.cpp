@@ -3,7 +3,7 @@
 
 #include"student.h" 
 // 成绩分析
-void scoreAnalis() {
+void scoreAnalysis(struct student* stu) {
 	if (stu->head == NULL) {
 		printf("当前无学生信息，无法进行成绩分析！\n"); 
 		system("pause"); 

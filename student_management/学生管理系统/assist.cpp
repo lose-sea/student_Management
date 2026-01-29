@@ -1,8 +1,8 @@
-ï»¿#define _CRT_SECURE_NO_WARNINGS 
+#define _CRT_SECURE_NO_WARNINGS 
 #include"student.h"
 
 
-// åŽ»é™¤fgetsè¾“å…¥çš„å­—ç¬¦ä¸²æœ«å°¾çš„æ¢è¡Œç¬¦
+// È¥³ýfgetsÊäÈëµÄ×Ö·û´®Ä©Î²µÄ»»ÐÐ·û
 void removeNewline(char* str) {
     size_t len = strlen(str);
     if (len > 0 && str[len - 1] == '\n') {
@@ -11,7 +11,7 @@ void removeNewline(char* str) {
 }
 
  
-// æ¸…é™¤è¾“å…¥ç¼“å†²åŒº
+// Çå³ýÊäÈë»º³åÇø
 void clearInputBuffer() {
     int c;
     while ((c = getchar()) != '\n' && c != EOF) {
@@ -20,7 +20,7 @@ void clearInputBuffer() {
 }
 
 
-// æ£€æŸ¥è¾“å…¥çš„å­—ç¬¦ä¸²æ˜¯å¦ç”±çº¯æ•°å­—ç»„æˆ
+// ¼ì²éÊäÈëµÄ×Ö·û´®ÊÇ·ñÓÉ´¿Êý×Ö×é³É
 bool isDigit(char* str) {
     int len = strlen(str); 
     if(len == 0) {
@@ -36,7 +36,7 @@ bool isDigit(char* str) {
 }  
 
 
-// åˆ¤æ–­è¾“å…¥çš„å­—ç¬¦ä¸²æ˜¯å¦æœ‰æ•°å­—æˆ–è‹±æ–‡å­—ç¬¦ç»„æˆ
+// ÅÐ¶ÏÊäÈëµÄ×Ö·û´®ÊÇ·ñÓÐÊý×Ö»òÓ¢ÎÄ×Ö·û×é³É
 bool isAlphanumeric(char* str) {
     int len = strlen(str); 
     if (len == 0) {
@@ -52,7 +52,7 @@ bool isAlphanumeric(char* str) {
 }
 
 
-// æ ¹æ®å­¦å·æŸ¥æ‰¾å­¦ç”Ÿ
+// ¸ù¾ÝÑ§ºÅ²éÕÒÑ§Éú
 struct ListNode* findByid(struct student* stu, char* id) {
     if (stu->studentSize == 0) {
         return NULL; 
@@ -67,7 +67,7 @@ struct ListNode* findByid(struct student* stu, char* id) {
     return NULL;   
 }    
  
-// é€šè¿‡å§“åæŸ¥æ‰¾å­¦ç”Ÿ   
+// Í¨¹ýÐÕÃû²éÕÒÑ§Éú   
 int findByName(struct student* stu, char* name) {     
     if (stu->studentSize == 0) {
         return -1; 
@@ -76,12 +76,13 @@ int findByName(struct student* stu, char* name) {
     for (int i = 0; i < stu->studentSize; i++) {
         if (strcmp(name, curr->name) == 0) {
             return i; 
-        }
+        } 
+        curr = curr->next; 
     }
 	return -1;
 } 
 
-// é€šè¿‡è´¦å·æŸ¥æ‰¾å­¦ç”Ÿ
+// Í¨¹ýÕËºÅ²éÕÒÑ§Éú
 struct ListNode* findStudentByAccount(struct student* stu, char* account) {
     if (stu->studentSize == 0) {
         return NULL; 
@@ -96,38 +97,40 @@ struct ListNode* findStudentByAccount(struct student* stu, char* account) {
     return NULL; 
 }  
 
-//æ ¹æ®è´¦å·æŸ¥æ‰¾æ•™å¸ˆ
-struct teacher* findTeacherByAccount(struct teacher* teacher, char* account) {
-    if (teacher == NULL) {
+//¸ù¾ÝÕËºÅ²éÕÒ½ÌÊ¦
+struct teacher* findTeacherByAccount(struct teacher* teach, char* account) {
+    if (teach == NULL) {
         return NULL; 
     } 
-    struct teacher* curr = teacher; 
+    struct teacher* curr = teach; 
     while (curr != NULL) {
         if (strcmp(curr->account, account) == 0) {
             return curr; 
-        }
+        } 
+        curr = curr->next; 
     } 
     return NULL; 
 } 
 
 
-// æ ¹æ®è´¦å·æŸ¥æ‰¾ç®¡ç†å‘˜
-struct manager* findAdministratorByAccount(struct manager* administrator, char* account) {
-    if (administrator == NULL) {
+// ¸ù¾ÝÕËºÅ²éÕÒ¹ÜÀíÔ±
+struct manager* findAdministratorByAccount(struct manager* manage, char* account) {
+    if (manage == NULL) {
         return NULL;
     }
-    struct manager* curr = administrator ;
+    struct manager* curr = manage ;
     while (curr != NULL) {
         if (strcmp(curr->account, account) == 0) {
             return curr;
-        }
+        } 
+        curr = curr->next; 
     }
     return NULL;
 }
 
 
 
-// æ¸…ç©ºé“¾è¡¨
+// Çå¿ÕÁ´±í
 void clearList(struct student* stu) { 
     if (stu == NULL) {
         return; 

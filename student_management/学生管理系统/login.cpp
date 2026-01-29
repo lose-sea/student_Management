@@ -45,7 +45,8 @@ void login() {
 					continue; 
 				}   
 				printf("请输入密码: "); 
-				fgets(password, 300, stdin); 
+				fgets(password, 300, stdin);  
+				removeNewline(password);
 				if (curr == NULL || strcmp(curr->password, password) != 0) {
 					printf("账号或密码输入错误, 请重新输入\n");  
 					Sleep(800);
@@ -75,8 +76,10 @@ void login() {
 					system("cls");
 					continue;
 				} 
-				printf("请输入密码: ");
-				fgets(password, 300, stdin);
+				printf("请输入密码: "); 
+				
+				fgets(password, 300, stdin); 
+				removeNewline(password);
 				if (curr == NULL || strcmp(curr->password, password) != 0) {
 					printf("账号或密码输入错误, 请重新输入\n");
 					Sleep(800);
@@ -106,8 +109,9 @@ void login() {
 					system("cls");
 					continue;
 				} 
-				printf("请输入密码: ");
-				fgets(password, 300, stdin);
+				printf("请输入密码: "); 
+				fgets(password, 300, stdin); 
+				removeNewline(password);
 				if (curr == NULL || strcmp(curr->password, password) != 0) {
 					printf("账号或密码输入错误, 请重新输入\n");
 					Sleep(800);

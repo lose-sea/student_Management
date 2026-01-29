@@ -15,41 +15,38 @@ int main() {
 
     loadFromFile();     
 
-	//for (int i = 0; i < 3; i++) { 
-	//	addStudent(stu); 
-	//}
-	//int mark = 1; 
-	//while (mark) { 
-	//	displayInitialInterfal();
-	//	char selection = '\0';
-	//	while (1) {
-	//		selection = _getch();
-	//		if (selection == '1' || selection == '2' || selection == '3' || selection == '0') {
-	//			break;
-	//		} else {
-	//			printf("选择无效，请重新输入:\n");
-	//		}
-	//	}
-	//	if (selection == '1') {
-	//		system("cls");
-	//		displayMenuOfLogin(); 
-	//		mark = 0; 
-	//	} else if (selection == '2') {
-	//		system("cls");
-	//		createAccount(); 
-	//		break; 
-	//	} else if (selection == '3') {
-	//		system("cls");
-	//		retrievePassword(); 
-	//		break; 
-	//	} else if (selection == '0') {
-	//		printf("感谢使用学生管理系统，程序即将退出...\n");
-	//		system("pause"); 
-	//		return 0;
-	//	} else {
-	//		printf("选择无效，请重新输入:\n");
-	//	}
-	//} 
+	/*int mark = 1; 
+	while (mark) { 
+		displayInitialInterfal();
+		char selection = '\0';
+		while (1) {
+			selection = _getch();
+			if (selection == '1' || selection == '2' || selection == '3' || selection == '0') {
+				break;
+			} else {
+				printf("选择无效，请重新输入:\n");
+			}
+		}
+		if (selection == '1') {
+			system("cls");
+			displayMenuOfLogin(); 
+			mark = 0;  
+		} else if (selection == '2') {
+			system("cls");
+			createAccount(); 
+			break; 
+		} else if (selection == '3') {
+			system("cls");
+			retrievePassword(); 
+			break; 
+		} else if (selection == '0') {
+			printf("感谢使用学生管理系统，程序即将退出...\n");
+			system("pause"); 
+			return 0;
+		} else {
+			printf("选择无效，请重新输入:\n");
+		}
+	} */
 
 	//// 进入了登录
 	//displayMenuOfLogin(); 
@@ -67,12 +64,15 @@ int main() {
 	//	system("pause"); 
 	//	return 0; 
 	//}  
-	//  printf("%s \n%s", stu->head->account, stu->head->password);  
-	 login(); 
+	 // printf("%s \n%s", stu->head->account, stu->head->password);  
+	  // login(); 
 
 	// createAccount();  
-	//printf("%s \n  %s", stu->head->account, stu->head->password); 
-	//login();    
+	//printf("%s \n  %s", stu->head->account, stu->head->password);  
+
+	printf("%s %s", teach->account, teach->password); 
+	
+	 // login();    
 
 
  //   displayAllStudent(stu);       

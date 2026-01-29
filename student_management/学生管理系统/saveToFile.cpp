@@ -97,30 +97,33 @@ void saveToFile() {
 		fwrite(curr->password, sizeof(char), 300, pf);
 		curr = curr->next; 
 	}  
+	fclose(pf);   
 
-	fclose(pf);  
 	pf = fopen("teacher.bin", "wb"); 
 	if (pf == NULL) {
 		printf("文件打开失败\n"); 
 		system("pause"); 
 		return; 
-	}  
-	while (teach != NULL) {
-		fwrite(teach->account, sizeof(char), 300, pf); 
-		fwrite(teach->password, sizeof(char), 300, pf); 
-		teach = teach->next;
-	}  
+	}   
+	struct teacher* curr_teacher = teach; 
+	while (curr_teacher != NULL) {
+		fwrite(curr_teacher->account, sizeof(char), 300, pf); 
+		fwrite(curr_teacher->password, sizeof(char), 300, pf); 
+		curr_teacher = curr_teacher->next;
+	}   
+	fclose(pf); 
 
 	pf = fopen("administrator.bin", "wb"); 
 	if (pf == NULL) {
 		printf("文件打开失败\n"); 
 		system("pause"); 
 		return; 
-	}  
-	while (manage != NULL) {
-		fwrite(manage->account, sizeof(char), 300, pf); 
-		fwrite(manage->password, sizeof(char), 300, pf); 
-		manage = manage->next;
+	}   
+	struct manager* curr_manager = manage; 
+	while (curr_manager != NULL) {
+		fwrite(curr_manager->account, sizeof(char), 300, pf); 
+		fwrite(curr_manager->password, sizeof(char), 300, pf); 
+		curr_manager = curr_manager->next;
 	}  
 
 	fclose(pf);  
