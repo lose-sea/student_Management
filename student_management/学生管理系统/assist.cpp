@@ -88,7 +88,7 @@ struct ListNode* findStudentByAccount(struct student* stu, char* account) {
     } 
     struct ListNode* curr = stu->head;  
     while (curr != NULL) {
-        if (strcpy(curr->account, account) == 0) {
+        if (strcmp(curr->account, account) == 0) {
             return curr; 
         } 
         curr = curr->next; 
@@ -103,7 +103,7 @@ struct teacher* findTeacherByAccount(struct teacher* teacher, char* account) {
     } 
     struct teacher* curr = teacher; 
     while (curr != NULL) {
-        if (curr->account == account) {
+        if (strcmp(curr->account, account) == 0) {
             return curr; 
         }
     } 
@@ -118,7 +118,7 @@ struct manager* findAdministratorByAccount(struct manager* administrator, char* 
     }
     struct manager* curr = administrator ;
     while (curr != NULL) {
-        if (curr->account == account) {
+        if (strcmp(curr->account, account) == 0) {
             return curr;
         }
     }

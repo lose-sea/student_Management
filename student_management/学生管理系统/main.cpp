@@ -67,8 +67,8 @@ int main() {
 	//	system("pause"); 
 	//	return 0; 
 	//}  
-	  printf("%s \n%s", stu->head->account, stu->head->password);  
-	// login(); 
+	//  printf("%s \n%s", stu->head->account, stu->head->password);  
+	 login(); 
 
 	// createAccount();  
 	//printf("%s \n  %s", stu->head->account, stu->head->password); 
