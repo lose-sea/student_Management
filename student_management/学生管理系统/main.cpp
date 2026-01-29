@@ -67,14 +67,15 @@ int main() {
 	//	system("pause"); 
 	//	return 0; 
 	//}  
-	//  printf("%s \n  %s", stu->head->account, stu->head->password); 
+	  printf("%s \n%s", stu->head->account, stu->head->password);  
+	// login(); 
 
 	// createAccount();  
 	//printf("%s \n  %s", stu->head->account, stu->head->password); 
 	//login();    
 
 
-	 displayAllStudent(stu);       
+ //   displayAllStudent(stu);       
  //   addStudent(stu);    
 	saveToFile(); 
     return 0; 
