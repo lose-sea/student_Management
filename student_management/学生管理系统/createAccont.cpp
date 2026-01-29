@@ -1,59 +1,59 @@
-ï»¿#define _CRT_SECURE_NO_WARNINGS 
+#define _CRT_SECURE_NO_WARNINGS 
 
 
 #include"student.h" 
 
-// æ³¨å†Œè´¦å·
+// ×¢²áÕËºÅ
 void createAccount() { 
     system("cls"); 
-	printf("========= æ³¨å†Œè´¦å· =========\n"); 
-	printf("è¯·è¾“å…¥ä½ è¦æ³¨å†Œçš„è´¦å·ç±»å‹\n"); 
-	printf("1.å­¦ç”Ÿ		2.æ•™å¸ˆ		3.ç®¡ç†å‘˜\n");   
+	printf("========= ×¢²áÕËºÅ =========\n"); 
+	printf("ÇëÊäÈëÄãÒª×¢²áµÄÕËºÅÀàĞÍ\n"); 
+	printf("1.Ñ§Éú		2.½ÌÊ¦		3.¹ÜÀíÔ±\n");   
 	char selection; 
 	while (1) {
 		selection = _getch();  
 		if (selection == '1') { 
             system("cls");
-			printf("å­¦ç”Ÿç«¯\n"); 
+			printf("Ñ§Éú¶Ë\n"); 
 			break; 
 		} else if (selection == '2') { 
             system("cls");
-			printf("æ•™å¸ˆç«¯\n"); 
+			printf("½ÌÊ¦¶Ë\n"); 
 			break;     
 		} else if (selection == '3') { 
             system("cls");
-			printf("ç®¡ç†å‘˜ç«¯\n"); 
+			printf("¹ÜÀíÔ±¶Ë\n"); 
 			break; 
 		} else {
-			printf("è¾“å…¥é”™è¯¯, è¯·é‡æ–°è¾“å…¥\n"); 
+			printf("ÊäÈë´íÎó, ÇëÖØĞÂÊäÈë\n"); 
 			Sleep(800);
-			printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
-			printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ  
+			printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
+			printf("\033[2K");    // Çå³ıÕûĞĞ  
 		}
 	} 
 
-	// å­¦ç”Ÿç«¯
+	// Ñ§Éú¶Ë
     switch (selection) { 
         case '1': {
             char id[300];
             while (1) {  
-                printf("è¯·è¾“å…¥å­¦å·: \n");
+                printf("ÇëÊäÈëÑ§ºÅ: \n");
                 fgets(id, 300, stdin);
                 removeNewline(id);
                 if (!isDigit(id)) {    
-                    printf("å­¦å·åº”ä¸ºçº¯æ•°å­—, è¯·é‡æ–°è¾“å…¥\n");
+                    printf("Ñ§ºÅÓ¦Îª´¿Êı×Ö, ÇëÖØĞÂÊäÈë\n");
                     Sleep(800);
                     system("cls"); 
                     continue;
                 } else if (strlen(id) == 0) {
-                    printf("å­¦å·ä¸èƒ½ä¸ºç©º, è¯·é‡æ–°è¾“å…¥\n");
+                    printf("Ñ§ºÅ²»ÄÜÎª¿Õ, ÇëÖØĞÂÊäÈë\n");
                     Sleep(800);
                     system("cls");
                     continue;
                 }
                 if (findByid(stu, id) == NULL) {
-                    printf("è¯¥å­¦ç”Ÿä¸å­˜åœ¨\n");
-                    printf("æ˜¯å¦é‡æ–°è¾“å…¥ï¼š æ˜¯(Y) å¦(N)\n");
+                    printf("¸ÃÑ§Éú²»´æÔÚ\n");
+                    printf("ÊÇ·ñÖØĞÂÊäÈë(ÊÇ(Y) ·ñ(N)): \n");
                     char selection = 0;
                     while (1) {  
                         selection = _getch();
@@ -61,14 +61,14 @@ void createAccount() {
                             system("cls");
                             break;
                         } else if (selection == 'N' || selection == 'n') {
-                            printf("é€€å‡º\n");
+                            printf("ÍË³ö\n");
                             system("pause");
                             return;
                         } else {
-                            printf("é€‰æ‹©é”™è¯¯, è¯·é‡æ–°é€‰æ‹©\n");
+                            printf("Ñ¡Ôñ´íÎó, ÇëÖØĞÂÑ¡Ôñ\n");
                             Sleep(800);
-                            printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
-                            printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ   
+                            printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
+                            printf("\033[2K");    // Çå³ıÕûĞĞ   
                             printf("\r");
                         }
                     } 
@@ -77,41 +77,41 @@ void createAccount() {
                 }
             }
             struct ListNode* curr = findByid(stu, id);
-            printf("è¯·è¾“å…¥è´¦å·(è´¦å·è‡³å°‘ä¸º6ä½æ•°å­—æˆ–è‹±æ–‡å­—æ¯): \n");
+            printf("ÇëÊäÈëÕËºÅ(ÕËºÅÖÁÉÙÎª6Î»Êı×Ö»òÓ¢ÎÄ×ÖÄ¸): \n");
             char account[300];
             while (1) { 
                 fgets(account, 300, stdin);
                 removeNewline(account);
                 if (strlen(account) < 6 || !isAlphanumeric(account)) {
-                    printf("è´¦å·è‡³å°‘ä¸º6ä½æ•°å­—æˆ–è‹±æ–‡å­—æ¯\n");
+                    printf("ÕËºÅÖÁÉÙÎª6Î»Êı×Ö»òÓ¢ÎÄ×ÖÄ¸\n");
                     Sleep(800);
-                    printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ    
-                    printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ      
-                    printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ    
-                    printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ     
+                    printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ    
+                    printf("\033[2K");    // Çå³ıÕûĞĞ      
+                    printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ    
+                    printf("\033[2K");    // Çå³ıÕûĞĞ     
                     printf("\r");  
                 } else if (findStudentByAccount(stu, account) != NULL) {  
-                    printf("å·²å­˜åœ¨è¯¥è´¦å·\n");  
+                    printf("ÒÑ´æÔÚ¸ÃÕËºÅ\n");  
                     Sleep(800);  
-                    printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
-                    printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ   
-                    printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
-                    printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ   
+                    printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
+                    printf("\033[2K");    // Çå³ıÕûĞĞ   
+                    printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
+                    printf("\033[2K");    // Çå³ıÕûĞĞ   
                     printf("\r");
                 } else {
                     break;
                 }
             }
-            printf("è¯·è¾“å…¥å¯†ç (å¯†ç è‡³å°‘ä¸º6ä¸ºæ•°å­—æˆ–è‹±æ–‡å­—æ¯): \n");
+            printf("ÇëÊäÈëÃÜÂë(ÃÜÂëÖÁÉÙÎª6ÎªÊı×Ö»òÓ¢ÎÄ×ÖÄ¸): \n");
             char password[300] = {0};
             while (1) { 
                 int i = 0;  
                 char ch; 
-                while ((ch = _getch()) != '\r')  // æ£€æµ‹å›è½¦æŒ‰é”® '\r'
+                while ((ch = _getch()) != '\r')  // ¼ì²â»Ø³µ°´¼ü '\r'
                 {
-                    if (ch == '\b' && i > 0) { // å¤„ç†é€€æ ¼é”®
+                    if (ch == '\b' && i > 0) { // ´¦ÀíÍË¸ñ¼ü
                         i--;
-                        printf("\b \b");  // é€€æ ¼å¹¶æ¸…ç©ºæ˜¾ç¤º
+                        printf("\b \b");  // ÍË¸ñ²¢Çå¿ÕÏÔÊ¾
                     } else if (ch != '\b') {
                         password[i++] = ch;
                         printf("*");
@@ -119,12 +119,12 @@ void createAccount() {
                 }
                 password[i] = '\0';
                 if (strlen(password) < 6 || !isAlphanumeric(password)) {    
-                    printf("\nå¯†ç è‡³å°‘ä¸º6ä½æ•°å­—æˆ–è‹±æ–‡å­—æ¯\n");   
+                    printf("\nÃÜÂëÖÁÉÙÎª6Î»Êı×Ö»òÓ¢ÎÄ×ÖÄ¸\n");   
                     Sleep(800);  
-                    printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
-                    printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ   
-                    printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ    
-                    printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ   
+                    printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
+                    printf("\033[2K");    // Çå³ıÕûĞĞ   
+                    printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ    
+                    printf("\033[2K");    // Çå³ıÕûĞĞ   
                     printf("\r"); 
                 } else {  
                     break;  
@@ -136,43 +136,43 @@ void createAccount() {
             break; 
         }    
         case '2': { 
-            printf("è¯·è¾“å…¥è´¦å·(è´¦å·è‡³å°‘ä¸º6ä¸ºæ•°å­—æˆ–è‹±æ–‡å­—æ¯): \n"); 
+            printf("ÇëÊäÈëÕËºÅ(ÕËºÅÖÁÉÙÎª6ÎªÊı×Ö»òÓ¢ÎÄ×ÖÄ¸): \n"); 
             struct teacher* node = (struct teacher*)malloc(sizeof(struct teacher)); 
             char account[300];
             while (1) { 
                 fgets(account, 300, stdin);
                 removeNewline(account); 
                 if (strlen(account) < 6 || !isAlphanumeric(account)) {
-                    printf("è´¦å·è‡³å°‘ä¸º6ä½æ•°å­—æˆ–è‹±æ–‡å­—æ¯\n");
+                    printf("ÕËºÅÖÁÉÙÎª6Î»Êı×Ö»òÓ¢ÎÄ×ÖÄ¸\n");
                     Sleep(800);
-                    printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ    
-                    printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ      
-                    printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ    
-                    printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ     
+                    printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ    
+                    printf("\033[2K");    // Çå³ıÕûĞĞ      
+                    printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ    
+                    printf("\033[2K");    // Çå³ıÕûĞĞ     
                     printf("\r");
                 } else if (findTeacherByAccount(teach, account) != NULL) {
-                    printf("å·²å­˜åœ¨è¯¥è´¦å·\n");
+                    printf("ÒÑ´æÔÚ¸ÃÕËºÅ\n");
                     Sleep(800);
-                    printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
-                    printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ   
-                    printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
-                    printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ   
+                    printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
+                    printf("\033[2K");    // Çå³ıÕûĞĞ   
+                    printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
+                    printf("\033[2K");    // Çå³ıÕûĞĞ   
                     printf("\r"); 
-                    printf("æ˜¯å¦é‡æ–°è¾“å…¥ï¼š æ˜¯(Y) å¦(N)\n");
+                    printf("ÊÇ·ñÖØĞÂÊäÈë£º ÊÇ(Y) ·ñ(N)\n");
                     char selection = 0;
                     while (1) {  
                         selection = _getch();
                         if (selection == 'Y' || selection == 'y') {
                             break;
                         } else if (selection == 'N' || selection == 'n') {
-                            printf("è¿”å›ä¸Šä¸€å±‚\n");
+                            printf("·µ»ØÉÏÒ»²ã\n");
                             system("pause");
                             return;
                         } else {
-                            printf("é€‰æ‹©é”™è¯¯, è¯·é‡æ–°é€‰æ‹©\n");
+                            printf("Ñ¡Ôñ´íÎó, ÇëÖØĞÂÑ¡Ôñ\n");
                             Sleep(800);
-                            printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
-                            printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ   
+                            printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
+                            printf("\033[2K");    // Çå³ıÕûĞĞ   
                             printf("\r");
                         }
                     }
@@ -180,16 +180,16 @@ void createAccount() {
                     break; 
                 }
             }
-            printf("è¯·è¾“å…¥å¯†ç (å¯†ç è‡³å°‘ä¸º6ä½æ•°å­—æˆ–è‹±æ–‡å­—æ¯): \n");
+            printf("ÇëÊäÈëÃÜÂë(ÃÜÂëÖÁÉÙÎª6Î»Êı×Ö»òÓ¢ÎÄ×ÖÄ¸): \n");
             char password[300] = {0};
             while (1) { 
                 int i = 0;  
                 char ch; 
-                while ((ch = _getch()) != '\r')  // æ£€æµ‹å›è½¦æŒ‰é”® '\r'
+                while ((ch = _getch()) != '\r')  // ¼ì²â»Ø³µ°´¼ü '\r'
                 {
                     if (ch == '\b' && i > 0) {
                         i--;
-                        printf("\b \b");  // é€€æ ¼å¹¶æ¸…ç©ºæ˜¾ç¤º
+                        printf("\b \b");  // ÍË¸ñ²¢Çå¿ÕÏÔÊ¾
                     } else if (ch != '\b') {
                         password[i++] = ch;
                         printf("*");
@@ -197,12 +197,12 @@ void createAccount() {
                 }
                 password[i] = '\0';
                 if (strlen(password) < 6 || !isAlphanumeric(password)) {
-                    printf("\nå¯†ç è‡³å°‘ä¸º6ä½æ•°å­—æˆ–è‹±æ–‡å­—æ¯\n");
+                    printf("\nÃÜÂëÖÁÉÙÎª6Î»Êı×Ö»òÓ¢ÎÄ×ÖÄ¸\n");
                     Sleep(800);
-                    printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
-                    printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ   
-                    printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ    
-                    printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ   
+                    printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
+                    printf("\033[2K");    // Çå³ıÕûĞĞ   
+                    printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ    
+                    printf("\033[2K");    // Çå³ıÕûĞĞ   
                     printf("\r");
                 } else {
                     break;
@@ -216,43 +216,43 @@ void createAccount() {
             break; 
         } 
         case '3': {
-            printf("è¯·è¾“å…¥è´¦å·(è´¦å·è‡³å°‘ä¸º6ä½æ•°å­—æˆ–è‹±æ–‡å­—æ¯): \n");
+            printf("ÇëÊäÈëÕËºÅ(ÕËºÅÖÁÉÙÎª6Î»Êı×Ö»òÓ¢ÎÄ×ÖÄ¸): \n");
             struct manager* node = (struct manager*)malloc(sizeof(struct manager));
             char account[300];
             while (1) { 
                 fgets(account, 300, stdin);
                 removeNewline(account);
                 if (strlen(account) < 6 || !isAlphanumeric(account)) {
-                    printf("è´¦å·è‡³å°‘ä¸º6ä½æ•°å­—æˆ–è‹±æ–‡å­—æ¯\n");
+                    printf("ÕËºÅÖÁÉÙÎª6Î»Êı×Ö»òÓ¢ÎÄ×ÖÄ¸\n");
                     Sleep(800);
-                    printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ    
-                    printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ      
-                    printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ    
-                    printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ     
+                    printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ    
+                    printf("\033[2K");    // Çå³ıÕûĞĞ      
+                    printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ    
+                    printf("\033[2K");    // Çå³ıÕûĞĞ     
                     printf("\r");
                 } else if (findAdministratorByAccount(manage, account) != NULL) {
-                    printf("å·²å­˜åœ¨è¯¥è´¦å·\n");
+                    printf("ÒÑ´æÔÚ¸ÃÕËºÅ\n");
                     Sleep(800);
-                    printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
-                    printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ   
-                    printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
-                    printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ   
+                    printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
+                    printf("\033[2K");    // Çå³ıÕûĞĞ   
+                    printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
+                    printf("\033[2K");    // Çå³ıÕûĞĞ   
                     printf("\r");
-                    printf("æ˜¯å¦é‡æ–°è¾“å…¥ï¼š æ˜¯(Y) å¦(N)\n");
+                    printf("ÊÇ·ñÖØĞÂÊäÈë£º ÊÇ(Y) ·ñ(N)\n");
                     char selection = 0;
                     while (1) { 
                         selection = _getch();
                         if (selection == 'Y' || selection == 'y') {
                             break;
                         } else if (selection == 'N' || selection == 'n') {
-                            printf("è¿”å›ä¸Šä¸€å±‚\n");
+                            printf("·µ»ØÉÏÒ»²ã\n");
                             system("pause");
                             return;
                         } else {
-                            printf("é€‰æ‹©é”™è¯¯, è¯·é‡æ–°é€‰æ‹©\n");
+                            printf("Ñ¡Ôñ´íÎó, ÇëÖØĞÂÑ¡Ôñ\n");
                             Sleep(800);  
-                            printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
-                            printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ   
+                            printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
+                            printf("\033[2K");    // Çå³ıÕûĞĞ   
                             printf("\r");   
                         }   
                     }
@@ -260,16 +260,16 @@ void createAccount() {
                     break;
                 }
             } 
-            printf("è¯·è¾“å…¥å¯†ç (å¯†ç è‡³å°‘ä¸º6ä½æ•°å­—æˆ–è‹±æ–‡å­—æ¯): \n");
+            printf("ÇëÊäÈëÃÜÂë(ÃÜÂëÖÁÉÙÎª6Î»Êı×Ö»òÓ¢ÎÄ×ÖÄ¸): \n");
             char password[300] = {0};
             while (1) { 
                 int i = 0;  
                 char ch; 
-                while ((ch = _getch()) != '\r')  // æ£€æµ‹å›è½¦æŒ‰é”® '\r'
+                while ((ch = _getch()) != '\r')  // ¼ì²â»Ø³µ°´¼ü '\r'
                 {
                     if (ch == '\b' && i > 0) {
                         i--;
-                        printf("\b \b");  // é€€æ ¼å¹¶æ¸…ç©ºæ˜¾ç¤º
+                        printf("\b \b");  // ÍË¸ñ²¢Çå¿ÕÏÔÊ¾
                     } else if (ch != '\b') {
                         password[i++] = ch;
                         printf("*");
@@ -277,12 +277,12 @@ void createAccount() {
                 }
                 password[i] = '\0';
                 if (strlen(password) < 6 || !isAlphanumeric(password)) {
-                    printf("\nå¯†ç è‡³å°‘ä¸º6ä½æ•°å­—æˆ–è‹±æ–‡å­—æ¯\n");
+                    printf("\nÃÜÂëÖÁÉÙÎª6Î»Êı×Ö»òÓ¢ÎÄ×ÖÄ¸\n");
                     Sleep(800);
-                    printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
-                    printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ   
-                    printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ    
-                    printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ   
+                    printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
+                    printf("\033[2K");    // Çå³ıÕûĞĞ   
+                    printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ    
+                    printf("\033[2K");    // Çå³ıÕûĞĞ   
                     printf("\r");
                 } else {
                     break;

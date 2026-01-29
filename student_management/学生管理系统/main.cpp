@@ -1,20 +1,23 @@
 #define _CRT_SECURE_NO_WARNINGS 
 #include"student.h"   
 
-struct student* stu = NULL; 
-struct teacher* teach = NULL;  
-struct manager* manage = NULL; 
-int main() {
-
+struct student* stu = NULL;   
+struct teacher* teach = NULL;    
+struct manager* manage = NULL;   
+int main() {  
     stu = (struct student*)malloc(sizeof(struct student));
     stu->head = NULL;
     stu->tail = NULL;
     stu->studentSize = 0;
 
-    teach = NULL;  // 链表头指针初始化为 NULL
-    manage = NULL;  // 链表头指针初始化为 NULL 
+    teach = NULL;  // 链表头指针初始化为 NULL  
+    manage = NULL;  // 链表头指针初始化为 NULL   
 
-    loadFromFile(); 
+    loadFromFile();     
+
+	//for (int i = 0; i < 3; i++) { 
+	//	addStudent(stu); 
+	//}
 	//int mark = 1; 
 	//while (mark) { 
 	//	displayInitialInterfal();
@@ -66,12 +69,12 @@ int main() {
 	//}  
 	//  printf("%s \n  %s", stu->head->account, stu->head->password); 
 
-	createAccount();  
-	printf("%s \n  %s", stu->head->account, stu->head->password); 
-	login();  
+	// createAccount();  
+	//printf("%s \n  %s", stu->head->account, stu->head->password); 
+	//login();    
 
 
-	// displayAllStudent(stu);       
+	 displayAllStudent(stu);       
  //   addStudent(stu);    
 	saveToFile(); 
     return 0; 

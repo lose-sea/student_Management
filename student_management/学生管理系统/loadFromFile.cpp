@@ -1,33 +1,33 @@
-ï»¿#define _CRT_SECURE_NO_WARNINGS 
+#define _CRT_SECURE_NO_WARNINGS 
 #include"student.h"  
 
 
-// ä»æ–‡ä»¶ä¸­è¯»å–æ•°æ®(äºŒè¿›åˆ¶) 
+// ´ÓÎÄ¼şÖĞ¶ÁÈ¡Êı¾İ(¶ş½øÖÆ) 
 void loadFromFile() {  
 	if (stu == NULL) {
-		printf("å½“å‰æš‚æ— å­¦ç”Ÿä¿¡æ¯\n"); 
+		printf("µ±Ç°ÔİÎŞÑ§ÉúĞÅÏ¢\n"); 
 		system("pause"); 
 		return; 
 	}
 	FILE* pf = fopen("student.bin", "rb");  
 	if (pf == NULL) {
-		printf("å­¦ç”Ÿæ–‡ä»¶æ‰“å¼€å¤±è´¥\n"); 
+		printf("Ñ§ÉúÎÄ¼ş´ò¿ªÊ§°Ü\n"); 
 		system("pause"); 
 		return; 
 	} 
-	// æ–‡ä»¶æ‰“å¼€æˆåŠŸ 
-	// è¯»å–å­¦ç”Ÿæ•°é‡
+	// ÎÄ¼ş´ò¿ª³É¹¦ 
+	// ¶ÁÈ¡Ñ§ÉúÊıÁ¿
 	int count = 0; 
 	if (fread(&count, sizeof(int), 1, pf) != 1) {
-		printf("è¯»å–å¤±è´¥\n"); 
+		printf("¶ÁÈ¡Ê§°Ü\n"); 
 		fclose(pf); 
 		pf = NULL; 
 		return; 
 	} else { 
-		// printf("å…± %d åå­¦ç”Ÿ\n", count);   
+		// printf("¹² %d ÃûÑ§Éú\n", count);   
 	}
 	
-	// æ¸…ç©ºç°æœ‰æ•°æ®
+	// Çå¿ÕÏÖÓĞÊı¾İ
 	ListNode* curr = stu->head; 
 	while (curr != NULL) {
 		ListNode* temp = curr; 
@@ -36,16 +36,18 @@ void loadFromFile() {
 	} 
 	stu->head = NULL;  
 	stu->tail = NULL;
-	stu->studentSize = count;  
-	// é‡å»ºåŒå‘é“¾è¡¨  
+	stu->studentSize = count;   
+
+
+	// ÖØ½¨Ë«ÏòÁ´±í  
 	for (int i = 1; i <= count; i++) {
 		ListNode* newNode = (ListNode*)malloc(sizeof(ListNode));
 		if (newNode == NULL) {
-			printf("å†…å­˜åˆ†é…å¤±è´¥\n"); 
+			printf("ÄÚ´æ·ÖÅäÊ§°Ü\n"); 
 			break; 
 		}    
 
-		// å°¾æ’   
+		// Î²²å   
 		newNode->next = NULL;
 		newNode->prev = stu->tail;
 		if (stu->head == NULL) {
@@ -56,7 +58,7 @@ void loadFromFile() {
 			stu->tail = newNode;
 		}
 		
-		// è¯»å–æ•°æ®  
+		// ¶ÁÈ¡Êı¾İ   
 		fread(newNode->id, sizeof(char), 300, pf);
 		fread(newNode->name, sizeof(char), 300, pf);
 		fread(newNode->sex, sizeof(char), 20, pf);
@@ -69,58 +71,59 @@ void loadFromFile() {
 		fread(&newNode->totalscore, sizeof(double), 1, pf);
 		fread(newNode->grade, sizeof(char), 300, pf);
 		fread(newNode->class1, sizeof(char), 300, pf);  
-
-		// // æ˜¾ç¤ºè¿›åº¦
-		// printf("æ­£åœ¨è¯»å–ç¬¬ %d/%d ä¸ªå­¦ç”Ÿ: %s\n", i, stu->studentSize, newNode->name); 
-		//  // ä¸Šç§»ä¸€è¡Œ
+		fread(newNode->account, sizeof(char), 300, pf); 
+		fread(newNode->password, sizeof(char), 300, pf); 
+		// // ÏÔÊ¾½ø¶È
+		// printf("ÕıÔÚ¶ÁÈ¡µÚ %d/%d ¸öÑ§Éú: %s\n", i, stu->studentSize, newNode->name); 
+		//  // ÉÏÒÆÒ»ĞĞ
 		// printf("\033[1A");
-		// // æ¸…é™¤å½“å‰è¡Œ
+		// // Çå³ıµ±Ç°ĞĞ
 		// printf("\033[2K"); 
 		// printf("\r"); 
 	}   
 	fclose(pf); 
 
-	// è¯»å–æ•™å¸ˆæ•°æ®
+	// ¶ÁÈ¡½ÌÊ¦Êı¾İ
 	pf = fopen("teacher.bin", "rb");
 	if (pf == NULL) {   
-		printf("æ•™å¸ˆæ–‡ä»¶æ‰“å¼€å¤±è´¥\n"); 
+		printf("½ÌÊ¦ÎÄ¼ş´ò¿ªÊ§°Ü\n"); 
 		system("pause"); 
 		return; 
 	}
 	
-	// æ¸…ç©ºç°æœ‰æ•°æ®
+	// Çå¿ÕÏÖÓĞÊı¾İ
 	struct teacher* currteach = teach;   
 	while (currteach != NULL) {   
 		struct teacher* temp = currteach;   
 		currteach = currteach->next; 	
 		free(temp); 
 	}   
-	teach = NULL;  // æ¸…ç©ºé“¾è¡¨å¤´
+	teach = NULL;  // Çå¿ÕÁ´±íÍ·
 	
 	size_t read_count;  
 	while (1) {
-		// åœ¨åˆ¤æ–­ä¹‹å‰åˆ›å»ºèŠ‚ç‚¹
+		// ÔÚÅĞ¶ÏÖ®Ç°´´½¨½Úµã
 		struct teacher* newNode = (struct teacher*)malloc(sizeof(struct teacher)); 
 		if (newNode == NULL) {   
-			printf("æ•™å¸ˆå†…å­˜åˆ†é…å¤±è´¥\n");    
+			printf("½ÌÊ¦ÄÚ´æ·ÖÅäÊ§°Ü\n");    
 			break; 
 		}    
 		
-		// è¯»å–æ•°æ®
+		// ¶ÁÈ¡Êı¾İ
 		read_count = fread(newNode, sizeof(struct teacher), 1, pf);
 		if (read_count == 0) {
-			free(newNode);  // è¯»å–å¤±è´¥ï¼Œé‡Šæ”¾èŠ‚ç‚¹ 
+			free(newNode);  // ¶ÁÈ¡Ê§°Ü£¬ÊÍ·Å½Úµã 
 			if (feof(pf)) {
-				// æ–‡ä»¶æ­£å¸¸ç»“æŸ
+				// ÎÄ¼şÕı³£½áÊø
 				break;
 			} else {
-				// è¯»å–é”™è¯¯
-				printf("è¯»å–æ•™å¸ˆæ–‡ä»¶å¤±è´¥\n");
+				// ¶ÁÈ¡´íÎó
+				printf("¶ÁÈ¡½ÌÊ¦ÎÄ¼şÊ§°Ü\n");
 				break;
 			}
 		}
 		
-		// å¤´æ’æ³•æ’å…¥é“¾è¡¨
+		// Í·²å·¨²åÈëÁ´±í
 		newNode->next = teach;
 		teach = newNode;
 	}
@@ -128,43 +131,43 @@ void loadFromFile() {
 
 	pf = fopen("administrator.bin", "rb"); 
 	if (pf == NULL) {   
-		printf("ç®¡ç†å‘˜æ–‡ä»¶æ‰“å¼€å¤±è´¥\n"); 
+		printf("¹ÜÀíÔ±ÎÄ¼ş´ò¿ªÊ§°Ü\n"); 
 		system("pause"); 
 		return; 
 	}  
-	// æ¸…ç©ºç°æœ‰æ•°æ®
+	// Çå¿ÕÏÖÓĞÊı¾İ
 	struct manager* currmanager = manage; 
 	while (currmanager != NULL) {
 		struct manager* temp = currmanager;   
 		currmanager = currmanager->next; 	
 		free(temp); 
 	}   
-	manage = NULL;  // æ¸…ç©ºé“¾è¡¨å¤´
+	manage = NULL;  // Çå¿ÕÁ´±íÍ·
 	
 	while (1) {
 		struct manager* newNode = (struct manager*)malloc(sizeof(struct manager)); 
 		if (newNode == NULL) {   
-			printf("ç®¡ç†å‘˜å†…å­˜åˆ†é…å¤±è´¥\n");   
+			printf("¹ÜÀíÔ±ÄÚ´æ·ÖÅäÊ§°Ü\n");   
 			break;   
 		}    
-		// è¯»å–æ•°æ®
+		// ¶ÁÈ¡Êı¾İ
 		read_count = fread(newNode, sizeof(struct manager), 1, pf);
 		if (read_count == 0) {
-			free(newNode);  // è¯»å–å¤±è´¥ï¼Œé‡Šæ”¾èŠ‚ç‚¹  
+			free(newNode);  // ¶ÁÈ¡Ê§°Ü£¬ÊÍ·Å½Úµã  
 			if (feof(pf)) {
 				break;
 			} else {
-				printf("è¯»å–ç®¡ç†å‘˜æ–‡ä»¶å¤±è´¥\n");
+				printf("¶ÁÈ¡¹ÜÀíÔ±ÎÄ¼şÊ§°Ü\n");
 				break;
 			}
 		}
-		// å¤´æ’æ³•æ’å…¥é“¾è¡¨
+		// Í·²å·¨²åÈëÁ´±í
 		newNode->next = manage;
 		manage = newNode;
 	}
 	fclose(pf); 
 	pf = NULL; 
-	//printf("åŠ è½½æˆåŠŸ\n"); 
+	//printf("¼ÓÔØ³É¹¦\n"); 
 	//system("pause"); 
 }
 
@@ -198,32 +201,32 @@ void loadFromFile() {
 
 
 
-//// ä»æ–‡ä»¶ä¸­è¯»å–æ•°æ®(äºŒè¿›åˆ¶) 
+//// ´ÓÎÄ¼şÖĞ¶ÁÈ¡Êı¾İ(¶ş½øÖÆ) 
 //void loadFromFile() {
 //	if (stu == NULL) {
-//		printf("å½“å‰æš‚æ— å­¦ç”Ÿä¿¡æ¯\n");
+//		printf("µ±Ç°ÔİÎŞÑ§ÉúĞÅÏ¢\n");
 //		system("pause");
 //		return;
 //	}
 //	FILE* pf = fopen("studentInformation.bin", "rb");
 //	if (pf == NULL) {
-//		printf("æ–‡ä»¶æ‰“å¼€å¤±è´¥\n");
+//		printf("ÎÄ¼ş´ò¿ªÊ§°Ü\n");
 //		system("pause");
 //		return;
 //	}
-//	// æ–‡ä»¶æ‰“å¼€æˆåŠŸ 
-//	// è¯»å–å­¦ç”Ÿæ•°é‡
+//	// ÎÄ¼ş´ò¿ª³É¹¦ 
+//	// ¶ÁÈ¡Ñ§ÉúÊıÁ¿
 //	int count = 0;
 //	if (fread(&count, sizeof(int), 1, pf) != 1) {
-//		printf("è¯»å–å¤±è´¥\n");
+//		printf("¶ÁÈ¡Ê§°Ü\n");
 //		fclose(pf);
 //		pf = NULL;
 //		return;
 //	} else {
-//		// printf("å…± %d åå­¦ç”Ÿ\n", count);   
+//		// printf("¹² %d ÃûÑ§Éú\n", count);   
 //	}
 //
-//	// æ¸…ç©ºç°æœ‰æ•°æ®
+//	// Çå¿ÕÏÖÓĞÊı¾İ
 //	ListNode* curr = stu->head;
 //	while (curr != NULL) {
 //		ListNode* temp = curr;
@@ -233,15 +236,15 @@ void loadFromFile() {
 //	stu->head = NULL;
 //	stu->tail = NULL;
 //	stu->studentSize = count;
-//	// é‡å»ºåŒå‘é“¾è¡¨  
+//	// ÖØ½¨Ë«ÏòÁ´±í  
 //	for (int i = 1; i <= count; i++) {
 //		ListNode* newNode = (ListNode*)malloc(sizeof(ListNode));
 //		if (newNode == NULL) {
-//			printf("å†…å­˜åˆ†é…å¤±è´¥\n");
+//			printf("ÄÚ´æ·ÖÅäÊ§°Ü\n");
 //			break;
 //		}
 //
-//		// å°¾æ’   
+//		// Î²²å   
 //		newNode->next = NULL;
 //		newNode->prev = stu->tail;
 //		if (stu->head == NULL) {
@@ -252,15 +255,15 @@ void loadFromFile() {
 //			stu->tail = newNode;
 //		}
 //
-//		// è¯»å–æ•°æ®  
+//		// ¶ÁÈ¡Êı¾İ  
 //		fread(newNode, sizeof(struct ListNode), 1, pf); 
 //
 //
-//		// æ˜¾ç¤ºè¿›åº¦
-//		printf("æ­£åœ¨è¯»å–ç¬¬ %d/%d ä¸ªå­¦ç”Ÿ: %s\n", i, stu->studentSize, newNode->name);
-//		// ä¸Šç§»ä¸€è¡Œ
+//		// ÏÔÊ¾½ø¶È
+//		printf("ÕıÔÚ¶ÁÈ¡µÚ %d/%d ¸öÑ§Éú: %s\n", i, stu->studentSize, newNode->name);
+//		// ÉÏÒÆÒ»ĞĞ
 //		printf("\033[1A");
-//		// æ¸…é™¤å½“å‰è¡Œ
+//		// Çå³ıµ±Ç°ĞĞ
 //		printf("\033[2K");
 //		printf("\r");
 //	}
@@ -268,13 +271,13 @@ void loadFromFile() {
 //	pf = NULL;
 //	//pf = fopen("teacher.bin", "rb");   
 //	//if (pf == NULL) {
-//	//	printf("æ–‡ä»¶æ‰“å¼€å¤±è´¥\n"); 
+//	//	printf("ÎÄ¼ş´ò¿ªÊ§°Ü\n"); 
 //	//	system("pause"); 
 //	//	return; 
 //	//}
 //	//struct teacher* curr = teacher;  
 //	//
 //
-//	printf("åŠ è½½æˆåŠŸ\n");
+//	printf("¼ÓÔØ³É¹¦\n");
 //	system("pause");
 //}
