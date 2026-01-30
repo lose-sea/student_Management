@@ -10,8 +10,7 @@ void loginOfStudent() {
 	char account[300];
 	char password[300];
 	struct ListNode* curr = NULL;
-	bool mark = true;
-	while (mark) { 
+	while (1) { 
 		system("cls"); 
 		printf("学生端\n");
 		printf("请输入账号: ");
@@ -47,5 +46,54 @@ void loginOfStudent() {
 			printf("登录成功");
 			break;
 		}
+	}  
+	char mark = '\0'; 	
+	while (1) { 
+		displayMenuOfStudent();
+		printf("请选择你要执行的操作: \n");
+		mark = _getch(); 
+		if (mark < '0' || mark > '5') {
+			printf("输入无效, 请重新输入\n"); 
+		}
+	}
+	switch (mark) {
+		case '1': {
+			printf("=========== 显示学生信息 ===========\n");
+			printf("学号: %s\n", curr->id);
+			printf("姓名: %s\n", curr->name);
+			printf("性别: %s\n", curr->sex);
+			printf("年龄: %d\n", curr->age);
+			printf("电话: %s\n", curr->telephone);
+			printf("专业: %s\n", curr->major);
+			printf("高数成绩: %.2lf\n", curr->Math);
+			printf("近代史成绩: %.2lf\n", curr->History);
+			printf("英语成绩: %.2lf\n", curr->English);
+			printf("成绩: %.2f\n", curr->totalscore);
+			printf("年级: %s\n", curr->grade);
+			printf("班级: %s\n\n", curr->class1); 
+			break; 
+		} 
+		case '2': { 
+			printf("=========== 查看个人成绩 ===========\n");
+			printf("高数成绩: %.2lf\n", curr->Math);
+			printf("近代史成绩: %.2lf\n", curr->History);
+			printf("英语成绩: %.2lf\n", curr->English); 
+			break; 
+		} 
+		case '3': {
+			printf("=========== 查看本班成绩 ===========\n"); 
+			displayStudentScoreList(stu);  
+			break; 
+		} 
+		case '4': {
+			scoreAnalysis(stu);  
+			break; 
+		} 
+		/*case '5': {
+			goto login; 
+		} 
+		case '0': {
+			return 0; 
+		}*/
 	}
 }

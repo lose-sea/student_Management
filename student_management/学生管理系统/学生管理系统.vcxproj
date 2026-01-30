@@ -135,8 +135,10 @@
     <ClCompile Include="addStudent.cpp" />
     <ClCompile Include="assist.cpp" />
     <ClCompile Include="createAccont.cpp" />
+    <ClCompile Include="deleteAccount.cpp" />
     <ClCompile Include="deleteStudent.cpp" />
     <ClCompile Include="deleteTailStudent.cpp" />
+    <ClCompile Include="displayAccount.cpp" />
     <ClCompile Include="displayAllstudent.cpp" />
     <ClCompile Include="displayMenuOfLogin.cpp" />
     <ClCompile Include="displayMenuOfUser.cpp" />

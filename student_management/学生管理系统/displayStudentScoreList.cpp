@@ -1,47 +1,47 @@
-ï»¿#define _CRT_SECURE_NO_WARNINGS 
+#define _CRT_SECURE_NO_WARNINGS 
 
 
 #include"student.h" 
 
-// æ˜¾ç¤ºå­¦ç”Ÿæˆç»©åˆ—è¡¨
-void displayStudenScoretList(struct student* stu) {
+// ÏÔÊ¾Ñ§Éú³É¼¨ÁĞ±í
+void displayStudentScoreList(struct student* stu) {
     if (stu == NULL) {
-        printf("æš‚æ— å­¦ç”Ÿä¿¡æ¯\n");
+        printf("ÔİÎŞÑ§ÉúĞÅÏ¢\n");
         system("pause");
         return;
     }
     int total_page = (stu->studentSize + 19) / 20;
     int currpage = 1;
-    int i = 1;		// å½“å‰å­¦ç”Ÿåºå·
+    int i = 1;		// µ±Ç°Ñ§ÉúĞòºÅ
     struct ListNode* curr = stu->head;
     while (1) { 
         system("cls"); 
-        printf("åºå·       å§“å		é«˜æ•°		è¿‘ä»£å²		è‹±è¯­		æ€»åˆ†\n");
+        printf("ĞòºÅ       ĞÕÃû		¸ßÊı		½ü´úÊ·		Ó¢Óï		×Ü·Ö\n");
         for (int j = 1; j <= 20 && i <= stu->studentSize; j++) {
             printf("%d      %8s		%-4.2lf		%-6.2lf		%-4.2lf		%-4.2lf\n", i, curr->name, curr->Math, curr->History, curr->English, curr->totalscore); 
             curr = curr->next;  
             i++; 
         }
-        // æ˜¾ç¤ºå¯¼èˆª
-        printf("\n\nç¬¬ %d é¡µ / å…± %d é¡µ\n\n", currpage, total_page);  
-        printf("è¿”å›é¦–é¡µ(F)    æœ€åä¸€é¡µ(L)    ä¸Šä¸€é¡µ(P)    ä¸‹ä¸€é¡µ(N)    \né€€å‡º(R)\n");
+        // ÏÔÊ¾µ¼º½
+        printf("\n\nµÚ %d Ò³ / ¹² %d Ò³\n\n", currpage, total_page);  
+        printf("·µ»ØÊ×Ò³(F)    ×îºóÒ»Ò³(L)    ÉÏÒ»Ò³(P)    ÏÂÒ»Ò³(N)    \nÍË³ö(R)\n");
         char selection = '\0';
         while (1) {
             selection = _getch();
             if (selection == 'F' || selection == 'f') {
-                if (currpage == 1) {              // æ¯é¡µæ˜¾ç¤º20ä¸ªåŒå­¦ä¿¡æ¯
-                    printf("å½“å‰å·²åœ¨ç¬¬ä¸€é¡µ\n");
+                if (currpage == 1) {              // Ã¿Ò³ÏÔÊ¾20¸öÍ¬Ñ§ĞÅÏ¢
+                    printf("µ±Ç°ÒÑÔÚµÚÒ»Ò³\n");
                 } else {
                     curr = stu->head;
                     i = 1;
                     currpage = 1;
-                    printf("æ­£åœ¨è·³è½¬...");
+                    printf("ÕıÔÚÌø×ª...");
                     Sleep(600);
                     break;
                 }
             } else if (selection == 'L' || selection == 'l') {
                 if (currpage == total_page) {
-                    printf("å½“å‰å·²åœ¨æœ€åä¸€é¡µ\n");
+                    printf("µ±Ç°ÒÑÔÚ×îºóÒ»Ò³\n");
                 } else { 
                     int skipNodes = stu->studentSize % 20; 
                     curr = stu->tail;  
@@ -50,15 +50,15 @@ void displayStudenScoretList(struct student* stu) {
                         curr = curr->prev;  
                     }
                     currpage = total_page;
-                    printf("æ­£åœ¨è·³è½¬...");
+                    printf("ÕıÔÚÌø×ª...");
                     Sleep(600);
                     break;
                 }
             } else if (selection == 'P' || selection == 'p') {
                 if (currpage == 1) {
-                    printf("å½“å‰å·²åœ¨ç¬¬ä¸€é¡µ\n"); 
+                    printf("µ±Ç°ÒÑÔÚµÚÒ»Ò³\n"); 
                 } else {
-                    // è®¡ç®—è¦è·³è¿‡çš„èŠ‚ç‚¹æ•°
+                    // ¼ÆËãÒªÌø¹ıµÄ½ÚµãÊı
                     int skipNodes = (currpage - 2) * 20;
                     curr = stu->head;
                     for (int j = 0; j < skipNodes && curr != NULL; j++) {
@@ -66,16 +66,16 @@ void displayStudenScoretList(struct student* stu) {
                     }
                     i = skipNodes + 1;
                     currpage--;
-                    printf("æ­£åœ¨è·³è½¬...");
+                    printf("ÕıÔÚÌø×ª...");
                     Sleep(600);
                     break;
                 }
             } else if (selection == 'N' || selection == 'n') {
                 if (currpage == total_page) {
-                    printf("å½“å‰å·²åœ¨æœ€åä¸€é¡µ\n");
+                    printf("µ±Ç°ÒÑÔÚ×îºóÒ»Ò³\n");
                 } else {
                     currpage++;
-                    printf("æ­£åœ¨è·³è½¬...");
+                    printf("ÕıÔÚÌø×ª...");
                     Sleep(600);
                     break;
                 }
@@ -83,12 +83,12 @@ void displayStudenScoretList(struct student* stu) {
                 system("pause");
                 return;
             } else {
-                printf("è¾“å…¥æ— æ•ˆ, è¯·é‡æ–°è¾“å…¥\n");
+                printf("ÊäÈëÎŞĞ§, ÇëÖØĞÂÊäÈë\n");
             }
             Sleep(600);
-            printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
-            printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ  
-            printf("\r");         // å›åˆ°è¡Œé¦–  
+            printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
+            printf("\033[2K");    // Çå³ıÕûĞĞ  
+            printf("\r");         // »Øµ½ĞĞÊ×  
         }
     }
 }

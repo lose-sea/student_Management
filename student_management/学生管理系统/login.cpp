@@ -25,7 +25,7 @@ void login() {
 			printf("\033[1A");    // 光标上移一行  
 			printf("\033[2K");    // 清除整行  
 		}
-	}
+	} 
 	switch (selection) {
 		case '1': {
 			char account[300];   

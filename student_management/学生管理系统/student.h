@@ -63,7 +63,7 @@ void createAccount();
 void displayMenuOfAdministrator();  
 
 // 显示菜单(教师端) 
-void displayMenuOfTeacther(); 
+void displayMenuOfTeacher(); 
 
 // 显示菜单(学生端) 
 void displayMenuOfStudent();  
@@ -78,10 +78,10 @@ void  displayAllStudent(struct student* stu);
 void addStudent(struct student* stu); 
 
 // 根据姓名查找学生信息
-void searchStudentByName(struct student* stu, char* name); 
+void searchStudentByName(struct student* stu); 
 
 // 显示学生成绩列表
-void displayStudenScoretList(struct student* stu);
+void displayStudentScoreList(struct student* stu);
 
 // 更新学生信息
 void updateStudent(struct student* stu);  
@@ -106,6 +106,9 @@ void sortByTotalScore(struct student* stu);
 
 // 删除学生信息
 void deleteStudent(struct student* stu);  
+ 
+// 查看账号 
+void displayAccount(); 
 
 // 成绩分析
 void scoreAnalysis(struct student* stu); 

@@ -44,6 +44,77 @@ void loginOfAdministrator() {
 		} else {
 			printf("登录成功");
 			break;
+		} 
+		char mark = '\0';
+		while (1) {
+			displayMenuOfTeacher();
+			printf("请选择你要执行的操作: \n");
+			mark = _getch();
+			if ((mark >= '0' && mark <= '9') || mark >= 'A' && mark <= 'E') {
+				printf("输入无效, 请重新输入\n");
+			}
+		}
+		switch (mark) {
+			case '1': {
+				
+				break;
+			}
+			case '2': {
+				createAccount(); 
+				break;
+			}
+			case '3': {
+				
+				break;
+			}
+			case '4': {
+				retrievePassword(); 
+				break;
+			}
+			case '5': {
+				
+				break;
+			}
+			case '6': {
+				displayAllStudent(stu); 
+				break;
+			}
+			case '7': {
+				addStudent(stu); 
+				break;
+			}
+			case '8': {
+				searchStudentByName(stu); 
+				break;
+			}
+			case '9': {
+				insertStudent(stu);  
+				break; 
+			} 
+			case 'A': {
+				updateStudent(stu); 
+				break; 
+			} 
+			case 'B': {
+				deleteStudent(stu);  
+				break; 
+			} 
+			case 'C': {
+				saveToFile(); 
+				break; 
+			} 
+			case 'D': {
+				loadFromFile(); 
+				printf("加载成功\n"); 
+				system("pause"); 
+				break; 
+			} 
+			/*case 'E': {
+				goto login; 
+			}
+			case '0': {
+				return 0;
+			}*/
 		}
 	}
 }

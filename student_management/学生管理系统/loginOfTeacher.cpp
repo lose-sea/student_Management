@@ -10,8 +10,7 @@ void loginOfTeacher() {
 	char account[300];
 	char password[300];
 	struct teacher* curr = NULL;
-	bool mark = true;
-	while (mark) { 
+	while (1) { 
 		system("cls"); 
 		printf("教师端\n");
 		printf("请输入账号: ");
@@ -48,5 +47,55 @@ void loginOfTeacher() {
 			printf("登录成功");
 			break;
 		}
+	} 
+	char mark = '\0';
+	while (1) {
+		displayMenuOfTeacher();
+		printf("请选择你要执行的操作: \n");
+		mark = _getch();
+		if (mark < '0' || mark > '9') {
+			printf("输入无效, 请重新输入\n");
+		}
+	}
+	switch (mark) {
+		case '1': {
+			displayAllStudent(stu); 
+			break;
+		}
+		case '2': {
+			addStudent(stu); 
+			break;
+		}
+		case '3': {
+			printf("查找学生信息\n"); 
+			searchStudentByName(stu); 
+			break;
+		}
+		case '4': { 
+			insertStudent(stu); 
+			break;
+		}
+		case '5': {
+			updateStudent(stu); 
+			break; 
+		} 
+		case '6': {
+			deleteStudent(stu); 
+			break; 
+		} 
+		case '7': {
+			saveToFile();  
+			break; 
+		} 
+		case '8': {
+			displayStudentScoreList(stu); 
+			break; 
+		} 
+		/*case '9': {
+			goto login; 
+		}
+		case '0': {
+			return 0;
+		}*/
 	}
 }
