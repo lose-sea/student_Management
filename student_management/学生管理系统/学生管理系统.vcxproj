@@ -143,6 +143,9 @@
     <ClCompile Include="displayStudentScoreList.cpp" />
     <ClCompile Include="insertStudent.cpp" />
     <ClCompile Include="login.cpp" />
+    <ClCompile Include="loginOfAdministrator.cpp" />
+    <ClCompile Include="loginOfStudent.cpp" />
+    <ClCompile Include="loginOfTeacher.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="retrievePassword.cpp" />
     <ClCompile Include="saveToFile.cpp" />

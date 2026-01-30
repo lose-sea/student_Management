@@ -45,8 +45,19 @@ void login() {
 					continue; 
 				}   
 				printf("请输入密码: "); 
-				fgets(password, 300, stdin);  
-				removeNewline(password);
+				int i = 0;
+				char ch;
+				while ((ch = _getch()) != '\r')  // 检测回车按键 '\r'
+				{
+					if (ch == '\b' && i > 0) { // 处理退格键
+						i--;
+						printf("\b \b");  // 退格并清空显示
+					} else if (ch != '\b') {
+						password[i++] = ch;
+						printf("*");
+					}
+				}
+				password[i] = '\0';
 				if (curr == NULL || strcmp(curr->password, password) != 0) {
 					printf("账号或密码输入错误, 请重新输入\n");  
 					Sleep(800);
@@ -78,8 +89,19 @@ void login() {
 				} 
 				printf("请输入密码: "); 
 				
-				fgets(password, 300, stdin); 
-				removeNewline(password);
+				int i = 0;
+				char ch;
+				while ((ch = _getch()) != '\r')  // 检测回车按键 '\r'
+				{
+					if (ch == '\b' && i > 0) { // 处理退格键
+						i--;
+						printf("\b \b");  // 退格并清空显示
+					} else if (ch != '\b') {
+						password[i++] = ch;
+						printf("*");
+					}
+				}
+				password[i] = '\0';
 				if (curr == NULL || strcmp(curr->password, password) != 0) {
 					printf("账号或密码输入错误, 请重新输入\n");
 					Sleep(800);
@@ -110,8 +132,19 @@ void login() {
 					continue;
 				} 
 				printf("请输入密码: "); 
-				fgets(password, 300, stdin); 
-				removeNewline(password);
+				int i = 0;
+				char ch;
+				while ((ch = _getch()) != '\r')  // 检测回车按键 '\r'
+				{
+					if (ch == '\b' && i > 0) { // 处理退格键
+						i--;
+						printf("\b \b");  // 退格并清空显示
+					} else if (ch != '\b') {
+						password[i++] = ch;
+						printf("*");
+					}
+				}
+				password[i] = '\0';
 				if (curr == NULL || strcmp(curr->password, password) != 0) {
 					printf("账号或密码输入错误, 请重新输入\n");
 					Sleep(800);

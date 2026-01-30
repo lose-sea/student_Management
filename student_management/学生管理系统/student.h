@@ -1,105 +1,117 @@
-ï»¿#define _CRT_SECURE_NO_WARNINGS 
+#define _CRT_SECURE_NO_WARNINGS 
 #include"common.h"
 
 
-// è¾…åŠ©å‡½æ•°
+// ¸¨Öúº¯Êı
 // 
-// å»é™¤fgetsè¾“å…¥çš„å­—ç¬¦ä¸²æœ«å°¾çš„æ¢è¡Œç¬¦
+// È¥³ıfgetsÊäÈëµÄ×Ö·û´®Ä©Î²µÄ»»ĞĞ·û
 void removeNewline(char* str);
 
-// æ¸…é™¤è¾“å…¥ç¼“å†²åŒº
+// Çå³ıÊäÈë»º³åÇø
 void clearInputBuffer();
 
-// æ£€æŸ¥è¾“å…¥çš„å­—ç¬¦ä¸²æ˜¯å¦ç”±çº¯æ•°å­—ç»„æˆ
+// ¼ì²éÊäÈëµÄ×Ö·û´®ÊÇ·ñÓÉ´¿Êı×Ö×é³É
 bool isDigit(char* str); 
 
-// åˆ¤æ–­è¾“å…¥çš„å­—ç¬¦ä¸²æ˜¯å¦æœ‰æ•°å­—æˆ–è‹±æ–‡å­—ç¬¦ç»„æˆ
+// ÅĞ¶ÏÊäÈëµÄ×Ö·û´®ÊÇ·ñÓĞÊı×Ö»òÓ¢ÎÄ×Ö·û×é³É
 bool isAlphanumeric(char* str); 
 
-// æ ¹æ®å­¦å·æŸ¥æ‰¾å­¦ç”Ÿ
+// ¸ù¾İÑ§ºÅ²éÕÒÑ§Éú
 struct ListNode* findByid(struct student* stu, char* id); 
 
-// é€šè¿‡å§“åæŸ¥æ‰¾å­¦ç”Ÿ
+// Í¨¹ıĞÕÃû²éÕÒÑ§Éú
 int findByName(struct student* stu, char* name);   
 
-// æ¸…ç©ºé“¾è¡¨
+// Çå¿ÕÁ´±í
 void clearList(struct student* stu);  
 
-// æ ¹æ®è´¦å·æŸ¥æ‰¾å­¦ç”Ÿ
+// ¸ù¾İÕËºÅ²éÕÒÑ§Éú
 struct ListNode* findStudentByAccount(struct student* stu, char* account);  
 
-//æ ¹æ®è´¦å·æŸ¥æ‰¾æ•™å¸ˆ
+//¸ù¾İÕËºÅ²éÕÒ½ÌÊ¦
 struct teacher* findTeacherByAccount(struct teacher* teacher, char* account); 
 
-// æ ¹æ®è´¦å·æŸ¥æ‰¾ç®¡ç†å‘˜
+// ¸ù¾İÕËºÅ²éÕÒ¹ÜÀíÔ±
 struct manager* findAdministratorByAccount(struct manager* administrator, char* account); 
   
  
-// æ˜¾ç¤ºåˆå§‹ç•Œé¢
-void displayInitialInterfal(); 
+// ÏÔÊ¾³õÊ¼½çÃæ
+void displayInitialInterfal();  
 
-// æ˜¾ç¤ºç™»å½•èœå•
+// ÏÔÊ¾²Ù×÷½çÃæ
+void displayOfOperation(); 
+
+// ÏÔÊ¾µÇÂ¼²Ëµ¥
 void displayMenuOfLogin();  
 
-// ç™»å½•
-void login(); 
+// µÇÂ¼
+void login();   
 
-// æ³¨å†Œè´¦å·
+// Ñ§Éú¶ËµÇÂ¼
+void loginOfStudent(); 
+
+// ½ÌÊ¦¶ËµÇÂ¼
+void loginOfTeacher(); 
+
+// ¹ÜÀíÔ±¶ËµÇÂ¼
+void loginOfAdministrator(); 
+
+// ×¢²áÕËºÅ
 void createAccount(); 
 
-// æ˜¾ç¤ºèœå•(ç®¡ç†å‘˜ç«¯)
+// ÏÔÊ¾²Ëµ¥(¹ÜÀíÔ±¶Ë)
 void displayMenuOfAdministrator();  
 
-// æ˜¾ç¤ºèœå•(æ•™å¸ˆç«¯) 
+// ÏÔÊ¾²Ëµ¥(½ÌÊ¦¶Ë) 
 void displayMenuOfTeacther(); 
 
-// æ˜¾ç¤ºèœå•(å­¦ç”Ÿç«¯) 
-void displayOfStudent();  
+// ÏÔÊ¾²Ëµ¥(Ñ§Éú¶Ë) 
+void displayMenuOfStudent();  
 
-// æ‰¾å›å¯†ç  
+// ÕÒ»ØÃÜÂë 
 void retrievePassword(); 
 
-// æ˜¾ç¤ºç­çº§å­¦ç”Ÿå…·ä½“ä¿¡æ¯ 
+// ÏÔÊ¾°à¼¶Ñ§Éú¾ßÌåĞÅÏ¢ 
 void  displayAllStudent(struct student* stu); 
 
-// æ·»åŠ å­¦ç”Ÿä¿¡æ¯ (å¤´æ’)
+// Ìí¼ÓÑ§ÉúĞÅÏ¢ (Í·²å)
 void addStudent(struct student* stu); 
 
-// æ ¹æ®å§“åæŸ¥æ‰¾å­¦ç”Ÿä¿¡æ¯
+// ¸ù¾İĞÕÃû²éÕÒÑ§ÉúĞÅÏ¢
 void searchStudentByName(struct student* stu, char* name); 
 
-// æ˜¾ç¤ºå­¦ç”Ÿæˆç»©åˆ—è¡¨
+// ÏÔÊ¾Ñ§Éú³É¼¨ÁĞ±í
 void displayStudenScoretList(struct student* stu);
 
-// æ›´æ–°å­¦ç”Ÿä¿¡æ¯
+// ¸üĞÂÑ§ÉúĞÅÏ¢
 void updateStudent(struct student* stu);  
 
-// æ’å…¥å­¦ç”Ÿä¿¡æ¯
+// ²åÈëÑ§ÉúĞÅÏ¢
 void insertStudent(struct student* stu);  
 
-// åˆ é™¤å°¾éƒ¨å­¦ç”Ÿè®°å½•
+// É¾³ıÎ²²¿Ñ§Éú¼ÇÂ¼
 void deleteTailStudent(struct student* stu);  
 
-// æ ¹æ®é«˜æ•°æˆç»©æ’åº(é™åº)
+// ¸ù¾İ¸ßÊı³É¼¨ÅÅĞò(½µĞò)
 void sortByMathScore(struct student* stu); 
 
-// æ ¹æ®è¿‘ä»£å²æˆç»©æ’åº(é™åº) 
+// ¸ù¾İ½ü´úÊ·³É¼¨ÅÅĞò(½µĞò) 
 void sortByHistoryScore(struct student* stu);  
 
-// æ ¹æ®è‹±è¯­æˆç»©æ’åº(é™åº) 
+// ¸ù¾İÓ¢Óï³É¼¨ÅÅĞò(½µĞò) 
 void sortByEnglishScore(struct student* stu);
 
-// æ ¹æ®æˆç»©æ€»åˆ†æ’åº(é™åº)
+// ¸ù¾İ³É¼¨×Ü·ÖÅÅĞò(½µĞò)
 void sortByTotalScore(struct student* stu); 
 
-// åˆ é™¤å­¦ç”Ÿä¿¡æ¯
+// É¾³ıÑ§ÉúĞÅÏ¢
 void deleteStudent(struct student* stu);  
 
-// æˆç»©åˆ†æ
+// ³É¼¨·ÖÎö
 void scoreAnalysis(struct student* stu); 
 
-//å°†å­¦ç”Ÿä¿¡æ¯ä¿å­˜åˆ°æ–‡ä»¶(äºŒè¿›åˆ¶) 
+//½«Ñ§ÉúĞÅÏ¢±£´æµ½ÎÄ¼ş(¶ş½øÖÆ) 
 void saveToFile(); 
 
-// ä»æ–‡ä»¶ä¸­è¯»å–å­¦ç”Ÿä¿¡æ¯
+// ´ÓÎÄ¼şÖĞ¶ÁÈ¡Ñ§ÉúĞÅÏ¢
 void loadFromFile();

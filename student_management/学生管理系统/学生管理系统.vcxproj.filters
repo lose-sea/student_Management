@@ -83,6 +83,15 @@
     <ClCompile Include="login.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="loginOfStudent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="loginOfTeacher.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="loginOfAdministrator.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="teacher.bin">
