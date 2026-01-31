@@ -6,10 +6,10 @@
 // ²é¿´ÕËºÅ 
 void displayAccount() {
 	system("cls"); 
-	printf("²é¿´ÕËºÅ\n"); 
+	printf("²é¿´ÕËºÅ\n\n"); 
 	printf("Ñ§ÉúÕËºÅÁÐ±í:\n"); 
 	struct ListNode* curr_student = stu->head; 
-	while (curr_student != NULL) {
+	while (curr_student != NULL && strlen(curr_student->account) > 0) {
 		printf("ÕËºÅ: %s ÃÜÂë: %s\n", curr_student->account, curr_student->password);  
 		curr_student = curr_student->next; 
 	} 
@@ -17,14 +17,14 @@ void displayAccount() {
 	printf("½ÌÊ¦ÕËºÅÁÐ±í: \n"); 
 	struct teacher* curr_teacher = teach; 
 	while (curr_teacher != NULL) {
-		printf("ÕËºÅ: %s ÃÜÂë: %s\n", curr_student->account, curr_student->password); 
+		printf("ÕËºÅ: %s ÃÜÂë: %s\n", curr_teacher->account, curr_teacher->password); 
 		curr_teacher = curr_teacher->next; 
 	} 
 	printf("\n\n"); 
 	printf("¹ÜÀíÔ±ÕËºÅÁÐ±í:\n"); 
 	struct manager* curr_manager = manage; 
 	while (curr_manager != NULL) {
-		printf("ÕËºÅ: %s ÃÜÂë: %s\n", curr_student->account, curr_student->password); 
+		printf("ÕËºÅ: %s ÃÜÂë: %s\n", curr_manager->account, curr_manager->password); 
 		curr_manager = curr_manager->next; 
 	} 
 	system("pause"); 

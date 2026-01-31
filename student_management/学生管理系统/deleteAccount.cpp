@@ -14,9 +14,10 @@ void deleteAccount() {
 		printf("请选择你要删除的账号类型\n");
 		printf("1.学生		2.教师		3.管理员	0.返回上一层\n");
 		selection = _getch(); 
-		if (selection != '1' && selection != '2' && selection != '3' && selection != 0) {
+		if (selection != '1' && selection != '2' && selection != '3' && selection != '0') {
 			printf("选择无效,请重新选择: \n"); 
-		}  
+		}   
+		break; 
 	}
 	switch (selection) { 
 		case'0': {

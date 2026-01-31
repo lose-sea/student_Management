@@ -16,6 +16,8 @@ int main() {
 	loadFromFile();
 
 
+
+
 	int judgement = 1;
 	while (judgement) {
 		displayInitialInterfal();
@@ -384,7 +386,19 @@ login:
 				}
 			}
 		}
-		saveToFile();
-		return 0;
-	}
+	} 
+
+	//struct ListNode* curr = stu->head;
+	//curr = curr->next;
+	//curr = curr->next;
+	//while (curr != NULL) {
+	//	curr->account[0] = '\0';
+	//	curr->password[0] = '\0'; 
+	//	curr = curr->next; 
+	//}
+
+
+	saveToFile();
+	return 0;
+	
 }

@@ -3,7 +3,22 @@
 
 #include"student.h" 
 // 通过姓名查找学生
-void searchStudentByName(struct student* stu) { 
+void searchStudentByName(struct student* stu) {  
+	system("cls");
+	char selection = '\0';
+	while (1) {
+		printf("1. 添加学生信息   0. 返回上一层\n");
+		selection = _getch();
+		if (selection == '1') {
+			break;
+		} else if (selection == '0') {
+			return;
+		} else {
+			printf("选择无效, 请重新选择\n");
+			Sleep(800);
+			system("cls");
+		}
+	}
 	system("cls");
 	if (stu->head == NULL) {
 		printf("当前暂无学生信息\n"); 

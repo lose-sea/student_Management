@@ -1,8 +1,23 @@
 #define _CRT_SECURE_NO_WARNINGS 
 #include"student.h" 
 
-void insertStudent(struct student* stu) {
+void insertStudent(struct student* stu) {  
+
     system("cls");
+    char selection = '\0';
+    while (1) {
+        printf("1. 插入学生信息   0. 返回上一层\n");
+        selection = _getch();
+        if (selection == '1') {
+            break;
+        } else if (selection == '0') {
+            return;
+        } else {
+            printf("选择无效, 请重新选择\n");
+            Sleep(800);
+            system("cls");
+        }
+    }
     struct ListNode* node = (struct ListNode*)malloc(sizeof(struct ListNode));
     if (node == NULL) {
         printf("内存分配失败\n");
