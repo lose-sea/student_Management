@@ -1,102 +1,105 @@
-ï»¿#define _CRT_SECURE_NO_WARNINGS 
+#define _CRT_SECURE_NO_WARNINGS 
 
 
 #include"student.h" 
 
-// æ‰¾å›å¯†ç  
+// ÕÒ»ØÃÜÂë 
 void retrievePassword() {
-	printf("========= æ‰¾å›å¯†ç  =========\n");
-	printf("è¯·è¾“å…¥ä½ çš„è´¦å·ç±»å‹\n");
-	printf("1.å­¦ç”Ÿ		2.æ•™å¸ˆ		3.ç®¡ç†å‘˜\n");
+	printf("========= ÕÒ»ØÃÜÂë =========\n");
+	printf("ÇëÊäÈëÄãµÄÕËºÅÀàĞÍ\n");
+	printf("1.Ñ§Éú		2.½ÌÊ¦		3.¹ÜÀíÔ±\n");
+	printf("0. ·µ»ØÉÏÒ»²ã\n");
 	char selection = '\0';
 	while (1) {
 		selection = _getch();
 		if (selection == '1') {
-			printf("å­¦ç”Ÿç«¯\n");
+			printf("Ñ§Éú¶Ë\n");
 			break;
 		} else if (selection == '2') {
-			printf("æ•™å¸ˆç«¯\n");
+			printf("½ÌÊ¦¶Ë\n");
 			break;
 		} else if (selection == '3') {
-			printf("ç®¡ç†å‘˜ç«¯\n");
+			printf("¹ÜÀíÔ±¶Ë\n");
 			break;
+		} else if (selection == '0') {
+			return; 
 		} else {
-			printf("è¾“å…¥é”™è¯¯, è¯·é‡æ–°è¾“å…¥\n");
+			printf("ÊäÈë´íÎó, ÇëÖØĞÂÊäÈë\n");
 			Sleep(800);
-			printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
-			printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ  
+			printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
+			printf("\033[2K");    // Çå³ıÕûĞĞ  
 		}
 	}
 	switch (selection) {
 		case '1': {
 			char account[300];
-			printf("è¯·è¾“å…¥è´¦å·(è´¦å·è‡³å°‘ä¸º6ä½æ•°å­—æˆ–è‹±æ–‡å­—æ¯): \n");
+			printf("ÇëÊäÈëÕËºÅ(ÕËºÅÖÁÉÙÎª6Î»Êı×Ö»òÓ¢ÎÄ×ÖÄ¸): \n");
 			while (1) {
 				clearInputBuffer();
 				fgets(account, 300, stdin);
 				removeNewline(account); 
 				if (findStudentByAccount(stu, account) == NULL) {
-					printf("è¯¥è´¦å·ä¸å­˜åœ¨\n");
-					printf("æ˜¯å¦é‡æ–°è¾“å…¥(æ˜¯(Y) / å¦(N)) : ");
+					printf("¸ÃÕËºÅ²»´æÔÚ\n");
+					printf("ÊÇ·ñÖØĞÂÊäÈë(ÊÇ(Y) / ·ñ(N)) : ");
 					char judgement = '\0';
 					while (1) {
 						judgement = _getch();
 						if (judgement == 'Y' || judgement == 'y') {
 							break;
 						} else if (judgement == 'N' || judgement == 'n') {
-							printf("é€€å‡º\n");
+							printf("ÍË³ö\n");
 							system("pause");
 							return;
 						} else {
-							printf("é€‰æ‹©æ— æ•ˆ, è¯·é‡æ–°é€‰æ‹©: \n");
+							printf("Ñ¡ÔñÎŞĞ§, ÇëÖØĞÂÑ¡Ôñ: \n");
 						}
 					}
 				}
 				break;
 			}  
 			struct ListNode* curr = findStudentByAccount(stu, account);
-			printf("è¯·è¾“å…¥å­¦å·éªŒè¯: \n"); 
+			printf("ÇëÊäÈëÑ§ºÅÑéÖ¤: \n"); 
 			char id[300];
 			while (1) {
 				clearInputBuffer();
 				fgets(id, 300, stdin);
 				removeNewline(id);
 				if (strcmp(id, curr->id) != 0) {
-					printf("éªŒè¯å¤±è´¥\n");
-					printf("æ˜¯å¦é‡æ–°è¾“å…¥(æ˜¯(Y) / å¦(N)) : ");
+					printf("ÑéÖ¤Ê§°Ü\n");
+					printf("ÊÇ·ñÖØĞÂÊäÈë(ÊÇ(Y) / ·ñ(N)) : ");
 					char judgement = '\0';
 					while (1) {
 						judgement = _getch();
 						if (judgement == 'Y' || judgement == 'y') {
 							break;
 						} else if (judgement == 'N' || judgement == 'n') {
-							printf("é€€å‡º\n");  
+							printf("ÍË³ö\n");  
 							system("pause");  
 							return;    
 						} else {  
-							printf("é€‰æ‹©æ— æ•ˆ, è¯·é‡æ–°é€‰æ‹©: \n");  
+							printf("Ñ¡ÔñÎŞĞ§, ÇëÖØĞÂÑ¡Ôñ: \n");  
 						}
 					}
 				} else {
-					printf("éªŒè¯æˆåŠŸ\n"); 
+					printf("ÑéÖ¤³É¹¦\n"); 
 					Sleep(800);
-					printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
-					printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ  
+					printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
+					printf("\033[2K");    // Çå³ıÕûĞĞ  
 				}
 			}   
 			system("cls"); 
 			char password[300] = {0};
 			while (1) {  
 				system("cls"); 
-				printf("è¯·è¾“å…¥æ–°çš„å¯†ç (å¯†ç è‡³å°‘ä¸º6ä½æ•°å­—æˆ–è‹±æ–‡å­—æ¯): \n");
+				printf("ÇëÊäÈëĞÂµÄÃÜÂë(ÃÜÂëÖÁÉÙÎª6Î»Êı×Ö»òÓ¢ÎÄ×ÖÄ¸): \n");
 				clearInputBuffer();
 				int i = 0;
 				char ch;
-				while ((ch = _getch()) != '\r')  // æ£€æµ‹å›è½¦æŒ‰é”® '\r'
+				while ((ch = _getch()) != '\r')  // ¼ì²â»Ø³µ°´¼ü '\r'
 				{
-					if (ch == '\b' && i > 0) { // å¤„ç†é€€æ ¼é”®
+					if (ch == '\b' && i > 0) { // ´¦ÀíÍË¸ñ¼ü
 						i--;
-						printf("\b \b");  // é€€æ ¼å¹¶æ¸…ç©ºæ˜¾ç¤º
+						printf("\b \b");  // ÍË¸ñ²¢Çå¿ÕÏÔÊ¾
 					} else if (ch != '\b') {
 						password[i++] = ch;
 						printf("*");
@@ -104,18 +107,18 @@ void retrievePassword() {
 				}
 				password[i] = '\0';
 				if (strlen(password) < 6 || !isAlphanumeric(password)) {
-					printf("å¯†ç è‡³å°‘ä¸º6ä½æ•°å­—æˆ–è‹±æ–‡å­—æ¯\n");
+					printf("ÃÜÂëÖÁÉÙÎª6Î»Êı×Ö»òÓ¢ÎÄ×ÖÄ¸\n");
 					Sleep(800);
 					continue; 
 				} else {
 					char temp[300] = {0};
 					i = 0;
-					printf("è¯·å†æ¬¡è¾“å…¥æ–°å¯†ç ç¡®è®¤: \n");
-					while ((ch = _getch()) != '\r')  // æ£€æµ‹å›è½¦æŒ‰é”® '\r'
+					printf("ÇëÔÙ´ÎÊäÈëĞÂÃÜÂëÈ·ÈÏ: \n");
+					while ((ch = _getch()) != '\r')  // ¼ì²â»Ø³µ°´¼ü '\r'
 					{
-						if (ch == '\b' && i > 0) { // å¤„ç†é€€æ ¼é”®
+						if (ch == '\b' && i > 0) { // ´¦ÀíÍË¸ñ¼ü
 							i--;
-							printf("\b \b");  // é€€æ ¼å¹¶æ¸…ç©ºæ˜¾ç¤º
+							printf("\b \b");  // ÍË¸ñ²¢Çå¿ÕÏÔÊ¾
 						} else if (ch != '\b') {
 							password[i++] = ch;
 							printf("*");
@@ -123,7 +126,7 @@ void retrievePassword() {
 					}
 					temp[i] = '\0'; 
 					if (strcmp(temp, password) != 0) {
-						printf("ä¸¤æ¬¡è¾“å…¥ä¸ä¸€æ ·, è¯·é‡æ–°è¾“å…¥\n"); 
+						printf("Á½´ÎÊäÈë²»Ò»Ñù, ÇëÖØĞÂÊäÈë\n"); 
 						continue; 
 					} else {
 						strcpy(curr->password, password);  
@@ -134,25 +137,25 @@ void retrievePassword() {
 		}  
 		case '2': {
 			char account[300];
-			printf("è¯·è¾“å…¥è´¦å·(è´¦å·è‡³å°‘ä½æ•°å­—æˆ–è‹±æ–‡å­—æ¯): \n");
+			printf("ÇëÊäÈëÕËºÅ(ÕËºÅÖÁÉÙÎ»Êı×Ö»òÓ¢ÎÄ×ÖÄ¸): \n");
 			while (1) {
 				clearInputBuffer();
 				fgets(account, 300, stdin);
 				removeNewline(account); 
 				if (findTeacherByAccount(teach, account) == NULL) {
-					printf("è¯¥è´¦å·ä¸å­˜åœ¨\n");
-					printf("æ˜¯å¦é‡æ–°è¾“å…¥(æ˜¯(Y) / å¦(N)) : ");
+					printf("¸ÃÕËºÅ²»´æÔÚ\n");
+					printf("ÊÇ·ñÖØĞÂÊäÈë(ÊÇ(Y) / ·ñ(N)) : ");
 					char judgement = '\0';
 					while (1) {
 						judgement = _getch();
 						if (judgement == 'Y' || judgement == 'y') {
 							break;
 						} else if (judgement == 'N' || judgement == 'n') {
-							printf("é€€å‡º\n");
+							printf("ÍË³ö\n");
 							system("pause");
 							return;
 						} else {
-							printf("é€‰æ‹©æ— æ•ˆ, è¯·é‡æ–°é€‰æ‹©: \n");
+							printf("Ñ¡ÔñÎŞĞ§, ÇëÖØĞÂÑ¡Ôñ: \n");
 						}
 					}
 				}
@@ -163,15 +166,15 @@ void retrievePassword() {
 			char password[300] = {0};
 			while (1) {
 				system("cls");
-				printf("è¯·è¾“å…¥æ–°çš„å¯†ç (å¯†ç è‡³å°‘6ä½æ•°å­—æˆ–è‹±æ–‡å­—æ¯): \n");
+				printf("ÇëÊäÈëĞÂµÄÃÜÂë(ÃÜÂëÖÁÉÙ6Î»Êı×Ö»òÓ¢ÎÄ×ÖÄ¸): \n");
 				clearInputBuffer();
 				int i = 0;
 				char ch;
-				while ((ch = _getch()) != '\r')  // æ£€æµ‹å›è½¦æŒ‰é”® '\r'
+				while ((ch = _getch()) != '\r')  // ¼ì²â»Ø³µ°´¼ü '\r'
 				{
-					if (ch == '\b' && i > 0) { // å¤„ç†é€€æ ¼é”®
+					if (ch == '\b' && i > 0) { // ´¦ÀíÍË¸ñ¼ü
 						i--;
-						printf("\b \b");  // é€€æ ¼å¹¶æ¸…ç©ºæ˜¾ç¤º
+						printf("\b \b");  // ÍË¸ñ²¢Çå¿ÕÏÔÊ¾
 					} else if (ch != '\b') {
 						password[i++] = ch;
 						printf("*");
@@ -179,18 +182,18 @@ void retrievePassword() {
 				}
 				password[i] = '\0';
 				if (strlen(password) < 6 || !isAlphanumeric(password)) {
-					printf("å¯†ç è‡³å°‘ä¸º6ä½æ•°å­—æˆ–è‹±æ–‡å­—æ¯\n");
+					printf("ÃÜÂëÖÁÉÙÎª6Î»Êı×Ö»òÓ¢ÎÄ×ÖÄ¸\n");
 					Sleep(800);
 					continue;
 				} else {
 					char temp[300] = {0};
 					i = 0;
-					printf("è¯·å†æ¬¡è¾“å…¥æ–°å¯†ç ç¡®è®¤: \n");
-					while ((ch = _getch()) != '\r')  // æ£€æµ‹å›è½¦æŒ‰é”® '\r'
+					printf("ÇëÔÙ´ÎÊäÈëĞÂÃÜÂëÈ·ÈÏ: \n");
+					while ((ch = _getch()) != '\r')  // ¼ì²â»Ø³µ°´¼ü '\r'
 					{
-						if (ch == '\b' && i > 0) { // å¤„ç†é€€æ ¼é”®
+						if (ch == '\b' && i > 0) { // ´¦ÀíÍË¸ñ¼ü
 							i--;
-							printf("\b \b");  // é€€æ ¼å¹¶æ¸…ç©ºæ˜¾ç¤º
+							printf("\b \b");  // ÍË¸ñ²¢Çå¿ÕÏÔÊ¾
 						} else if (ch != '\b') {
 							password[i++] = ch;
 							printf("*");
@@ -198,7 +201,7 @@ void retrievePassword() {
 					}
 					temp[i] = '\0';
 					if (strcmp(temp, password) != 0) {
-						printf("ä¸¤æ¬¡è¾“å…¥ä¸ä¸€æ ·, è¯·é‡æ–°è¾“å…¥\n");
+						printf("Á½´ÎÊäÈë²»Ò»Ñù, ÇëÖØĞÂÊäÈë\n");
 						continue;
 					} else {
 						strcpy(curr->password, password);
@@ -209,25 +212,25 @@ void retrievePassword() {
 		} 
 		case '3': {
 			char account[300];
-			printf("è¯·è¾“å…¥è´¦å·(è´¦å·è‡³å°‘ä¸º6ä½æ•°å­—æˆ–è‹±æ–‡å­—æ¯): \n");
+			printf("ÇëÊäÈëÕËºÅ(ÕËºÅÖÁÉÙÎª6Î»Êı×Ö»òÓ¢ÎÄ×ÖÄ¸): \n");
 			while (1) {
 				clearInputBuffer();
 				fgets(account, 300, stdin);
 				removeNewline(account);
 				if (findAdministratorByAccount(manage, account) == NULL) {
-					printf("è¯¥è´¦å·ä¸å­˜åœ¨\n");
-					printf("æ˜¯å¦é‡æ–°è¾“å…¥(æ˜¯(Y) / å¦(N)) : ");
+					printf("¸ÃÕËºÅ²»´æÔÚ\n");
+					printf("ÊÇ·ñÖØĞÂÊäÈë(ÊÇ(Y) / ·ñ(N)) : ");
 					char judgement = '\0';
 					while (1) {
 						judgement = _getch();
 						if (judgement == 'Y' || judgement == 'y') {
 							break;
 						} else if (judgement == 'N' || judgement == 'n') {
-							printf("é€€å‡º\n");
+							printf("ÍË³ö\n");
 							system("pause");
 							return;
 						} else {
-							printf("é€‰æ‹©æ— æ•ˆ, è¯·é‡æ–°é€‰æ‹©: \n");
+							printf("Ñ¡ÔñÎŞĞ§, ÇëÖØĞÂÑ¡Ôñ: \n");
 						}
 					}
 				}
@@ -238,15 +241,15 @@ void retrievePassword() {
 			char password[300] = {0};
 			while (1) {
 				system("cls");
-				printf("è¯·è¾“å…¥æ–°çš„å¯†ç (å¯†ç è‡³å°‘ä¸º6ä½æ•°å­—æˆ–è‹±æ–‡å­—æ¯): \n");
+				printf("ÇëÊäÈëĞÂµÄÃÜÂë(ÃÜÂëÖÁÉÙÎª6Î»Êı×Ö»òÓ¢ÎÄ×ÖÄ¸): \n");
 				clearInputBuffer();
 				int i = 0;
 				char ch;
-				while ((ch = _getch()) != '\r')  // æ£€æµ‹å›è½¦æŒ‰é”® '\r'
+				while ((ch = _getch()) != '\r')  // ¼ì²â»Ø³µ°´¼ü '\r'
 				{
-					if (ch == '\b' && i > 0) { // å¤„ç†é€€æ ¼é”®
+					if (ch == '\b' && i > 0) { // ´¦ÀíÍË¸ñ¼ü
 						i--;
-						printf("\b \b");  // é€€æ ¼å¹¶æ¸…ç©ºæ˜¾ç¤º
+						printf("\b \b");  // ÍË¸ñ²¢Çå¿ÕÏÔÊ¾
 					} else if (ch != '\b') {
 						password[i++] = ch;
 						printf("*");
@@ -254,18 +257,18 @@ void retrievePassword() {
 				}
 				password[i] = '\0';
 				if (strlen(password) < 6 || !isAlphanumeric(password)) {
-					printf("å¯†ç è‡³å°‘ä¸º6ä½æ•°å­—æˆ–è‹±æ–‡å­—æ¯\n");
+					printf("ÃÜÂëÖÁÉÙÎª6Î»Êı×Ö»òÓ¢ÎÄ×ÖÄ¸\n");
 					Sleep(800);
 					continue;
 				} else {
 					char temp[300] = {0};
 					i = 0;
-					printf("è¯·å†æ¬¡è¾“å…¥æ–°å¯†ç ç¡®è®¤: \n");
-					while ((ch = _getch()) != '\r')  // æ£€æµ‹å›è½¦æŒ‰é”® '\r'
+					printf("ÇëÔÙ´ÎÊäÈëĞÂÃÜÂëÈ·ÈÏ: \n");
+					while ((ch = _getch()) != '\r')  // ¼ì²â»Ø³µ°´¼ü '\r'
 					{
-						if (ch == '\b' && i > 0) { // å¤„ç†é€€æ ¼é”®
+						if (ch == '\b' && i > 0) { // ´¦ÀíÍË¸ñ¼ü
 							i--;
-							printf("\b \b");  // é€€æ ¼å¹¶æ¸…ç©ºæ˜¾ç¤º
+							printf("\b \b");  // ÍË¸ñ²¢Çå¿ÕÏÔÊ¾
 						} else if (ch != '\b') {
 							password[i++] = ch;
 							printf("*");
@@ -273,7 +276,7 @@ void retrievePassword() {
 					}
 					temp[i] = '\0';
 					if (strcmp(temp, password) != 0) {
-						printf("ä¸¤æ¬¡è¾“å…¥ä¸ä¸€æ ·, è¯·é‡æ–°è¾“å…¥\n");
+						printf("Á½´ÎÊäÈë²»Ò»Ñù, ÇëÖØĞÂÊäÈë\n");
 						continue;
 					} else {
 						strcpy(curr->password, password);

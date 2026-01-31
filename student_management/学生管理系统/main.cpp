@@ -16,20 +16,20 @@ int main() {
 	loadFromFile();
 
 
-	int judgement = 1; 
+	int judgement = 1;
 	while (judgement) {
 		displayInitialInterfal();
 	start:
-		system("cls"); 
-		displayOfOperation(); 
-		
+		system("cls");
+		displayOfOperation();
+
 		char selection = '\0';
 		while (1) {
 			selection = _getch();
 			if (selection == '1' || selection == '2' || selection == '3' || selection == '0') {
 				break;
 			} else {
-				printf("选择无效，请重新输入:\n");
+				printf("\n选择无效，请重新输入:\n");
 				Sleep(600);
 				printf("\033[1A");    // 光标上移一行  
 				printf("\033[2K");    // 清除整行   
@@ -47,11 +47,11 @@ int main() {
 			system("cls");
 			retrievePassword();
 		} else if (selection == '0') {
-			printf("感谢使用学生管理系统，程序即将退出...\n");
+			printf("\n感谢使用学生管理系统，程序即将退出...\n");
 			system("pause");
 			return 0;
 		} else {
-			printf("选择无效，请重新输入:\n");
+			printf("\n选择无效，请重新输入:\n");
 			Sleep(600);
 			system("cls");
 		}
@@ -59,19 +59,19 @@ int main() {
 	judgement = 1;
 
 	// 登录 
-	login: 
+login:
 	displayMenuOfLogin();
 	char selection = '\0';
 	while (1) {
 		selection = _getch();
 		if (selection == '1' || selection == '2' || selection == '3') {
 			break;
-		} else if (selection == '0') { 
-			goto start; 
+		} else if (selection == '0') {
+			goto start;
 		} else {
-			printf("选择无效，请重新输入:\n");
+			printf("\n选择无效，请重新输入:\n");
 		}
-	}  
+	}
 
 	// 学生端
 	if (selection == '1') {
@@ -86,12 +86,12 @@ int main() {
 			removeNewline(account);
 			curr = findStudentByAccount(stu, account);
 			if (strlen(account) < 6 || !isAlphanumeric(account)) {
-				printf("账号至少为6位数字或英文字母\n");
+				printf("\n账号至少为6位数字或英文字母\n");
 				Sleep(800);
 				system("cls");
 				continue;
 			}
-			printf("请输入密码: ");
+			printf("\n请输入密码: ");
 			int i = 0;
 			char ch;
 			while ((ch = _getch()) != '\r')  // 检测回车按键 '\r'
@@ -106,7 +106,7 @@ int main() {
 			}
 			password[i] = '\0';
 			if (curr == NULL || strcmp(curr->password, password) != 0) {
-				printf("账号或密码输入错误, 请重新输入\n");
+				printf("\n账号或密码输入错误, 请重新输入\n");
 				Sleep(800);
 				continue;
 			} else {
@@ -120,9 +120,9 @@ int main() {
 			printf("请选择你要执行的操作: \n");
 			mark = _getch();
 			if (mark < '0' || mark > '5') {
-				printf("输入无效, 请重新输入\n");
+				printf("\n输入无效, 请重新输入\n");
 			}
-
+			system("cls");
 			switch (mark) {
 				case '1': {
 					printf("=========== 显示学生信息 ===========\n");
@@ -138,6 +138,7 @@ int main() {
 					printf("成绩: %.2f\n", curr->totalscore);
 					printf("年级: %s\n", curr->grade);
 					printf("班级: %s\n\n", curr->class1);
+					system("pause");
 					break;
 				}
 				case '2': {
@@ -145,6 +146,7 @@ int main() {
 					printf("高数成绩: %.2lf\n", curr->Math);
 					printf("近代史成绩: %.2lf\n", curr->History);
 					printf("英语成绩: %.2lf\n", curr->English);
+					system("pause");
 					break;
 				}
 				case '3': {
@@ -177,13 +179,12 @@ int main() {
 			removeNewline(account);
 			curr = findTeacherByAccount(teach, account);
 			if (strlen(account) < 6 || !isAlphanumeric(account)) {
-				printf("账号至少为6位数字或英文字母\n");
+				printf("\n账号至少为6位数字或英文字母\n");
 				Sleep(800);
 				system("cls");
 				continue;
 			}
-			printf("请输入密码: ");
-
+			printf("\n请输入密码: ");
 			int i = 0;
 			char ch;
 			while ((ch = _getch()) != '\r')  // 检测回车按键 '\r'
@@ -198,7 +199,7 @@ int main() {
 			}
 			password[i] = '\0';
 			if (curr == NULL || strcmp(curr->password, password) != 0) {
-				printf("账号或密码输入错误, 请重新输入\n");
+				printf("\n账号或密码输入错误, 请重新输入\n");
 				Sleep(800);
 				system("cls");
 				continue;
@@ -212,58 +213,66 @@ int main() {
 			displayMenuOfTeacher();
 			printf("请选择你要执行的操作: \n");
 			mark = _getch();
-			if (mark < '0' || mark > '9') {
-				printf("输入无效, 请重新输入\n");
+
+			system("cls");
+			switch (mark) {
+				case '1': {
+					displayAllStudent(stu);
+					break;
+				}
+				case '2': {
+					addStudent(stu);
+					break;
+				}
+				case '3': {
+					printf("查找学生信息\n");
+					searchStudentByName(stu);
+					break;
+				}
+				case '4': {
+					insertStudent(stu);
+					break;
+				}
+				case '5': {
+					updateStudent(stu);
+					break;
+				}
+				case '6': {
+					deleteStudent(stu);
+					break;
+				}
+				case '7': {
+					saveToFile();
+					break;
+				}
+				case '8': {
+					displayStudentScoreList(stu);
+					break;
+				}
+				case '9': {
+					scoreAnalysis(stu);
+					break;
+				}
+				case 'A':
+				case 'a': {
+					goto login;
+				}
+				case '0': {
+					return 0;
+				}
+				default: {
+					printf("\n输入无效, 请重新输入\n");
+					Sleep(600);
+					continue;
+				}
 			}
 		}
-		switch (mark) {
-			case '1': {
-				displayAllStudent(stu);
-				break;
-			}
-			case '2': {
-				addStudent(stu);
-				break;
-			}
-			case '3': {
-				printf("查找学生信息\n");
-				searchStudentByName(stu);
-				break;
-			}
-			case '4': {
-				insertStudent(stu);
-				break;
-			}
-			case '5': {
-				updateStudent(stu);
-				break;
-			}
-			case '6': {
-				deleteStudent(stu);
-				break;
-			}
-			case '7': {
-				saveToFile();
-				break;
-			}
-			case '8': {
-				displayStudentScoreList(stu);
-				break;
-			}
-			case '9': {
-				goto login;
-			}
-			case '0': {
-				return 0;
-			}
-		}
-	} else if (selection == '3') { 
+	} else if (selection == '3') {
 		// 管理员端
 		char account[300];
 		char password[300];
 		struct manager* curr = NULL;
-		bool mark = true;
-		while (mark) {
+		while (1) {
 			system("cls");
 			printf("管理员端\n");
 			printf("请输入账号: ");
@@ -291,87 +300,91 @@ int main() {
 			}
 			password[i] = '\0';
 			if (curr == NULL || strcmp(curr->password, password) != 0) {
-				printf("账号或密码输入错误, 请重新输入\n");
+				printf("\n账号或密码输入错误, 请重新输入\n");
 				Sleep(800);
 				system("cls");
 				continue;
 			} else {
-				printf("登录成功");
+				printf("\n登录成功");
 				break;
 			}
-			char mark = '\0';
-			while (1) {
-				displayMenuOfTeacher();
-				printf("请选择你要执行的操作: \n");
-				mark = _getch();
-				if ((mark >= '0' && mark <= '9') || mark >= 'A' && mark <= 'E') {
-					printf("输入无效, 请重新输入\n");
-				}
-			}
+		}
+		char mark = '\0';
+		while (1) {
+			displayMenuOfAdministrator();
+			printf("请选择你要执行的操作: \n");
+			mark = _getch();
+
+			system("cls");
 			switch (mark) {
 				case '1': {
-
-					break;
-				}
-				case '2': {
 					createAccount();
 					break;
 				}
-				case '3': {
-					displayAccount(); 
+				case '2': {
+					displayAccount();
 					break;
 				}
-				case '4': {
+				case '3': {
 					retrievePassword();
 					break;
 				}
-				case '5': {
-
+				case '4': {
+					deleteAccount();
 					break;
 				}
-				case '6': {
+				case '5': {
 					displayAllStudent(stu);
 					break;
 				}
-				case '7': {
+				case '6': {
 					addStudent(stu);
 					break;
 				}
-				case '8': {
+				case '7': {
 					searchStudentByName(stu);
 					break;
 				}
-				case '9': {
+				case '8': {
 					insertStudent(stu);
 					break;
 				}
-				case 'A': {
+				case '9': {
 					updateStudent(stu);
 					break;
 				}
-				case 'B': {
+				case 'A':
+				case 'a': {
 					deleteStudent(stu);
 					break;
 				}
-				case 'C': {
+				case 'B':
+				case 'b': {
 					saveToFile();
 					break;
 				}
-				case 'D': {
+				case 'C':
+				case 'c': {
 					loadFromFile();
 					printf("加载成功\n");
 					system("pause");
 					break;
 				}
-				case 'E': {
+				case 'D':
+				case 'd': {
 					goto login;
 				}
 				case '0': {
 					return 0;
 				}
+				default: {
+					printf("\n输入无效, 请重新输入\n");
+					Sleep(600);
+					continue;
+				}
 			}
 		}
+		saveToFile();
+		return 0;
 	}
-	saveToFile(); 
-    return 0; 
-}   
+}

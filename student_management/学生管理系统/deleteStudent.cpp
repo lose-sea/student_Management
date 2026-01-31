@@ -4,38 +4,54 @@
 #include"student.h" 
 
 
-// åˆ é™¤å­¦ç”Ÿ
-void deleteStudent(struct student* stu) {
+// É¾³ıÑ§Éú
+void deleteStudent(struct student* stu) {  
+
+	system("cls");
+	char selection = '\0';
+	while (1) {
+		printf("1. É¾³ıÑ§ÉúĞÅÏ¢   0. ·µ»ØÉÏÒ»²ã\n");
+		selection = _getch();
+		if (selection == '1') {
+			break;
+		} else if (selection == '0') {
+			return;
+		} else {
+			printf("Ñ¡ÔñÎŞĞ§, ÇëÖØĞÂÑ¡Ôñ\n");
+			Sleep(800);
+			system("cls");
+		}
+	}
 	system("cls");
 	if (stu->studentSize == 0) {
-		printf("å½“å‰æš‚æ— å­¦ç”Ÿä¿¡æ¯\n");
+		printf("µ±Ç°ÔİÎŞÑ§ÉúĞÅÏ¢\n");
 		system("pause");
 		return;
 	}
-	printf("è¯·è¾“å…¥ä½ è¦åˆ é™¤çš„å­¦ç”Ÿå§“å: \n");
+	printf("ÇëÊäÈëÄãÒªÉ¾³ıµÄÑ§ÉúĞÕÃû: \n");
 	char name[300]; 
 	 while (1) {
 		fgets(name, 300, stdin);
 		removeNewline(name); 
 		if (strlen(name) == 0) {
-			printf("å§“åä¸èƒ½ä¸ºç©ºï¼Œè¯·é‡æ–°è¾“å…¥: \n");
+			printf("ĞÕÃû²»ÄÜÎª¿Õ£¬ÇëÖØĞÂÊäÈë: \n");
 			Sleep(800);
-			printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
-			printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ  
+			printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
+			printf("\033[2K");    // Çå³ıÕûĞĞ  
 		} else {
 			break;
 		}
 	} 
-	printf("è¯·è¾“å…¥ä½ è¦åˆ é™¤çš„å­¦ç”Ÿå­¦å·: \n");
+	printf("ÇëÊäÈëÄãÒªÉ¾³ıµÄÑ§ÉúÑ§ºÅ: \n");
 	char id[300]; 
 	 while (1) {
 		fgets(id, 300, stdin);
 		removeNewline(id); 
 		if (strlen(id) == 0) {
-			printf("å­¦å·ä¸èƒ½ä¸ºç©ºï¼Œè¯·é‡æ–°è¾“å…¥: \n");
+			printf("Ñ§ºÅ²»ÄÜÎª¿Õ£¬ÇëÖØĞÂÊäÈë: \n");
 			Sleep(800);
-			printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
-			printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ  
+			printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
+			printf("\033[2K");    // Çå³ıÕûĞĞ  
 		} else {
 			break;
 		}
@@ -48,25 +64,25 @@ void deleteStudent(struct student* stu) {
 		curr = curr->next;
 	}  
 	if (curr == NULL) {
-		printf("ä¸å­˜åœ¨å­¦ç”Ÿ %s (å­¦å·: %s) çš„ä¿¡æ¯\n", name, id); 
+		printf("²»´æÔÚÑ§Éú %s (Ñ§ºÅ: %s) µÄĞÅÏ¢\n", name, id); 
 		system("pause");
 		return;
 	} else {  
-		printf("æ˜¯å¦ç¡®è®¤åˆ é™¤ %s (å­¦å·: %s)çš„ä¿¡æ¯? (æ˜¯(Y)/å¦(N))", curr->name, curr->id);   
+		printf("ÊÇ·ñÈ·ÈÏÉ¾³ı %s (Ñ§ºÅ: %s)µÄĞÅÏ¢? (ÊÇ(Y)/·ñ(N))", curr->name, curr->id);   
 		char selection = '\0'; 
 		while (1) {
 			selection = _getch(); 
 			if (selection == 'Y' || selection == 'y') {
 				break;
 			} else if (selection == 'N' || selection == 'n') {
-				printf("å·²å–æ¶ˆåˆ é™¤æ“ä½œ\n");
+				printf("ÒÑÈ¡ÏûÉ¾³ı²Ù×÷\n");
 				system("pause");
 				return;
 			} else {
-				printf("æ— æ•ˆè¾“å…¥ï¼Œè¯·è¾“å…¥ Y æˆ– N\n"); 
+				printf("ÎŞĞ§ÊäÈë£¬ÇëÊäÈë Y »ò N\n"); 
 				Sleep(800);
-				printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
-				printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ  
+				printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
+				printf("\033[2K");    // Çå³ıÕûĞĞ  
 			}
 		}
 		struct ListNode* prev = curr->prev;  
@@ -84,8 +100,8 @@ void deleteStudent(struct student* stu) {
 			}
 		}
 		free(curr); 
-		stu->studentSize--;		// åˆ é™¤æˆåŠŸï¼Œå­¦ç”Ÿæ•°é‡å‡ä¸€
-		printf("å·²æˆåŠŸåˆ é™¤å­¦ç”Ÿ %s (å­¦å·: %s) çš„ä¿¡æ¯\n", name, id); 
+		stu->studentSize--;		// É¾³ı³É¹¦£¬Ñ§ÉúÊıÁ¿¼õÒ»
+		printf("ÒÑ³É¹¦É¾³ıÑ§Éú %s (Ñ§ºÅ: %s) µÄĞÅÏ¢\n", name, id); 
 		system("pause");
 		return;
 	}

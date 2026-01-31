@@ -10,19 +10,22 @@ void displayAccount() {
 	printf("Ñ§ÉúÕËºÅÁÐ±í:\n"); 
 	struct ListNode* curr_student = stu->head; 
 	while (curr_student != NULL) {
-		printf("ÕËºÅ: %s ÃÜÂë: %s\n", curr_student->account, curr_student->password); 
+		printf("ÕËºÅ: %s ÃÜÂë: %s\n", curr_student->account, curr_student->password);  
+		curr_student = curr_student->next; 
 	} 
 	printf("\n\n"); 
 	printf("½ÌÊ¦ÕËºÅÁÐ±í: \n"); 
 	struct teacher* curr_teacher = teach; 
 	while (curr_teacher != NULL) {
-		printf("ÕËºÅ: %s ÃÜÂë: %s\n", curr_student->account, curr_student->password);
+		printf("ÕËºÅ: %s ÃÜÂë: %s\n", curr_student->account, curr_student->password); 
+		curr_teacher = curr_teacher->next; 
 	} 
 	printf("\n\n"); 
 	printf("¹ÜÀíÔ±ÕËºÅÁÐ±í:\n"); 
 	struct manager* curr_manager = manage; 
 	while (curr_manager != NULL) {
-		printf("ÕËºÅ: %s ÃÜÂë: %s\n", curr_student->account, curr_student->password);
+		printf("ÕËºÅ: %s ÃÜÂë: %s\n", curr_student->account, curr_student->password); 
+		curr_manager = curr_manager->next; 
 	} 
-
+	system("pause"); 
 }

@@ -1,106 +1,121 @@
-ï»¿#include"student.h" 
+#include"student.h" 
 
-// æ·»åŠ å­¦ç”Ÿä¿¡æ¯ (å°¾æ’)
+// Ìí¼ÓÑ§ÉúĞÅÏ¢ (Î²²å)
 void addStudent(struct student* stu) {
-    system("cls");
-    // è¾“å…¥å­¦å·ï¼ˆå…ˆéªŒè¯ï¼Œå†åˆ›å»ºèŠ‚ç‚¹ï¼‰
+    system("cls");  
+    char selection = '\0';
+    while (1) { 
+        printf("1. Ìí¼ÓÑ§ÉúĞÅÏ¢   0. ·µ»ØÉÏÒ»²ã\n");
+        selection = _getch(); 
+        if (selection == '1') {
+            break; 
+        } else if (selection == '0') {
+            return; 
+        } else {
+            printf("Ñ¡ÔñÎŞĞ§, ÇëÖØĞÂÑ¡Ôñ\n"); 
+            Sleep(800);  
+            system("cls"); 
+        }
+    }
+    // ÊäÈëÑ§ºÅ£¨ÏÈÑéÖ¤£¬ÔÙ´´½¨½Úµã£©
     char id[300];
-    while (1) {
-        printf("è¯·è¾“å…¥å­¦å·: \n");
+    while (1) { 
+        printf("Ìí¼ÓÑ§ÉúĞÅÏ¢\n"); 
+        printf("ÇëÊäÈëÑ§ºÅ: \n");
         fgets(id, 300, stdin);
         removeNewline(id);
         if (!isDigit(id)) {
-            printf("å­¦å·åº”ä¸ºçº¯æ•°å­—, è¯·é‡æ–°è¾“å…¥\n");
+            printf("Ñ§ºÅÓ¦Îª´¿Êı×Ö, ÇëÖØĞÂÊäÈë\n");
             Sleep(800);  
             system("cls");
             continue; 
         } else if (strlen(id) == 0) {
-            printf("å­¦å·ä¸èƒ½ä¸ºç©º, è¯·é‡æ–°è¾“å…¥\n");
+            printf("Ñ§ºÅ²»ÄÜÎª¿Õ, ÇëÖØĞÂÊäÈë\n");
             Sleep(800);
             system("cls");
             continue;
         }
         if (findByid(stu, id) != NULL) {
-            printf("å·²ç»å­˜åœ¨è¯¥å­¦å·çš„å­¦ç”Ÿ\n");  
-            printf("æ˜¯å¦é‡æ–°è¾“å…¥ï¼š æ˜¯(Y) å¦(N)\n");
+            printf("ÒÑ¾­´æÔÚ¸ÃÑ§ºÅµÄÑ§Éú\n");  
+            printf("ÊÇ·ñÖØĞÂÊäÈë£º ÊÇ(Y) ·ñ(N)\n");
             char selection = 0;
             while (1) {
                 selection = _getch();  
                 if (selection == 'Y' || selection == 'y') {
                     break;
                 } else if (selection == 'N' || selection == 'n') { 
-                    printf("é€€å‡º\n");  
+                    printf("ÍË³ö\n");  
                     system("pause");
                     return;
                 } else {
-                    printf("é€‰æ‹©é”™è¯¯, è¯·é‡æ–°é€‰æ‹©\n");
+                    printf("Ñ¡Ôñ´íÎó, ÇëÖØĞÂÑ¡Ôñ\n");
                     Sleep(800);
                     system("cls");
                     continue;
                 }
             }
         } else {
-            // å­¦å·éªŒè¯é€šè¿‡ï¼Œè·³å‡ºå¾ªç¯
+            // Ñ§ºÅÑéÖ¤Í¨¹ı£¬Ìø³öÑ­»·
             break;
         }
     }
 
-    // å­¦å·éªŒè¯é€šè¿‡åï¼Œåˆ›å»ºèŠ‚ç‚¹
+    // Ñ§ºÅÑéÖ¤Í¨¹ıºó£¬´´½¨½Úµã
     struct ListNode* node = (struct ListNode*)malloc(sizeof(struct ListNode));
     if (node == NULL) {
-        printf("å†…å­˜åˆ†é…å¤±è´¥\n");
+        printf("ÄÚ´æ·ÖÅäÊ§°Ü\n");
         Sleep(2000);
         return;
     } 
     node->next = NULL; 
     node->prev = stu->tail;
-    strcpy(node->id, id);  // ä¿å­˜å­¦å·
+    strcpy(node->id, id);  // ±£´æÑ§ºÅ
 
 
-    // è¾“å…¥å§“å
+    // ÊäÈëĞÕÃû
     char name[300];
-    printf("è¯·è¾“å…¥å§“å: \n");
+    printf("ÇëÊäÈëĞÕÃû: \n");
     while (1) {
         fgets(name, 300, stdin);
         removeNewline(name);
         if (strlen(name) == 0) {
-            printf("å§“åä¸èƒ½ä¸ºç©º, è¯·é‡æ–°è¾“å…¥\n");
+            printf("ĞÕÃû²»ÄÜÎª¿Õ, ÇëÖØĞÂÊäÈë\n");
             Sleep(800);
-            printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
-            printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ  
+            printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
+            printf("\033[2K");    // Çå³ıÕûĞĞ  
             continue;
         }
         strcpy(node->name, name);
         break;
     }
-    // é€‰æ‹©æ€§åˆ«
+    // Ñ¡ÔñĞÔ±ğ
     char sex = 0;
-    printf("è¯·é€‰æ‹©æ€§åˆ«: \n");
-    printf("M: ç”·\t F: å¥³\n");
+    printf("ÇëÑ¡ÔñĞÔ±ğ: \n");
+    printf("M: ÄĞ\t F: Å®\n");
     while (1) {
         sex = _getch();
         if (sex == 'M' || sex == 'm') {
-            printf("ç”·\n");
-            strcpy(node->sex, "ç”·");
+            printf("ÄĞ\n");
+            strcpy(node->sex, "ÄĞ");
             break;
         } else if (sex == 'F' || sex == 'f') {
-            printf("å¥³\n");
-            strcpy(node->sex, "å¥³");
+            printf("Å®\n");
+            strcpy(node->sex, "Å®");
             break;
         } else {
-            printf("é€‰æ‹©é”™è¯¯, è¯·é‡æ–°é€‰æ‹©\n");
+            printf("Ñ¡Ôñ´íÎó, ÇëÖØĞÂÑ¡Ôñ\n");
 
         }
     }
 
-    // è¾“å…¥å¹´é¾„
+    // ÊäÈëÄêÁä
     int age;
-    printf("è¯·è¾“å…¥å¹´é¾„: \n");
+    printf("ÇëÊäÈëÄêÁä: \n");
     while (1) {
         int judgeAge = scanf("%d", &age);
         clearInputBuffer();
         if (judgeAge != 1 || age < 0 || age > 150) {
-            printf("è¾“å…¥æ— æ•ˆ,è¯·é‡æ–°è¾“å…¥\n");
+            printf("ÊäÈëÎŞĞ§,ÇëÖØĞÂÊäÈë\n");
 
         } else {
             node->age = age;
@@ -108,23 +123,23 @@ void addStudent(struct student* stu) {
         }
     }
 
-    // è¾“å…¥è”ç³»æ–¹å¼
-    printf("è¯·è¾“å…¥è”ç³»æ–¹å¼: \n");
+    // ÊäÈëÁªÏµ·½Ê½
+    printf("ÇëÊäÈëÁªÏµ·½Ê½: \n");
     char telephone[300];
     while (1) {
         fgets(telephone, 300, stdin);
         removeNewline(telephone);
         if (strlen(telephone) == 0) {
-            printf("è”ç³»æ–¹å¼ä¸èƒ½ä¸ºç©º, è¯·é‡æ–°è¾“å…¥\n");
+            printf("ÁªÏµ·½Ê½²»ÄÜÎª¿Õ, ÇëÖØĞÂÊäÈë\n");
             Sleep(800);
-            printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
-            printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ  
+            printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
+            printf("\033[2K");    // Çå³ıÕûĞĞ  
             continue;
         } else if (!isDigit(telephone)) {
-            printf("è”ç³»æ–¹å¼åº”ä¸ºçº¯æ•°å­—, è¯·é‡æ–°è¾“å…¥\n");
+            printf("ÁªÏµ·½Ê½Ó¦Îª´¿Êı×Ö, ÇëÖØĞÂÊäÈë\n");
             Sleep(800);
-            printf("\033[1A");    // å…‰æ ‡ä¸Šç§»ä¸€è¡Œ  
-            printf("\033[2K");    // æ¸…é™¤æ•´è¡Œ  
+            printf("\033[1A");    // ¹â±êÉÏÒÆÒ»ĞĞ  
+            printf("\033[2K");    // Çå³ıÕûĞĞ  
             continue;
         } else {
             strcpy(node->telephone, telephone);
@@ -132,21 +147,21 @@ void addStudent(struct student* stu) {
         }
     }
 
-    // è¾“å…¥ä¸“ä¸š
-    printf("è¯·è¾“å…¥ä¸“ä¸š: \n");
+    // ÊäÈë×¨Òµ
+    printf("ÇëÊäÈë×¨Òµ: \n");
     char major[300];
     fgets(major, 300, stdin);
     removeNewline(major);
     strcpy(node->major, major);
 
-    // è¾“å…¥é«˜æ•°æˆç»© 
-    printf("è¯·è¾“å…¥é«˜æ•°æˆç»©: \n");
+    // ÊäÈë¸ßÊı³É¼¨ 
+    printf("ÇëÊäÈë¸ßÊı³É¼¨: \n");
     double Math;
     while (1) {
         int judgeScore = scanf("%lf", &Math);
         clearInputBuffer();
         if (judgeScore != 1 || Math < 0 || Math > 100) {
-            printf("è¾“å…¥é”™è¯¯, è¯·é‡æ–°è¾“å…¥: \n");
+            printf("ÊäÈë´íÎó, ÇëÖØĞÂÊäÈë: \n");
 
         } else {
             node->Math = Math;
@@ -154,14 +169,14 @@ void addStudent(struct student* stu) {
         }
     }
 
-    // è¾“å…¥è¿‘ä»£å²æˆç»© 
-    printf("è¯·è¾“å…¥è¿‘ä»£å²æˆç»©: \n");
+    // ÊäÈë½ü´úÊ·³É¼¨ 
+    printf("ÇëÊäÈë½ü´úÊ·³É¼¨: \n");
     double History;
     while (1) {
         int judgeScore = scanf("%lf", &History);
         clearInputBuffer();
         if (judgeScore != 1 || History < 0 || History > 100) {
-            printf("è¾“å…¥é”™è¯¯, è¯·é‡æ–°è¾“å…¥: \n");
+            printf("ÊäÈë´íÎó, ÇëÖØĞÂÊäÈë: \n");
 
         } else {
             node->History = History;
@@ -169,14 +184,14 @@ void addStudent(struct student* stu) {
         }
     }
 
-    // è¾“å…¥è‹±è¯­æˆç»© 
-    printf("è¯·è¾“å…¥è‹±è¯­æˆç»©: \n");
+    // ÊäÈëÓ¢Óï³É¼¨ 
+    printf("ÇëÊäÈëÓ¢Óï³É¼¨: \n");
     double English;
     while (1) {
         int judgeScore = scanf("%lf", &English);
         clearInputBuffer();
         if (judgeScore != 1 || English < 0 || English > 100) {
-            printf("è¾“å…¥é”™è¯¯, è¯·é‡æ–°è¾“å…¥: \n");
+            printf("ÊäÈë´íÎó, ÇëÖØĞÂÊäÈë: \n");
 
         } else {
             node->English = English;
@@ -184,28 +199,28 @@ void addStudent(struct student* stu) {
         }
     }
 
-    // è®¡ç®—æ€»æˆç»©
+    // ¼ÆËã×Ü³É¼¨
     node->totalscore = node->Math + node->History + node->English;
 
-    // è¾“å…¥å¹´çº§
-    printf("è¯·è¾“å…¥å¹´çº§: \n");
+    // ÊäÈëÄê¼¶
+    printf("ÇëÊäÈëÄê¼¶: \n");
     char grade[300];
-    printf("       çº§\b\b\b\b\b\b\b\b\b\b");
+    printf("       ¼¶\b\b\b\b\b\b\b\b\b\b");
     fgets(grade, 300, stdin);
     removeNewline(grade);
-    strcat(grade, "çº§");
+    strcat(grade, "¼¶");
     strcpy(node->grade, grade);
 
-    // è¾“å…¥ç­çº§
-    printf("è¯·è¾“å…¥ç­çº§: \n");
+    // ÊäÈë°à¼¶
+    printf("ÇëÊäÈë°à¼¶: \n");
     char class1[300];
-    printf("         ç­\b\b\b\b\b\b\b\b\b\b\b\b");
+    printf("         °à\b\b\b\b\b\b\b\b\b\b\b\b");
     fgets(class1, 300, stdin);
     removeNewline(class1);
-    strcat(class1, "ç­");
+    strcat(class1, "°à");
     strcpy(node->class1, class1);  
 
-    if (stu->head == NULL) {        // å°†æ–°çš„èŠ‚ç‚¹æ’å…¥åˆ°æ­£ç¡®ä½ç½®
+    if (stu->head == NULL) {        // ½«ĞÂµÄ½Úµã²åÈëµ½ÕıÈ·Î»ÖÃ
         stu->head = node;
         stu->tail = node;
     } else {
@@ -214,9 +229,9 @@ void addStudent(struct student* stu) {
     }
 
     system("cls");
-    printf("å­¦ç”Ÿä¿¡æ¯æ·»åŠ æˆåŠŸ!\n");
+    printf("Ñ§ÉúĞÅÏ¢Ìí¼Ó³É¹¦!\n");
 
-    // æ·»åŠ ä¹‹åäººæ•°åŠ ä¸€
+    // Ìí¼ÓÖ®ºóÈËÊı¼ÓÒ»
     stu->studentSize++;
     system("pause");
 }

@@ -3,7 +3,8 @@
 
 #include"student.h" 
 // 成绩分析
-void scoreAnalysis(struct student* stu) {
+void scoreAnalysis(struct student* stu) { 
+	system("cls"); 
 	if (stu->head == NULL) {
 		printf("当前无学生信息，无法进行成绩分析！\n"); 
 		system("pause"); 
@@ -25,5 +26,5 @@ void scoreAnalysis(struct student* stu) {
 	printf("高数平均分: %.2lf\n", Math_avarage); 
 	printf("近代史平均分: %.2lf\n", History_avarage);  
 	printf("英语平均分: %.2lf\n", English_avarage);  
-
+	system("pause");
 }

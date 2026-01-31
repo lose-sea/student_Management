@@ -45,7 +45,7 @@ void  displayAllStudent(struct student* stu) {
         }
         // 显示导航
         printf("\n\n第 %d 页 / 共 %d 页\n\n", currpage, totalpage);
-        printf("返回首页(F)    最后一页(L)    上一页(P)    下一页(N)    \n退出(R)\n");
+        printf("返回首页(F)    最后一页(L)    上一页(P)    下一页(N)    \n返回上一层(R)\n");
         char selection = '\0';
         while (1) {
             selection = _getch();
@@ -139,7 +139,7 @@ void  displayAllStudent(struct student* stu) {
                     break;
                 }
             } else if (selection == 'R' || selection == 'r') {
-                system("pause");
+                /*system("pause");*/
                 return;
             } else {
                 printf("输入无效, 请重新输入\n");

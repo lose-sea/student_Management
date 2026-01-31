@@ -59,6 +59,9 @@ void loginOfAdministrator();
 // 注册账号
 void createAccount(); 
 
+// 删除账号 
+void deleteAccount(); 
+
 // 显示菜单(管理员端)
 void displayMenuOfAdministrator();  
 

@@ -8,7 +8,8 @@ void createAccount() {
     system("cls"); 
 	printf("========= 注册账号 =========\n"); 
 	printf("请输入你要注册的账号类型\n"); 
-	printf("1.学生		2.教师		3.管理员\n");   
+	printf("1.学生		2.教师		3.管理员\n"); 
+    printf("0.返回上一层\n");  
 	char selection; 
 	while (1) {
 		selection = _getch();  
@@ -24,7 +25,9 @@ void createAccount() {
             system("cls");
 			printf("管理员端\n"); 
 			break; 
-		} else {
+        } else if (selection == '0') {
+            return; 
+        } else {
 			printf("输入错误, 请重新输入\n"); 
 			Sleep(800);
 			printf("\033[1A");    // 光标上移一行  
