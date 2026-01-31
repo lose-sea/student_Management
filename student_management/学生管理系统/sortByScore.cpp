@@ -4,19 +4,19 @@
 
 
 
-// æ ¹æ®é«˜æ•°æˆç»©æ’åº(é™åº)
+// ¸ù¾İ¸ßÊı³É¼¨ÅÅĞò(½µĞò)
 void sortByMathScore(struct student* stu) {
 	if (stu == NULL) {
-		printf("æš‚æ— å­¦ç”Ÿä¿¡æ¯\n");
+		printf("ÔİÎŞÑ§ÉúĞÅÏ¢\n");
 		system("pause");
 		return;
 	}
 	if (stu->studentSize <= 1) { 
-		printf("å­¦ç”Ÿæ•°é‡å°äºç­‰äº1ï¼Œæ— éœ€æ’åº\n");
+		printf("Ñ§ÉúÊıÁ¿Ğ¡ÓÚµÈÓÚ1£¬ÎŞĞèÅÅĞò\n");
 		system("pause");
-		return; // å­¦ç”Ÿæ•°é‡å°äºç­‰äº1ï¼Œæ— éœ€æ’åº 
+		return; // Ñ§ÉúÊıÁ¿Ğ¡ÓÚµÈÓÚ1£¬ÎŞĞèÅÅĞò 
 	}
-	// ä½¿ç”¨å†’æ³¡æ’åºå¯¹é“¾è¡¨è¿›è¡Œæ’åº 
+	// Ê¹ÓÃÃ°ÅİÅÅĞò¶ÔÁ´±í½øĞĞÅÅĞò 
 	for (int i = 0; i < stu->studentSize - 1; i++) {
 		struct ListNode* curr = stu->head;
 		for (int j = 0; j < stu->studentSize - i - 1; j++) {
@@ -56,24 +56,24 @@ void sortByMathScore(struct student* stu) {
 			curr = curr->next;
 		}
 	}
-	printf("å·²æ ¹æ®é«˜æ•°æˆç»©è¿›è¡Œæ’åºï¼ˆé™åºï¼‰\n");
+	printf("ÒÑ¸ù¾İ¸ßÊı³É¼¨½øĞĞÅÅĞò£¨½µĞò£©\n");
 	system("pause"); 
 } 
 
 
-// æ ¹æ®è¿‘ä»£å²æˆç»©æ’åº(é™åº) 
+// ¸ù¾İ½ü´úÊ·³É¼¨ÅÅĞò(½µĞò) 
 void sortByHistoryScore(struct student* stu) {
 	if (stu == NULL) {
-		printf("æš‚æ— å­¦ç”Ÿä¿¡æ¯\n");
+		printf("ÔİÎŞÑ§ÉúĞÅÏ¢\n");
 		system("pause");
 		return;
 	}
 	if (stu->studentSize <= 1) {
-		printf("å­¦ç”Ÿæ•°é‡å°äºç­‰äº1ï¼Œæ— éœ€æ’åº\n");
+		printf("Ñ§ÉúÊıÁ¿Ğ¡ÓÚµÈÓÚ1£¬ÎŞĞèÅÅĞò\n");
 		system("pause");
-		return; // å­¦ç”Ÿæ•°é‡å°äºç­‰äº1ï¼Œæ— éœ€æ’åº 
+		return; // Ñ§ÉúÊıÁ¿Ğ¡ÓÚµÈÓÚ1£¬ÎŞĞèÅÅĞò 
 	}
-	// ä½¿ç”¨å†’æ³¡æ’åºå¯¹é“¾è¡¨è¿›è¡Œæ’åº 
+	// Ê¹ÓÃÃ°ÅİÅÅĞò¶ÔÁ´±í½øĞĞÅÅĞò 
 	for (int i = 0; i < stu->studentSize - 1; i++) {
 		struct ListNode* curr = stu->head;
 		for (int j = 0; j < stu->studentSize - i - 1; j++) {
@@ -113,26 +113,26 @@ void sortByHistoryScore(struct student* stu) {
 			curr = curr->next;
 		}
 	}
-	printf("å·²æ ¹æ®è¿‘ä»£å²æˆç»©è¿›è¡Œæ’åºï¼ˆé™åºï¼‰\n");
+	printf("ÒÑ¸ù¾İ½ü´úÊ·³É¼¨½øĞĞÅÅĞò£¨½µĞò£©\n");
 	system("pause");
 } 
 
 
 
 
-// æ ¹æ®è‹±è¯­æˆç»©æ’åº(é™åº) 
+// ¸ù¾İÓ¢Óï³É¼¨ÅÅĞò(½µĞò) 
 void sortByEnglishScore(struct student* stu) {
 	if (stu == NULL) {
-		printf("æš‚æ— å­¦ç”Ÿä¿¡æ¯\n");
+		printf("ÔİÎŞÑ§ÉúĞÅÏ¢\n");
 		system("pause");
 		return;
 	}
 	if (stu->studentSize <= 1) {
-		printf("å­¦ç”Ÿæ•°é‡å°äºç­‰äº1ï¼Œæ— éœ€æ’åº\n");
+		printf("Ñ§ÉúÊıÁ¿Ğ¡ÓÚµÈÓÚ1£¬ÎŞĞèÅÅĞò\n");
 		system("pause");
-		return; // å­¦ç”Ÿæ•°é‡å°äºç­‰äº1ï¼Œæ— éœ€æ’åº 
+		return; // Ñ§ÉúÊıÁ¿Ğ¡ÓÚµÈÓÚ1£¬ÎŞĞèÅÅĞò 
 	}
-	// ä½¿ç”¨å†’æ³¡æ’åºå¯¹é“¾è¡¨è¿›è¡Œæ’åº 
+	// Ê¹ÓÃÃ°ÅİÅÅĞò¶ÔÁ´±í½øĞĞÅÅĞò 
 	for (int i = 0; i < stu->studentSize - 1; i++) {
 		struct ListNode* curr = stu->head;
 		for (int j = 0; j < stu->studentSize - i - 1; j++) {
@@ -172,26 +172,26 @@ void sortByEnglishScore(struct student* stu) {
 			curr = curr->next;
 		}
 	}
-	printf("å·²æ ¹æ®è‹±è¯­æˆç»©è¿›è¡Œæ’åºï¼ˆé™åºï¼‰\n");
+	printf("ÒÑ¸ù¾İÓ¢Óï³É¼¨½øĞĞÅÅĞò£¨½µĞò£©\n");
 	system("pause");
 } 
 
 
 
 
-//æ ¹æ®æˆç»©æ€»åˆ†è¿›è¡Œæ’åº(é™åº) 
+//¸ù¾İ³É¼¨×Ü·Ö½øĞĞÅÅĞò(½µĞò) 
 void sortByTotalScore(struct student* stu) {
 	if (stu == NULL) {
-		printf("æš‚æ— å­¦ç”Ÿä¿¡æ¯\n");
+		printf("ÔİÎŞÑ§ÉúĞÅÏ¢\n");
 		system("pause");
 		return;
 	}
 	if (stu->studentSize <= 1) {
-		printf("å­¦ç”Ÿæ•°é‡å°äºç­‰äº1ï¼Œæ— éœ€æ’åº\n");
+		printf("Ñ§ÉúÊıÁ¿Ğ¡ÓÚµÈÓÚ1£¬ÎŞĞèÅÅĞò\n");
 		system("pause");
-		return; // å­¦ç”Ÿæ•°é‡å°äºç­‰äº1ï¼Œæ— éœ€æ’åº 
+		return; // Ñ§ÉúÊıÁ¿Ğ¡ÓÚµÈÓÚ1£¬ÎŞĞèÅÅĞò 
 	}
-	// ä½¿ç”¨å†’æ³¡æ’åºå¯¹é“¾è¡¨è¿›è¡Œæ’åº 
+	// Ê¹ÓÃÃ°ÅİÅÅĞò¶ÔÁ´±í½øĞĞÅÅĞò 
 	for (int i = 0; i < stu->studentSize - 1; i++) {
 		struct ListNode* curr = stu->head;
 		for (int j = 0; j < stu->studentSize - i - 1; j++) {
@@ -231,6 +231,6 @@ void sortByTotalScore(struct student* stu) {
 			curr = curr->next;
 		}
 	}
-	printf("å·²æ ¹æ®æ€»æˆç»©è¿›è¡Œæ’åºï¼ˆé™åºï¼‰\n");
+	printf("ÒÑ¸ù¾İ×Ü³É¼¨½øĞĞÅÅĞò£¨½µĞò£©\n");
 	system("pause");
 }
